@@ -20,7 +20,7 @@ describe("show_ground_block", function ( ... )
 		-- when
 		show_ground_block.evaluate()
 		-- then
-		assert.spy(display.newImage).was_called_with("img/sprite/ground.png")
+		assert.spy(display.newImage).was_called_with("img/sprite/ground.jpg")
 	end)
 
 	it("Set x to screen origin", function ( ... )
