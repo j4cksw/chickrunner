@@ -1,7 +1,9 @@
 describe("scene.game_scene", function ( ... )
 	local game_scene
 
-	local scene = {}
+	local scene = { addEventListener = function ( ... )
+		-- body
+	end}
 
 	setup(function ( ... )
 		storyboard = {

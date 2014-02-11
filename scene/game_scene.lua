@@ -9,4 +9,6 @@ function scene:createScene(event)
 	show_ground_block.evaluate()
 end
 
+scene:addEventListener( "createScene", scene )
+
 return scene
