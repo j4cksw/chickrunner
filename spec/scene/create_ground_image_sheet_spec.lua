@@ -33,15 +33,6 @@ describe("create_ground_image_sheet", function ( ... )
 		assert.stub(graphics.newImageSheet).was_called_with(sprite_path, options)
 	end)
 
-	it("Have expected sequence data", function ( ... )
-		-- given
-		local expectedSequenceData = ground_block_sprite_config.sequenceData
-		-- when
-		create_ground_image_sheet.evaluate()
-		-- then
-		assert.are.same(fake_image_sheet.sequenceData, expectedSequenceData)
-	end)
-
 	it("Set to global model", function ( ... )
 		-- when
 		create_ground_image_sheet.evaluate()
