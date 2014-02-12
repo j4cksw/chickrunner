@@ -5,6 +5,13 @@ describe("show_ground_block", function ( ... )
 
 	setup(function ( ... )
 
+		get_ground_block_image_sheet = {
+			evaluate = function ( ... )
+				return ground_block_image_sheet
+			end
+		}
+		spy.on(get_ground_block_image_sheet, "evaluate")
+
 		display = { newImage = function ( ... )
 			return ground_block_image
 		end}
@@ -14,6 +21,13 @@ describe("show_ground_block", function ( ... )
 		stub(insert_to_current_view_group, "evaluate")
 
 		show_ground_block = require("scene.show_ground_block")
+	end)
+
+	it("Evaluate get_ground_block_image_sheet", function ( ... )
+		-- when
+		show_ground_block.evaluate()
+		-- then
+		assert.stub(get_ground_block_image_sheet.evaluate).was_called()
 	end)
 
 	it("Create ground block image", function ( ... )

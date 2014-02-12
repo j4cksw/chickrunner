@@ -14,6 +14,8 @@ function scene:enterScene(event)
 	set_current_view_group.evaluate(self.view)
 	show_ground_block.evaluate()
 end
+
 scene:addEventListener( "createScene", scene )
+scene:addEventListener( "enterScene", scene )
 
 return scene
