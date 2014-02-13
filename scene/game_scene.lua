@@ -17,5 +17,6 @@ end
 
 scene:addEventListener( "createScene", scene )
 scene:addEventListener( "enterScene", scene )
+Runtime:addEventListener( "enterFrame", move_ground.evaluate )
 
 return scene

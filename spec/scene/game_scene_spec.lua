@@ -24,6 +24,12 @@ describe("scene.game_scene", function ( ... )
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
 
+		Runtime = {}
+		stub(Runtime, "addEventListener")
+
+		move_ground = {}
+		stub(move_ground, "evaluate")
+
 		game_scene = require("scene.game_scene")
 	end)
 
@@ -46,5 +52,12 @@ describe("scene.game_scene", function ( ... )
 		game_scene:enterScene(event)
 		-- then
 		assert.stub(initialize_ground.evaluate).was_called()
+	end)
+
+	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
+		-- when
+		game_scene:enterScene()
+		-- then
+		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", move_ground.evaluate)
 	end)
 end)
