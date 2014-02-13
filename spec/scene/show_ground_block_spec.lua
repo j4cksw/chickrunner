@@ -2,6 +2,7 @@ describe("show_ground_block", function ( ... )
 	local show_ground_block
 
 	local ground_block_image = {}
+	local ground_block_image_sheet = {}
 
 	setup(function ( ... )
 
@@ -12,13 +13,19 @@ describe("show_ground_block", function ( ... )
 		}
 		spy.on(get_ground_block_image_sheet, "evaluate")
 
-		display = { newImage = function ( ... )
+		display = { newSprite = function ( ... )
 			return ground_block_image
 		end}
-		spy.on(display, "newImage")
+		spy.on(display, "newSprite")
 
 		insert_to_current_view_group = {}
 		stub(insert_to_current_view_group, "evaluate")
+
+		ground_block_sprite_config = {
+			sequenceData = {
+				{name="normal_with_grass", start=1, count=1}
+			}
+		}
 
 		show_ground_block = require("scene.show_ground_block")
 	end)
@@ -34,7 +41,7 @@ describe("show_ground_block", function ( ... )
 		-- when
 		show_ground_block.evaluate()
 		-- then
-		assert.spy(display.newImage).was_called_with("img/sprite/ground.jpg")
+		assert.spy(display.newSprite).was_called_with(ground_block_image_sheet, ground_block_sprite_config.sequenceData)
 	end)
 
 	it("Set x to screen origin", function ( ... )
