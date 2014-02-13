@@ -18,6 +18,9 @@ describe("create_ground_block", function ( ... )
 		end}
 		spy.on(display, "newSprite")
 
+		set_ground_block_position = {}
+		stub(set_ground_block_position, "evaluate")
+
 		insert_to_current_view_group = {}
 		stub(insert_to_current_view_group, "evaluate")
 
@@ -42,6 +45,13 @@ describe("create_ground_block", function ( ... )
 		create_ground_block.evaluate()
 		-- then
 		assert.spy(display.newSprite).was_called_with(ground_block_image_sheet, ground_block_sprite_config.sequenceData)
+	end)
+
+	it("Evaluate set_ground_block_position", function ( ... )
+		-- when
+		create_ground_block.evaluate()
+		-- then
+		assert.stub(set_ground_block_position.evaluate).was_called_with(ground_block_image)
 	end)
 
 	it("Evalaute insert to current view group", function ( ... )
