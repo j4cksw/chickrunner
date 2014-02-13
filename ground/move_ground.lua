@@ -9,7 +9,7 @@ function move_ground.evaluate()
 
 	for key, block in pairs(ground_block_queue) do
 		current_position = block.x
-		block.x = current_position + move_speed
+		block.x = current_position - move_speed
 	end
 end
 
