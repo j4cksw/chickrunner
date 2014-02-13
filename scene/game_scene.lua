@@ -1,6 +1,6 @@
 storyboard = storyboard or require("storyboard")
 
-create_ground_block = create_ground_block or require("scene.create_ground_block")
+initialize_ground = initialize_ground or require("ground.initialize_ground")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
 
@@ -12,7 +12,7 @@ end
 
 function scene:enterScene(event)
 	set_current_view_group.evaluate(self.view)
-	create_ground_block.evaluate()
+	initialize_ground.evaluate()
 end
 
 scene:addEventListener( "createScene", scene )

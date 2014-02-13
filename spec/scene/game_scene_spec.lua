@@ -15,8 +15,8 @@ describe("scene.game_scene", function ( ... )
 			end
 		}
 
-		create_ground_block = {}
-		stub(create_ground_block, "evaluate")
+		initialize_ground = {}
+		stub(initialize_ground, "evaluate")
 
 		create_ground_image_sheet = {}
 		stub(create_ground_image_sheet, "evaluate")
@@ -41,10 +41,10 @@ describe("scene.game_scene", function ( ... )
 		assert.stub(set_current_view_group.evaluate).was_called_with(scene.view)
 	end)
 
-	it("Evaluate create_ground_block in enterScene", function ( ... )
+	it("Evaluate initialize_ground in enterScene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(create_ground_block.evaluate).was_called()
+		assert.stub(initialize_ground.evaluate).was_called()
 	end)
 end)
