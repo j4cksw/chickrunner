@@ -24,6 +24,9 @@ describe("create_ground_block", function ( ... )
 		insert_to_current_view_group = {}
 		stub(insert_to_current_view_group, "evaluate")
 
+		push_to_ground_block_queue = {}
+		stub(push_to_ground_block_queue, "evaluate")
+
 		ground_block_sprite_config = {
 			sequenceData = {
 				{name="normal_with_grass", start=1, count=1}
@@ -59,5 +62,12 @@ describe("create_ground_block", function ( ... )
 		create_ground_block.evaluate()
 		-- then
 		assert.stub(insert_to_current_view_group.evaluate).was_called_with(ground_block_image)
+	end)
+
+	it("Evaluate push_to_ground_block_queue", function ( ... )
+		-- when
+		create_ground_block.evaluate()
+		-- then
+		assert.stub(push_to_ground_block_queue.evaluate).was_called_with(ground_block_image)
 	end)
 end)
