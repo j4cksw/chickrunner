@@ -9,6 +9,14 @@ describe("set_ground_block_position", function ( ... )
 		ground_config = {
 			vertical_start = 972
 		}
+
+		get_next_block_horizontal_position = {
+			evaluate = function ( ... )
+				return 64
+			end
+		}
+		spy.on(get_next_block_horizontal_position, "evaluate")
+
 		set_ground_block_position = require("ground.set_ground_block_position")
 	end)
 
@@ -19,33 +27,11 @@ describe("set_ground_block_position", function ( ... )
 		assert.are.equal(ground_block.y, ground_config.vertical_start)
 	end)
 
-	it("Set x position of given block by no block in ground_block_queue", function ( ... )
-		-- given
-		ground_block_queue = {}
-		local expected_x = 62.5
+	it("Evalaute get_next_block_horizontal_position", function ( ... )
 		-- when
 		set_ground_block_position.evaluate(ground_block)
 		-- then
-		assert.are.equal(ground_block.x, expected_x)
+		assert.stub(get_next_block_horizontal_position.evaluate).was_called_with(ground_block)
 	end)
 
-	it("Set x position of given block by 1 block in ground_block_queue", function ( ... )
-		-- given
-		ground_block_queue = { {} }
-		local expected_x = 187.5
-		-- when
-		set_ground_block_position.evaluate(ground_block)
-		-- then
-		assert.are.equal(ground_block.x, expected_x)
-	end)
-
-	it("Set x position of given block by 2 block in ground_block_queue", function ( ... )
-		-- given
-		ground_block_queue = { {}, {} }
-		local expected_x = 312.5
-		-- when
-		set_ground_block_position.evaluate(ground_block)
-		-- then
-		assert.are.equal(ground_block.x, expected_x)
-	end)
 end)
