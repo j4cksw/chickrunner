@@ -5,6 +5,10 @@ describe("initialize_ground", function ( ... )
 		create_ground_block = {}
 		stub(create_ground_block, "evaluate")
 
+		ground_config = {
+			initial_block = 10
+		}
+
 		initialize_ground = require("ground.initialize_ground")
 	end)
 
@@ -12,6 +16,6 @@ describe("initialize_ground", function ( ... )
 		-- when
 		initialize_ground.evaluate()
 		-- then
-		assert.stub(create_ground_block.evaluate).was_called(6)
+		assert.stub(create_ground_block.evaluate).was_called(ground_config.initial_block)
 	end)
 end)

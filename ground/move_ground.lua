@@ -5,6 +5,8 @@ ground_block_queue = ground_block_queue or require("ground.ground_block_queue")
 check_first_ground_block = check_first_ground_block or require("ground.check_first_ground_block")
 
 function move_ground.evaluate()
+	check_first_ground_block.evaluate()
+	
 	local move_speed = ground_config.speed
 	local current_position
 
@@ -13,7 +15,6 @@ function move_ground.evaluate()
 		block.x = current_position - move_speed
 	end
 
-	check_first_ground_block.evaluate()
 end
 
 return move_ground
