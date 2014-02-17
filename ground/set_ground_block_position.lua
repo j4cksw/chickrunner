@@ -6,7 +6,6 @@ get_next_block_horizontal_position = get_next_block_horizontal_position or requi
 
 function set_ground_block_position.evaluate(ground_block)
 	ground_block.y = ground_config.vertical_start
-	--ground_block.x = (#ground_block_queue*ground_block.contentWidth) + (ground_block.contentWidth/2)
 	ground_block.x = get_next_block_horizontal_position.evaluate(ground_block)
 	print("contentWidth="..ground_block.contentWidth)
 	print("New block x="..ground_block.x)

@@ -5,6 +5,8 @@ describe("set_ground_block_position", function ( ... )
 		contentWidth = 125
 	}
 
+	local level = 1
+
 	setup(function ( ... )
 		ground_config = {
 			vertical_start = 972
@@ -20,11 +22,11 @@ describe("set_ground_block_position", function ( ... )
 		set_ground_block_position = require("ground.set_ground_block_position")
 	end)
 
-	it("Set y position on given block from ground_config", function ( ... )
+	it("Set y position on given block from ground_config and multiply by level", function ( ... )
 		-- when
-		set_ground_block_position.evaluate(ground_block)
+		set_ground_block_position.evaluate(ground_block, level)
 		-- then
-		assert.are.equal(ground_block.y, ground_config.vertical_start)
+		assert.are.equal(ground_block.y, ground_config.vertical_start*level)
 	end)
 
 	it("Evalaute get_next_block_horizontal_position", function ( ... )
