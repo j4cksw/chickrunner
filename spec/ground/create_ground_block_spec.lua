@@ -76,10 +76,4 @@ describe("create_ground_block", function ( ... )
 		assert.stub(insert_to_current_view_group.evaluate).was_called_with(ground_block_image)
 	end)
 
-	it("Evaluate push_to_ground_block_queue", function ( ... )
-		-- when
-		create_ground_block.evaluate(level, sequence_name)
-		-- then
-		assert.stub(push_to_ground_block_queue.evaluate).was_called_with(ground_block_image)
-	end)
 end)
