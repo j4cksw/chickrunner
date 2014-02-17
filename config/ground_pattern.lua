@@ -1,6 +1,7 @@
 ground_patterns = {
 	{
 		"normal_with_grass",
+		"normal",
 		"normal"
 	}
 }
