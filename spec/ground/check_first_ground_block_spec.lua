@@ -18,7 +18,7 @@ describe("check_first_ground_block", function ( ... )
 	end)
 
 	before_each(function ( ... )
-		ground_block_queue = { first_block }
+		ground_block_queue = { {first_block} }
 	end)
 
 	it("If first ground block out of screen then remove from queue", function ( ... )
