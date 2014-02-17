@@ -18,7 +18,7 @@ describe("get_next_block_horizontal_position", function ( ... )
 	it("If block avaialbe , return last position + contentWidth", function ( ... )
 		-- given
 		ground_block_queue = {
-			{ x=64}
+			{{ x=64}, {x=64}, {x=64}}
 		}
 		local ground_block = {contentWidth=128}
 		-- when
