@@ -10,9 +10,11 @@ function move_ground.evaluate()
 	local move_speed = ground_config.speed
 	local current_position
 
-	for key, block in pairs(ground_block_queue) do
-		current_position = block.x
-		block.x = current_position - move_speed
+	for key, column in pairs(ground_block_queue) do
+		for key, block in pairs(column) do
+			current_position = block.x
+			block.x = current_position - move_speed
+		end
 	end
 
 end
