@@ -8,7 +8,7 @@ function set_ground_block_position.evaluate(ground_block, level)
 	ground_block.y = ground_config.vertical_start*level
 	ground_block.x = get_next_block_horizontal_position.evaluate(ground_block)
 	print("contentWidth="..ground_block.contentWidth)
-	print("New block x="..ground_block.x)
+	print("New block x="..ground_block.x.."y="..ground_block.y)
 end
 
 return set_ground_block_position
