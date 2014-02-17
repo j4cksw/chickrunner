@@ -4,6 +4,9 @@ describe("create_ground_block", function ( ... )
 	local ground_block_image = {}
 	local ground_block_image_sheet = {}
 
+	local sequence_name = "sequence#1"
+	local level = 1
+
 	setup(function ( ... )
 
 		get_ground_block_image_sheet = {
@@ -17,6 +20,8 @@ describe("create_ground_block", function ( ... )
 			return ground_block_image
 		end}
 		spy.on(display, "newSprite")
+
+		stub(ground_block_image, "setSequence")
 
 		set_ground_block_position = {}
 		stub(set_ground_block_position, "evaluate")
@@ -38,35 +43,42 @@ describe("create_ground_block", function ( ... )
 
 	it("Evaluate get_ground_block_image_sheet", function ( ... )
 		-- when
-		create_ground_block.evaluate()
+		create_ground_block.evaluate(level, sequence_name)
 		-- then
 		assert.stub(get_ground_block_image_sheet.evaluate).was_called()
 	end)
 
 	it("Create ground block image", function ( ... )
 		-- when
-		create_ground_block.evaluate()
+		create_ground_block.evaluate(level, sequence_name)
 		-- then
 		assert.spy(display.newSprite).was_called_with(ground_block_image_sheet, ground_block_sprite_config.sequenceData)
 	end)
 
-	it("Evaluate set_ground_block_position", function ( ... )
+	it("Set given sequence name ot ground_block_image", function ( ... )
 		-- when
-		create_ground_block.evaluate()
+		create_ground_block.evaluate(level, sequence_name)
 		-- then
-		assert.stub(set_ground_block_position.evaluate).was_called_with(ground_block_image)
+		assert.stub(ground_block_image.setSequence).was_called_with(ground_block_image, sequence_name)
+	end)
+
+	it("Evaluate set_ground_block_position with ground_block_image and level", function ( ... )
+		-- when
+		create_ground_block.evaluate(level, sequence_name)
+		-- then
+		assert.stub(set_ground_block_position.evaluate).was_called_with(ground_block_image, level)
 	end)
 
 	it("Evalaute insert to current view group", function ( ... )
 		-- when
-		create_ground_block.evaluate()
+		create_ground_block.evaluate(level, sequence_name)
 		-- then
 		assert.stub(insert_to_current_view_group.evaluate).was_called_with(ground_block_image)
 	end)
 
 	it("Evaluate push_to_ground_block_queue", function ( ... )
 		-- when
-		create_ground_block.evaluate()
+		create_ground_block.evaluate(level, sequence_name)
 		-- then
 		assert.stub(push_to_ground_block_queue.evaluate).was_called_with(ground_block_image)
 	end)

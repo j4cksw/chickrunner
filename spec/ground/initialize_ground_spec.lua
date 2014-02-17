@@ -2,8 +2,8 @@ describe("initialize_ground", function ( ... )
 	local initialize_ground
 
 	setup(function ( ... )
-		create_ground_block = {}
-		stub(create_ground_block, "evaluate")
+		create_ground_blocks_from_pattern = {}
+		stub(create_ground_blocks_from_pattern, "evaluate")
 
 		ground_config = {
 			initial_block = 10
@@ -16,6 +16,6 @@ describe("initialize_ground", function ( ... )
 		-- when
 		initialize_ground.evaluate()
 		-- then
-		assert.stub(create_ground_block.evaluate).was_called(ground_config.initial_block)
+		assert.stub(create_ground_blocks_from_pattern.evaluate).was_called(ground_config.initial_block)
 	end)
 end)
