@@ -8,9 +8,13 @@ describe("set_ground_block_position", function ( ... )
 	local level = 1
 
 	setup(function ( ... )
-		ground_config = {
-			vertical_start = 972
+
+		get_block_vertical_position_by_level = {
+			evaluate = function ( ... )
+				return 1024
+			end
 		}
+		spy.on(get_block_vertical_position_by_level, "evaluate")
 
 		get_next_block_horizontal_position = {
 			evaluate = function ( ... )
@@ -22,20 +26,11 @@ describe("set_ground_block_position", function ( ... )
 		set_ground_block_position = require("ground.set_ground_block_position")
 	end)
 
-	it("Set y position on given block from ground_config and multiply by level", function ( ... )
+	it("Evaluate get_block_vertical_position_by_level", function ( ... )
 		-- when
 		set_ground_block_position.evaluate(ground_block, level)
 		-- then
-		assert.are.equal(ground_block.y, ground_config.vertical_start*level)
-	end)
-
-	it("Set y position on given block from ground_config and multiply by level", function ( ... )
-		-- given
-		level = 2
-		-- when
-		set_ground_block_position.evaluate(ground_block, level)
-		-- then
-		assert.are.equal(ground_block.y, ground_config.vertical_start*level)
+		assert.stub(get_block_vertical_position_by_level.evaluate).was_called_with(ground_block, level)
 	end)
 
 	it("Evalaute get_next_block_horizontal_position", function ( ... )
