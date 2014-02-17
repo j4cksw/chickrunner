@@ -13,6 +13,8 @@ function create_ground_block.evaluate(level, sequence_name)
 
 	insert_to_current_view_group.evaluate(ground_block_image)
 	set_ground_block_position.evaluate(ground_block_image, level)
+
+	return ground_block_image
 end
 
 return create_ground_block

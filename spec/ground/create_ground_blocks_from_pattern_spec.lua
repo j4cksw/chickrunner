@@ -6,8 +6,14 @@ describe("create_ground_blocks_from_pattern", function ( ... )
 			{ "p1", "p2"}
 		}
 
-		create_ground_block = {}
-		stub(create_ground_block, "evaluate")
+		create_ground_block = {
+			evaluate = function ( ... )
+				return {}
+			end
+		}
+		spy.on(create_ground_block, "evaluate")
+
+
 
 		create_ground_blocks_from_pattern = require("ground.create_ground_blocks_from_pattern")
 	end)
