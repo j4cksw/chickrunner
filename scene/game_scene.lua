@@ -6,6 +6,7 @@ create_ground_image_sheet = create_ground_image_sheet or require("scene.create_g
 create_explosion_image_sheet = create_explosion_image_sheet or require("explosion.create_explosion_image_sheet")
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
 create_background_image = create_background_image or require("scene.create_background_image")
+create_explosion_sprite = create_explosion_sprite or require("explosion.create_explosion_sprite")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -19,6 +20,8 @@ function scene:enterScene(event)
 	create_background_image.evaluate()
 	initialize_ground.evaluate()
 	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
+	
+	create_explosion_sprite.evaluate()
 end
 
 scene:addEventListener( "createScene", scene )
