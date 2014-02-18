@@ -1,7 +1,7 @@
 describe("create_explosion_image_sheet", function()
   local create_explosion_image_sheet
   
-  local explosion_image_sheet = {}
+  local fake_explosion_image_sheet = {}
   
   setup(function()
     explosion_sprite_config = {
@@ -11,7 +11,7 @@ describe("create_explosion_image_sheet", function()
     
     display = {
       newImageSheet = function()
-        return explosion_image_sheet
+        return fake_explosion_image_sheet
       end
     }
     spy.on(display, "newImageSheet")
@@ -29,5 +29,10 @@ describe("create_explosion_image_sheet", function()
     assert.stub(display.newImageSheet).was_called_with(sprite_path, options)
   end)
   
-  it("Set to global variable explosion_image_sheet")
+  it("Set to global variable explosion_image_sheet", function()
+    -- when
+    create_explosion_image_sheet.evaluate()
+    -- then
+    assert.are.same(explosion_image_sheet, fake_explosion_image_sheet)
+  end)
 end)
