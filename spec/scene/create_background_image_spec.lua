@@ -6,7 +6,9 @@ describe("create_background_image", function()
     display = {
       newImage = function()
         return background_image
-      end
+      end,
+      contentCenterX = 128,
+      contentCenterY = 128
     }
     spy.on(display, "newImage")
     
@@ -30,5 +32,17 @@ describe("create_background_image", function()
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(background_image)
   end)
   
-  it("Set position to center")
+  it("Set x to center", function()
+    -- when
+    create_background_image.evaluate()
+    -- then
+    assert.are.equal(background_image.x, display.contentCenterX)
+  end)
+  
+  it("Set y to center", function()
+    -- when
+    create_background_image.evaluate()
+    -- then
+    assert.are.equal(background_image.y, display.contentCenterY)
+  end)
 end)
