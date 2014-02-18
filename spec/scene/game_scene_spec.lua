@@ -20,6 +20,9 @@ describe("scene.game_scene", function ( ... )
 
 		create_ground_image_sheet = {}
 		stub(create_ground_image_sheet, "evaluate")
+		
+		create_background_image = {}
+		stub(create_background_image, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
@@ -38,6 +41,13 @@ describe("scene.game_scene", function ( ... )
 		game_scene:createScene(event)
 		-- then
 		assert.stub(create_ground_image_sheet.evaluate).was_called()
+	end)
+	
+	it("Evaluating create_background_image in createScene", function()
+	 -- when
+	 game_scene:createScene(event)
+	 -- then
+	 assert.stub(create_background_image.evaluate).was_called()
 	end)
 
 	it("Evaluate set_current_view with self.view in enterScene", function ( ... )
@@ -60,4 +70,5 @@ describe("scene.game_scene", function ( ... )
 		-- then
 		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", move_ground.evaluate)
 	end)
+	
 end)
