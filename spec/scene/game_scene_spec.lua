@@ -45,7 +45,7 @@ describe("scene.game_scene", function ( ... )
 	
 	it("Evaluating create_background_image in createScene", function()
 	 -- when
-	 game_scene:createScene(event)
+	 game_scene:enterScene(event)
 	 -- then
 	 assert.stub(create_background_image.evaluate).was_called()
 	end)

@@ -10,17 +10,16 @@ local scene = storyboard.newScene("game_scene")
 
 function scene:createScene(event)
 	create_ground_image_sheet.evaluate()
-	create_background_image.evaluate()
 end
 
 function scene:enterScene(event)
 	set_current_view_group.evaluate(self.view)
+	create_background_image.evaluate()
 	initialize_ground.evaluate()
 	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
 end
 
 scene:addEventListener( "createScene", scene )
 scene:addEventListener( "enterScene", scene )
-
 
 return scene
