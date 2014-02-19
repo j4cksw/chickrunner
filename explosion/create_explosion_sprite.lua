@@ -11,6 +11,8 @@ function create_explosion_sprite.evaluate()
   
   explosion_sprite:setSequence("normal")
   explosion_sprite:play()
+  
+  return explosion_sprite
 end
 
 return create_explosion_sprite

@@ -4,6 +4,9 @@ describe("create_chasing_explosion", function()
   local explosion_sprite = {}
   
   setup(function()
+    ground_config = { vertical_start=1000}
+    explosion_sprite.contentHeight = 300
+    
     create_explosion_sprite = {
       evaluate=function()
         return explosion_sprite
@@ -28,5 +31,10 @@ describe("create_chasing_explosion", function()
     assert.are.equal(explosion_sprite.x, 192)
   end)
   
-  it("Set y to ground.vertical_start + explosion.contentHeight/2")
+  it("Set y to ground_config.vertical_start - explosion_sprite.contentHeight/2", function()
+    -- when
+    create_chasing_explosion.evaluate()
+    -- then
+    assert.are.equal(explosion_sprite.y, 850)
+  end)
 end)
