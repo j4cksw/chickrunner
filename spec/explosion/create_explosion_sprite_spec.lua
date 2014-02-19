@@ -55,6 +55,4 @@ describe("create_explosion_sprite", function()
     assert.stub(explosion_sprite.play).was_called_with(explosion_sprite)
   end)
   
-  it("Set a given position")
-  
 end)

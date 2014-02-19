@@ -19,9 +19,9 @@ function scene:enterScene(event)
 	set_current_view_group.evaluate(self.view)
 	create_background_image.evaluate()
 	initialize_ground.evaluate()
-	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
-	
 	create_explosion_sprite.evaluate()
+	
+	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
 end
 
 scene:addEventListener( "createScene", scene )
