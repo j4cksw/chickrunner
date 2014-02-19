@@ -11,7 +11,7 @@ function create_chick_sprite.evaluate()
 --  chick_sprite.x = 192
 --  chick_sprite.y = ground_config.vertical_start - (chick_sprite.contentHeight/2) - 64
 --  
---  chick_sprite:setSequence("normal")
+  chick_sprite:setSequence("normal")
 --  chick_sprite:play()
 end
 
