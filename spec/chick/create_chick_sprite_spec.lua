@@ -18,6 +18,7 @@ describe("create_chick_sprite", function()
     stub(insert_to_current_view_group, "evaluate")
     
     stub(chick_sprite, "setSequence")
+    stub(chick_sprite, "play")
     
     create_chick_sprite = require("chick.create_chick_sprite")
   end)
@@ -43,11 +44,11 @@ describe("create_chick_sprite", function()
     -- then
     assert.stub(chick_sprite.setSequence).was_called_with(chick_sprite, "normal")
   end)
---  
---  it("Play the sprite", function() 
---    -- when
---    create_explosion_sprite.evaluate()
---    -- then
---    assert.stub(explosion_sprite.play).was_called_with(explosion_sprite)
---  end)
+  
+  it("Play the sprite", function() 
+    -- when
+    create_chick_sprite.evaluate()
+    -- then
+    assert.stub(chick_sprite.play).was_called_with(chick_sprite)
+  end)
 end)
