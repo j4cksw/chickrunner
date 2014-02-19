@@ -7,12 +7,14 @@ create_explosion_image_sheet = create_explosion_image_sheet or require("explosio
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
 create_background_image = create_background_image or require("scene.create_background_image")
 create_chasing_explosion = create_chasing_explosion or require("scene.create_chasing_explosion")
+create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chick_image_sheet")
 
 local scene = storyboard.newScene("game_scene")
 
 function scene:createScene(event)
 	create_ground_image_sheet.evaluate()
 	create_explosion_image_sheet.evaluate()
+	create_chick_image_sheet.evaluate()
 end
 
 function scene:enterScene(event)

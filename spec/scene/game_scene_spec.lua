@@ -24,6 +24,9 @@ describe("scene.game_scene", function ( ... )
 		create_explosion_image_sheet = {}
 		stub(create_explosion_image_sheet, "evaluate")
 		
+		create_chick_image_sheet = {}
+		stub(create_chick_image_sheet, "evaluate")
+		
 		create_background_image = {}
 		stub(create_background_image, "evaluate")
 		
@@ -54,6 +57,13 @@ describe("scene.game_scene", function ( ... )
 	 game_scene:createScene(event)
 	 -- then
 	 assert.stub(create_explosion_image_sheet.evaluate).was_called()
+	end)
+	
+	it("Evalauting create_chick_image_sheet", function()
+	 -- when
+	 game_scene:createScene(event)
+	 -- then
+	 assert.stub(create_chick_image_sheet.evaluate).was_called()
 	end)
 	
 	it("Evaluating create_background_image in enterScene", function()
