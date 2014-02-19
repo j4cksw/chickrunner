@@ -1,8 +1,6 @@
 describe("create_explosion_sprite", function()
   
   local create_explosion_sprite
-  local x = 0
-  local y = 0
   local explosion_sprite = {}
   
   setup(function()
