@@ -32,6 +32,9 @@ describe("scene.game_scene", function ( ... )
 		
 		create_chasing_explosion = {}
 		stub(create_chasing_explosion, "evaluate")
+		
+		create_chick_sprite = {}
+		stub(create_chick_sprite, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
@@ -92,6 +95,13 @@ describe("scene.game_scene", function ( ... )
 	 game_scene:enterScene(event)
 	 -- then
 	 assert.stub(create_chasing_explosion.evaluate).was_called()
+	end)
+	
+	it("Evalaute create_chick_sprite in enterScene", function()
+	 -- when
+   game_scene:enterScene(event)
+   -- then
+   assert.stub(create_chick_sprite.evaluate).was_called()
 	end)
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )

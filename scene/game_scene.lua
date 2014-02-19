@@ -8,6 +8,7 @@ set_current_view_group = set_current_view_group or require("scene.set_current_vi
 create_background_image = create_background_image or require("scene.create_background_image")
 create_chasing_explosion = create_chasing_explosion or require("scene.create_chasing_explosion")
 create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chick_image_sheet")
+create_chick_sprite = create_chick_sprite or require("chick.create_chick_sprite")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -22,6 +23,7 @@ function scene:enterScene(event)
 	create_background_image.evaluate()
 	initialize_ground.evaluate()
 	create_chasing_explosion.evaluate()
+	create_chick_sprite.evaluate()
 	
 	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
 end
