@@ -86,7 +86,7 @@ describe("scene.game_scene", function ( ... )
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
 		-- when
-		game_scene:enterScene()
+		game_scene:enterScene(event)
 		-- then
 		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", move_ground.evaluate)
 	end)
