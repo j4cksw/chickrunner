@@ -7,6 +7,8 @@ describe("create_chasing_explosion", function()
     ground_config = { vertical_start=1000}
     explosion_sprite.contentHeight = 300
     
+    game_scene_config = { chasing_explosion_start=192}
+    
     create_explosion_sprite = {
       evaluate=function()
         return explosion_sprite
@@ -35,6 +37,6 @@ describe("create_chasing_explosion", function()
     -- when
     create_chasing_explosion.evaluate()
     -- then
-    assert.are.equal(explosion_sprite.y, 850)
+    assert.are.equal(explosion_sprite.y, 786)
   end)
 end)
