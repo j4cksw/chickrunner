@@ -27,8 +27,8 @@ describe("scene.game_scene", function ( ... )
 		create_background_image = {}
 		stub(create_background_image, "evaluate")
 		
-		create_explosion_sprite = {}
-		stub(create_explosion_sprite, "evaluate")
+		create_chasing_explosion = {}
+		stub(create_chasing_explosion, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
@@ -77,11 +77,11 @@ describe("scene.game_scene", function ( ... )
 		assert.stub(initialize_ground.evaluate).was_called()
 	end)
 	
-	it("Evaluate create_explosion_sprite in enterScene", function()
+	it("Evaluate create_chasing_explosion in enterScene", function()
 	 -- when
 	 game_scene:enterScene(event)
 	 -- then
-	 assert.stub(create_explosion_sprite.evaluate).was_called()
+	 assert.stub(create_chasing_explosion.evaluate).was_called()
 	end)
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
