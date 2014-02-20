@@ -32,5 +32,4 @@ describe("create_ground_blocks_from_pattern", function ( ... )
 		assert.stub(create_ground_block.evaluate).was_called_with(2, ground_pattern[1][2])
 	end)
 
-
 end)

@@ -37,6 +37,9 @@ describe("create_ground_block", function ( ... )
 				{name="normal_with_grass", start=1, count=1}
 			}
 		}
+		
+		add_physic_body_to_ground_block = {}
+		stub(add_physic_body_to_ground_block, "evaluate")
 
 		create_ground_block = require("ground.create_ground_block")
 	end)
@@ -75,5 +78,12 @@ describe("create_ground_block", function ( ... )
 		-- then
 		assert.stub(insert_to_current_view_group.evaluate).was_called_with(ground_block_image)
 	end)
+	
+	it("Evalaute add_physic_body_to_ground_block", function()
+    -- when
+    create_ground_block.evaluate(level, sequence_name)
+    -- then
+    assert.stub(add_physic_body_to_ground_block.evaluate).was_called_with(ground_block_image)
+  end)
 
 end)
