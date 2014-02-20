@@ -1,4 +1,5 @@
 game_scene_config = {
-  chasing_explosion_start=96
+  chasing_explosion_start=96,
+  chick_start=192
 }
 return game_scene_config
