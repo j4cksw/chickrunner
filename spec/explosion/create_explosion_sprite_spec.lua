@@ -19,6 +19,10 @@ describe("create_explosion_sprite", function()
     
     stub(explosion_sprite, "setSequence")
     stub(explosion_sprite, "play")
+    stub(explosion_sprite, "addEventListener")
+    
+    explosion_sprite_event_listener = { evaluate=function()end}
+    
     
     create_explosion_sprite = require("explosion.create_explosion_sprite")
   end)
@@ -51,6 +55,16 @@ describe("create_explosion_sprite", function()
     create_explosion_sprite.evaluate()
     -- then
     assert.stub(explosion_sprite.play).was_called_with(explosion_sprite)
+  end)
+  
+  it("Add explosion_sprite_listener to explosion_sprite", function()
+    -- when
+    create_explosion_sprite.evaluate()
+    -- then
+    assert.stub(explosion_sprite.addEventListener)
+      .was_called_with(explosion_sprite,
+        "sprite",
+        explosion_sprite_event_listener.evaluate)
   end)
   
 end)
