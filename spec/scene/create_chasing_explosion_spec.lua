@@ -22,6 +22,9 @@ describe("create_chasing_explosion", function()
       end
     }
     spy.on(get_ground_vertical_position, "evaluate")
+    
+    push_to_explosion_queue = {}
+    stub(push_to_explosion_queue, "evaluate")
   
     create_chasing_explosion = require("scene.create_chasing_explosion")
   end)
@@ -52,5 +55,12 @@ describe("create_chasing_explosion", function()
     create_chasing_explosion.evaluate()
     -- then
     assert.are.equal(explosion_sprite.y, 1000)
+  end)
+  
+  it("Evaluate push_to_explosion_queue", function()
+    -- when
+    create_chasing_explosion.evaluate()
+    -- then
+    assert.stub(push_to_explosion_queue.evaluate).was_called_with(explosion_sprite)
   end)
 end)
