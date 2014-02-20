@@ -35,6 +35,9 @@ describe("scene.game_scene", function ( ... )
 		
 		initialize_chick = {}
 		stub(initialize_chick, "evaluate")
+		
+		start_chasing_explosion_timer = {}
+		stub(start_chasing_explosion_timer, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
@@ -104,6 +107,13 @@ describe("scene.game_scene", function ( ... )
    game_scene:enterScene(event)
    -- then
    assert.stub(initialize_chick.evaluate).was_called()
+	end)
+	
+	it("Evaluate start_chasing_explosion_timer", function()
+	 -- when
+	 game_scene:enterScene(event)
+	 -- then
+	 assert.stub(start_chasing_explosion_timer.evaluate).was_called()
 	end)
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
