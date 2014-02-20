@@ -8,11 +8,11 @@ function create_chick_sprite.evaluate()
   local chick_sprite = display.newSprite(chick_image_sheet, chick_sprite_config.sequenceData)
   
   insert_to_current_view_group.evaluate(chick_sprite)
---  chick_sprite.x = 192
---  chick_sprite.y = ground_config.vertical_start - (chick_sprite.contentHeight/2) - 64
---  
+ 
   chick_sprite:setSequence("normal")
   chick_sprite:play()
+  
+  return chick_sprite
 end
 
 return create_chick_sprite
