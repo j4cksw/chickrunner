@@ -10,6 +10,7 @@ create_chasing_explosion = create_chasing_explosion or require("scene.create_cha
 create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chick_image_sheet")
 initialize_chick = initialize_chick or require("scene.initialize_chick")
 move_explosion = move_explosion or require("explosion.move_explosion")
+game_scene_config = game_scene_config or require("config.game_scene_config")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -30,6 +31,8 @@ function scene:enterScene(event)
 end
 
 function scene.update(event)
+  move_ground.evaluate()
+  move_explosion.evaluate(game_scene_config.game_speed)
 end
 
 scene:addEventListener( "createScene", scene )
