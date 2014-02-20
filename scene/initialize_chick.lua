@@ -8,7 +8,7 @@ function initialize_chick.evaluate()
   local chick_sprite = create_chick_sprite.evaluate()
   
   chick_sprite.x = game_scene_config.chick_start
-  get_ground_vertical_position.evaluate(chick_sprite)
+  chick_sprite.y = get_ground_vertical_position.evaluate(chick_sprite)
 end
 
 return initialize_chick
