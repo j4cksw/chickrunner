@@ -9,6 +9,7 @@ create_background_image = create_background_image or require("scene.create_backg
 create_chasing_explosion = create_chasing_explosion or require("scene.create_chasing_explosion")
 create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chick_image_sheet")
 initialize_chick = initialize_chick or require("scene.initialize_chick")
+move_explosion = move_explosion or require("explosion.move_explosion")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -25,7 +26,10 @@ function scene:enterScene(event)
 	create_chasing_explosion.evaluate()
 	initialize_chick.evaluate()
 	
-	Runtime:addEventListener( "enterFrame", move_ground.evaluate )
+	Runtime:addEventListener( "enterFrame", self.update )
+end
+
+function scene.update(event)
 end
 
 scene:addEventListener( "createScene", scene )

@@ -44,6 +44,8 @@ describe("scene.game_scene", function ( ... )
 
 		move_ground = {}
 		stub(move_ground, "evaluate")
+		
+		move_explosion = {}
 
 		game_scene = require("scene.game_scene")
 	end)
@@ -108,7 +110,7 @@ describe("scene.game_scene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", move_ground.evaluate)
+		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", game_scene.update)
 	end)
 	
 end)
