@@ -6,6 +6,7 @@ describe("initialize_physic", function()
     physics = {}
     stub(physics, "setDrawMode")
     stub(physics, "setGravity")
+    stub(physics, "start")
     
     initialize_physics = require("scene.initialize_physic")
   end)
@@ -24,5 +25,10 @@ describe("initialize_physic", function()
     assert.stub(physics.setGravity).was_called_with(0, 40)
   end)
   
-  it("Start physics")
+  it("Start physics", function()
+    -- when
+    initialize_physics.evaluate()
+    -- then
+    assert.stub(physics.start).was_called()
+  end)
 end)
