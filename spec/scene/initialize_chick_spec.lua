@@ -14,6 +14,13 @@ describe("initialize_chick", function()
     game_scene_config = {
       chick_start = 99
     }
+    
+    get_ground_vertical_position = {
+      evaluate = function()
+        return 1000
+      end
+    }
+    spy.on(get_ground_vertical_position, "evaluate")
   
     initialize_chick = require("scene.initialize_chick")
   end)
@@ -30,6 +37,13 @@ describe("initialize_chick", function()
     initialize_chick.evaluate()
     -- then
     assert.are.equal(chick_sprite.x, game_scene_config.chick_start)
+  end)
+  
+  it("Evalaute get_ground_vertical_position", function()
+    -- when
+    initialize_chick.evaluate()
+    -- then
+    assert.stub(get_ground_vertical_position.evaluate).was_called_with(chick_sprite)
   end)
   
   it("Set calculated y position")
