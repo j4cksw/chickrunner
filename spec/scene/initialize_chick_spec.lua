@@ -46,5 +46,10 @@ describe("initialize_chick", function()
     assert.stub(get_ground_vertical_position.evaluate).was_called_with(chick_sprite)
   end)
   
-  it("Set calculated y position")
+  it("Set calculated y position", function()
+    -- when
+    initialize_chick.evaluate()
+    -- then
+    assert.are.equal(chick_sprite.y, 1000)
+  end)
 end)
