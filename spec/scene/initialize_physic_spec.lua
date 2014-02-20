@@ -8,7 +8,7 @@ describe("initialize_physic", function()
     stub(physics, "setGravity")
     stub(physics, "start")
     
-    initialize_physics = require("scene.initialize_physic")
+    initialize_physics = require("scene.initialize_physics")
   end)
   
   it("Set hybird physics mode", function()
