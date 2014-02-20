@@ -4,7 +4,7 @@ physics = physics or require("physics")
 ground_block_sprite_config = ground_block_sprite_config or require("config.ground_block_sprite_config")
 
 function add_physics_body_to_ground_block.evaluate(ground_block)
-  physics.addBody(ground,
+  physics.addBody(ground_block,
     "static",
     {
       shape = ground_block_sprite_config.shape
