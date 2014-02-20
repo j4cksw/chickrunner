@@ -1,5 +1,6 @@
 storyboard = storyboard or require("storyboard")
 
+initialize_physics = initialize_physics or require("scene.initialize_physics")
 initialize_ground = initialize_ground or require("ground.initialize_ground")
 move_ground = move_ground or require("ground.move_ground")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
@@ -19,6 +20,7 @@ function scene:createScene(event)
 	create_ground_image_sheet.evaluate()
 	create_explosion_image_sheet.evaluate()
 	create_chick_image_sheet.evaluate()
+	initialize_physics.evaluate()
 end
 
 function scene:enterScene(event)

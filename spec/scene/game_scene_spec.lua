@@ -14,6 +14,9 @@ describe("scene.game_scene", function ( ... )
 				return scene
 			end
 		}
+		
+		initialize_physics = {}
+		stub(initialize_physics, "evaluate")
 
 		initialize_ground = {}
 		stub(initialize_ground, "evaluate")
@@ -73,6 +76,13 @@ describe("scene.game_scene", function ( ... )
 	 -- then
 	 assert.stub(create_chick_image_sheet.evaluate).was_called()
 	end)
+	
+	it("Evaluate initialize_physics in createScene", function()
+	 -- when
+	 game_scene:createScene(event)
+	 -- then
+	 assert.stub(initialize_physics.evaluate).was_called()
+	end) 
 	
 	it("Evaluating create_background_image in enterScene", function()
 	 -- when
