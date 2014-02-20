@@ -16,7 +16,7 @@ describe("add_physic_body_to_ground_block", function()
     }
     -- when
     add_physic_body_to_ground_block.evaluate(ground_block)
-    -- then flore1,"static", {bounce=0.0, shape = floreShape}
+    -- then 
     assert.stub(physics.addBody)
       .was_called_with(ground_block,
        "static",

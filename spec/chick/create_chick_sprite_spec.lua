@@ -17,6 +17,9 @@ describe("create_chick_sprite", function()
     insert_to_current_view_group = {}
     stub(insert_to_current_view_group, "evaluate")
     
+    add_physics_body_to_chick = {}
+    stub(add_physics_body_to_chick, "evaluate")
+    
     stub(chick_sprite, "setSequence")
     stub(chick_sprite, "play")
     
@@ -36,6 +39,13 @@ describe("create_chick_sprite", function()
     create_chick_sprite.evaluate()
     -- then
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(chick_sprite)
+  end)
+  
+  it("Evaluate add_physics_body_to_chick", function()
+    -- when
+    create_chick_sprite.evaluate()
+    -- then
+    assert.stub(add_physics_body_to_chick.evaluate).was_called_with(chick_sprite)
   end)
   
   it("Set normal sequence", function()
