@@ -11,6 +11,8 @@ describe("start_chasing_explosion_timer", function()
     }
     spy.on(timer, "performWithDelay")
     
+    game_scene_config = { explosion_delay = 100 }
+    
     start_chasing_explosion_timer = require("scene.start_chasing_explosion_timer")
   end)
   
@@ -18,6 +20,7 @@ describe("start_chasing_explosion_timer", function()
     -- when
     start_chasing_explosion_timer.evaluate()
     -- then
-    assert.stub(timer.performWithDelay).was_called_with(100, chasing_explosion_timer_listener.evaluate)
+    assert.stub(timer.performWithDelay).was_called_with(100,
+     chasing_explosion_timer_listener.evaluate)
   end)
 end)
