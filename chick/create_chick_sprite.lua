@@ -12,7 +12,7 @@ function create_chick_sprite.evaluate()
   chick_sprite:setSequence("normal")
   chick_sprite:play()
   
-  return chick
+  return chick_sprite
 end
 
 return create_chick_sprite
