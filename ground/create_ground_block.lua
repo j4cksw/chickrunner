@@ -11,7 +11,8 @@ function create_ground_block.evaluate(level, sequence_name)
 	local ground_block_image = display.newSprite(ground_block_image_sheet, ground_block_sprite_config.sequenceData)
 
 	ground_block_image:setSequence( sequence_name )
-
+  ground_block_image.type = "ground"
+  
 	insert_to_current_view_group.evaluate(ground_block_image)
 	set_ground_block_position.evaluate(ground_block_image, level)
   add_physic_body_to_ground_block.evaluate(ground_block_image)

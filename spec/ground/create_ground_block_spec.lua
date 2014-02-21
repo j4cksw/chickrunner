@@ -85,5 +85,12 @@ describe("create_ground_block", function ( ... )
     -- then
     assert.stub(add_physic_body_to_ground_block.evaluate).was_called_with(ground_block_image)
   end)
+  
+  it("Set type = ground to ground_sprite", function()
+    -- when
+    create_ground_block.evaluate(level, sequence_name)
+    -- then
+    assert.are.equal(ground_block_image.type, "ground")
+  end)
 
 end)
