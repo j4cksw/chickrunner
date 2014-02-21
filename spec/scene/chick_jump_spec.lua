@@ -11,6 +11,6 @@ describe("chick_jump", function()
     -- when
     chick_jump.evaluate()
     -- then
-    assert.stub(chick.setLinearVelocity).was_called_with(0, -800)
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, -800)
   end)
 end)
