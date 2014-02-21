@@ -21,6 +21,12 @@ describe("initialize_chick", function()
       end
     }
     spy.on(get_ground_vertical_position, "evaluate")
+    
+    stub(chick_sprite, "addEventListener")
+    
+    chick_collision_listener = {
+      evaluate = function()end     
+    }
   
     initialize_chick = require("scene.initialize_chick")
   end)
@@ -58,5 +64,14 @@ describe("initialize_chick", function()
     initialize_chick.evaluate()
     -- then
     assert.are.equal(chick, chick_sprite)
+  end)
+  
+  it("Add collision event listener to chick sprite", function()
+    -- when
+    initialize_chick.evaluate()
+    -- then
+    assert.stub(chick_sprite.addEventListener).was_called_with(chick_sprite, 
+      "collision", 
+      chick_collision_listener.evaluate)
   end)
 end)
