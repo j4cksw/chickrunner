@@ -13,6 +13,7 @@ initialize_chick = initialize_chick or require("scene.initialize_chick")
 move_explosion = move_explosion or require("explosion.move_explosion")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 start_chasing_explosion_timer = start_chasing_explosion_timer or require("scene.start_chasing_explosion_timer")
+chick_jump = chick_jump or require("scene.chick_jump")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -32,6 +33,7 @@ function scene:enterScene(event)
 	start_chasing_explosion_timer.evaluate()
 	
 	Runtime:addEventListener( "enterFrame", self.update )
+	Runtime:addEventListener( "tap", chick_jump.evaluate)
 end
 
 function scene.update(event)
