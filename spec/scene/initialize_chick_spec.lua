@@ -52,4 +52,11 @@ describe("initialize_chick", function()
     -- then
     assert.are.equal(chick_sprite.y, 1000)
   end)
+  
+  it("Set chick sprite to global variable 'chick'", function()
+    -- when
+    initialize_chick.evaluate()
+    -- then
+    assert.are.equal(chick, chick_sprite)
+  end)
 end)

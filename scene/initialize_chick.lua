@@ -9,6 +9,8 @@ function initialize_chick.evaluate()
   
   chick_sprite.x = game_scene_config.chick_start
   chick_sprite.y = get_ground_vertical_position.evaluate(chick_sprite)
+  
+  chick = chick_sprite
 end
 
 return initialize_chick
