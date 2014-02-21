@@ -4,6 +4,13 @@ describe("chick_jump", function()
   setup(function()
     chick = {}
     stub(chick, "setLinearVelocity")
+    stub(chick, "setSequence")
+    stub(chick, "play")
+    
+    game_scene_config = {
+      chick_vertical_velocity = -800
+    }
+    
     chick_jump = require("scene.chick_jump")
   end)
   
@@ -11,6 +18,20 @@ describe("chick_jump", function()
     -- when
     chick_jump.evaluate()
     -- then
-    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, -800)
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, game_scene_config.chick_vertical_velocity)
+  end)
+  
+  it("Set chick sequence to 'jump'", function()
+    -- when
+    chick_jump.evaluate()
+    -- then
+    assert.stub(chick.setSequence).was_called_with(chick, 'jump')
+  end)
+  
+  it("Evalaute chick:play", function()
+    -- when
+    chick_jump.evaluate()
+    -- then
+    assert.stub(chick.play).was_called_with(chick)
   end)
 end)

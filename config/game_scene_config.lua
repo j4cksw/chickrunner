@@ -4,6 +4,7 @@ game_scene_config = {
   game_speed=20,
   explosion_delay=200,
   draw_mode = "hybrid",
-  gravity = 40
+  gravity = 40,
+  chick_vertical_velocity = -400
 }
 return game_scene_config
