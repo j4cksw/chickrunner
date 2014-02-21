@@ -5,7 +5,10 @@ ground_block_sprite_config = {
 		{name="normal_with_grass", start=1, count=1},
 		{name="normal", start=2, count=1}
 	},
-	shape = { -64, -64, 64, -64, 64, 64, -64, 64}
+	physics_options = {
+	 bounce = 0.0
+	 --shape = { -64, -64, 64, -64, 64, 64, -64, 64}
+	}
 }
 
 return ground_block_sprite_config

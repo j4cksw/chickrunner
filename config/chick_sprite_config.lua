@@ -5,6 +5,12 @@ chick_sprite_config = {
   },
   sequenceData = {
     {name="normal", start=1, count=8, time=350, loopCount=0}
+  },
+  physics_options = {
+    {
+      density=0.0,
+      bounce=0.0
+    }
   }
 }
 return chick_sprite_config
