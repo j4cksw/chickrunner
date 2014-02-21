@@ -19,7 +19,6 @@ describe("add_physic_body_to_ground_block", function()
     -- then 
     assert.stub(physics.addBody)
       .was_called_with(ground_block,
-       "static",
-       {shape=ground_block_sprite_config.shape})
+       "static")
   end)
 end)
