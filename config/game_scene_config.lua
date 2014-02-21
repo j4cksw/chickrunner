@@ -3,8 +3,8 @@ game_scene_config = {
   chick_start=192,
   game_speed=20,
   explosion_delay=200,
-  draw_mode = "hybrid",
+  draw_mode = "hidden",
   gravity = 40,
-  chick_vertical_velocity = -400
+  chick_vertical_velocity = -600
 }
 return game_scene_config
