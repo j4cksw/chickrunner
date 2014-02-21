@@ -4,6 +4,7 @@ describe("chick_collision_listener", function()
   setup(function()
     chick = {}
     stub(chick, "setSequence")
+    stub(chick, "play")
   
     chick_collision_listener = require("scene.chick_collision_listener")
   end)
@@ -15,5 +16,10 @@ describe("chick_collision_listener", function()
     assert.stub(chick.setSequence).was_called_with(chick, 'normal')
   end)
   
-  it("Play chick")
+  it("Play chick", function()
+    -- when
+    chick_collision_listener.evaluate()
+    -- then
+    assert.stub(chick.play).was_called_with(chick)
+  end)
 end)
