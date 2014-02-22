@@ -34,4 +34,6 @@ describe("chick_jump", function()
     -- then
     assert.stub(chick.play).was_called_with(chick)
   end)
+  
+  
 end)
