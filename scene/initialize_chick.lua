@@ -11,7 +11,7 @@ function initialize_chick.evaluate()
   chick.x = game_scene_config.chick_start
   chick.y = get_ground_vertical_position.evaluate(chick)
   
-  chick:addEventListener("collision", chick_collision_listener.evaluate)
+  
 end
 
 return initialize_chick
