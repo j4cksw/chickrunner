@@ -2,10 +2,13 @@ describe("chick_jump", function()
   local chick_jump
   
   setup(function()
-    chick = {}
+    chick = {
+      y = 100
+    }
     stub(chick, "setLinearVelocity")
     stub(chick, "setSequence")
     stub(chick, "play")
+    stub(chick, "addEventListener")
     
     game_scene_config = {
       chick_vertical_velocity = -800

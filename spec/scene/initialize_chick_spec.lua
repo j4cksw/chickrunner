@@ -25,7 +25,6 @@ describe("initialize_chick", function()
     chick_collision_listener = {
       evaluate = function()end     
     }
-    stub(chick_sprite, "addEventListener")
   
     initialize_chick = require("scene.initialize_chick")
   end)
@@ -65,13 +64,5 @@ describe("initialize_chick", function()
     assert.are.equal(chick, chick_sprite)
   end)
   
-  it("Add collision event listener to chick sprite", function()
-    -- when
-    initialize_chick.evaluate()
-    -- then
-    assert.stub(chick.addEventListener).was_called_with(chick, 
-      "collision", 
-      chick_collision_listener.evaluate)
-  end)
   
 end)
