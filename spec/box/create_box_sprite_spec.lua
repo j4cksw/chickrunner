@@ -37,5 +37,17 @@ describe("create_box_sprite", function()
     assert.stub(box_sprite.setSequence).was_called_with(box_sprite, 'tnt')
   end)
   
-  it("Set type to box")
+  it("Set type to box", function()
+    -- when
+    create_box_sprite.evaluate()
+    -- then
+    assert.are.equal(box_sprite.type, "box")
+  end)
+  
+  it("Return a box_sprite", function()
+    -- when
+    local result = create_box_sprite.evaluate()
+    -- then
+    assert.are.equal(box_sprite, result)
+  end)
 end)
