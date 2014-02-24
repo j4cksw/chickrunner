@@ -14,6 +14,7 @@ move_explosion = move_explosion or require("explosion.move_explosion")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 start_chasing_explosion_timer = start_chasing_explosion_timer or require("scene.start_chasing_explosion_timer")
 chick_jump = chick_jump or require("scene.chick_jump")
+create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -21,6 +22,7 @@ function scene:createScene(event)
 	create_ground_image_sheet.evaluate()
 	create_explosion_image_sheet.evaluate()
 	create_chick_image_sheet.evaluate()
+	create_box_image_sheet.evaluate()
 	initialize_physics.evaluate()
 end
 
