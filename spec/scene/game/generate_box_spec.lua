@@ -18,6 +18,9 @@ describe("generate_box", function()
     set_box_position = {}
     stub(set_box_position, "evaluate")
     
+    insert_to_box_queue = {}
+    stub(insert_to_box_queue, "evaluate")
+    
     generate_box = require("scene.game.generate_box")
   end)
   
@@ -42,5 +45,10 @@ describe("generate_box", function()
     assert.stub(set_box_position.evaluate).was_called_with(box_sprite)
   end)
   
-  it("Evaluate insert_to_box_queue")
+  it("Evaluate insert_to_box_queue", function()
+    -- when
+    generate_box.evaluate()
+    -- then
+    assert.stub(insert_to_box_queue.evaluate).was_called_with(box_sprite)
+  end)
 end)
