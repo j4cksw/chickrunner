@@ -1,6 +1,8 @@
 describe("create_box_image_sheet", function()
   local create_box_image_sheet
   
+  local mock_box_image_sheet = {}
+  
   setup(function()
     box_sprite_config = {
       path = "//",
@@ -9,7 +11,7 @@ describe("create_box_image_sheet", function()
     
     graphics = {
       newImageSheet = function()
-        return box_image_sheet
+        return mock_box_image_sheet
       end 
     }
     spy.on(graphics, "newImageSheet")
@@ -26,5 +28,10 @@ describe("create_box_image_sheet", function()
         box_sprite_config.options)
   end)
   
-  it("Set image sheet to global variable name box_image_sheet ")
+  it("Set image sheet to global variable name box_image_sheet ", function()
+    -- when
+    create_box_image_sheet.evaluate()
+    -- then
+    assert.are.equal(box_image_sheet, mock_box_image_sheet)
+  end)
 end)
