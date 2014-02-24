@@ -47,6 +47,9 @@ describe("scene.game_scene", function ( ... )
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
+		
+		generate_box = {}
+		stub(generate_box, "evaluate")
 
 		Runtime = {}
 		stub(Runtime, "addEventListener")
@@ -137,6 +140,13 @@ describe("scene.game_scene", function ( ... )
 	 game_scene:enterScene(event)
 	 -- then
 	 assert.stub(start_chasing_explosion_timer.evaluate).was_called()
+	end)
+	
+	it("Evalaute generate_box in enterScene event", function()
+	 -- when
+	 game_scene:enterScene(event)
+	 -- then
+	 assert.stub(generate_box.evaluate).was_called()
 	end)
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
