@@ -15,6 +15,9 @@ describe("generate_box", function()
     insert_to_current_view_group = {}
     stub(insert_to_current_view_group, "evaluate")
     
+    set_box_position = {}
+    stub(set_box_position, "evaluate")
+    
     generate_box = require("scene.game.generate_box")
   end)
   
@@ -32,7 +35,12 @@ describe("generate_box", function()
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(box_sprite)
   end)
   
-  it("Evaluate set_box_position")
+  it("Evaluate set_box_position", function()
+    -- when
+    generate_box.evaluate()
+    -- then
+    assert.stub(set_box_position.evaluate).was_called_with(box_sprite)
+  end)
   
   it("Evaluate insert_to_box_queue")
 end)
