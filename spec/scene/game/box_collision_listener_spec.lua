@@ -3,9 +3,7 @@ describe("box_collision_listener", function()
   
   local event
   
-  local target = { x= 300}
-  
-  local explosion_sprite = {}
+  local target = { }
   
   setup(function()
   
@@ -29,21 +27,8 @@ describe("box_collision_listener", function()
     timer = {}
     stub(timer, "cancel")
     
-    display = {}
-    stub(display, "remove")
-    
-    create_explosion_sprite = {
-      evaluate = function()
-        return explosion_sprite
-      end
-    }
-    spy.on(create_explosion_sprite, "evaluate")
-    
-    get_groud_vertical_position = {
-      evaluate = function()
-        return 1000
-      end
-    }
+    replace_with_explosion = {}
+    stub(replace_with_explosion, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -65,32 +50,12 @@ describe("box_collision_listener", function()
     assert.stub(timer.cancel).was_called_with(explosion_timer)
   end)
   
-  it("Remove box sprite", function()
+  it("Evaluate replace_with_explosion", function()
     -- when
     box_collision_listener.evaluate(event)
     -- then
-    assert.stub(display.remove).was_called_with(event.target)
+    assert.stub(replace_with_explosion.evaluate).was_called_with(event.target)
   end)
   
-  it("Create explosion sprite", function()
-    -- when
-    box_collision_listener.evaluate(event)
-    -- then
-    assert.stub(create_explosion_sprite.evaluate).was_called()
-  end)
-  
-  it("Set x position to be same as box last position", function()
-    -- when
-    box_collision_listener.evaluate(event)
-    -- then
-    assert.are.equal(explosion_sprite.x, target.x)
-  end)
-  
-  it("Set y position as a result of get_ground_vertical_position", function()
-    -- when
-    box_collision_listener.evaluate(event)
-    -- then
-    assert.are.equal(explosion_sprite.y, 1000)
-  end)
   
 end)
