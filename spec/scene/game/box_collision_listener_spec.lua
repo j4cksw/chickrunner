@@ -17,6 +17,11 @@ describe("box_collision_listener", function()
     update_stage = {
       evaluate = function()end
     }
+    
+    explosion_timer = {}
+    
+    timer = {}
+    stub(timer, "cancel")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -31,6 +36,11 @@ describe("box_collision_listener", function()
          update_stage.evaluate)
   end)
   
-  it("Stop chasing explosion timer")
+  it("Cancel chasing explosion timer", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(timer.cancel).was_called_with(explosion_timer)
+  end)
   
 end)
