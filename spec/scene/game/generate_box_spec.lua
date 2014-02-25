@@ -24,6 +24,9 @@ describe("generate_box", function()
     add_physics_body_to_box = {}
     stub(add_physics_body_to_box, "evaluate")
     
+    add_collision_listener_to_box = {}
+    stub(add_collision_listener_to_box, "evaluate")
+    
     generate_box = require("scene.game.generate_box")
   end)
   
@@ -60,5 +63,12 @@ describe("generate_box", function()
     generate_box.evaluate()
     -- then
     assert.stub(add_physics_body_to_box.evaluate).was_called_with(box_sprite)
+  end)
+  
+  it("Evaluate add_collision_listener_to_box", function()
+    -- when
+    generate_box.evaluate()
+    -- then
+    assert.stub(add_collision_listener_to_box.evaluate).was_called_with(box_sprite)
   end)
 end)
