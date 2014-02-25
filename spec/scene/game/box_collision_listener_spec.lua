@@ -2,13 +2,17 @@ describe("box_collision_listener", function()
   local box_collision_listener
   
   local event
+  
+  local target
+  
   setup(function()
   
     event = {
       phase = "began",
       other = {
         type = "chick"
-      }
+      },
+      target = target
     }
     
     Runtime = {}
@@ -22,6 +26,9 @@ describe("box_collision_listener", function()
     
     timer = {}
     stub(timer, "cancel")
+    
+    display = {}
+    stub(display, "remove")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -42,5 +49,16 @@ describe("box_collision_listener", function()
     -- then
     assert.stub(timer.cancel).was_called_with(explosion_timer)
   end)
+  
+  it("Remove box sprite", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(display.remove).was_called_with(event.target)
+  end)
+  
+  it("Create explosion sprite")
+  
+  it("Set position to be same as box last position")
   
 end)

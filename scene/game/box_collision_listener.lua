@@ -6,6 +6,7 @@ explosion_timer = explosion_timer or require("explosion.explosion_timer")
 function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("enterFrame", update_stage.evaluate)
   timer.cancel(explosion_timer)
+  display.remove(event.target)
 end
 
 return box_collision_listener
