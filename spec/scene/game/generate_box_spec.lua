@@ -21,6 +21,9 @@ describe("generate_box", function()
     insert_to_box_queue = {}
     stub(insert_to_box_queue, "evaluate")
     
+    add_physics_body_to_box = {}
+    stub(add_physics_body_to_box, "evaluate")
+    
     generate_box = require("scene.game.generate_box")
   end)
   
@@ -50,5 +53,12 @@ describe("generate_box", function()
     generate_box.evaluate()
     -- then
     assert.stub(insert_to_box_queue.evaluate).was_called_with(box_sprite)
+  end)
+  
+  it("Evalaute add_physics_body_to_box", function()
+    -- when
+    generate_box.evaluate()
+    -- then
+    assert.stub(add_physics_body_to_box.evaluate).was_called_with(box_sprite)
   end)
 end)
