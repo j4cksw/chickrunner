@@ -2,7 +2,6 @@ storyboard = storyboard or require("storyboard")
 
 initialize_physics = initialize_physics or require("scene.initialize_physics")
 initialize_ground = initialize_ground or require("ground.initialize_ground")
-move_ground = move_ground or require("ground.move_ground")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
 create_explosion_image_sheet = create_explosion_image_sheet or require("explosion.create_explosion_image_sheet")
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
@@ -10,14 +9,12 @@ create_background_image = create_background_image or require("scene.create_backg
 create_chasing_explosion = create_chasing_explosion or require("scene.create_chasing_explosion")
 create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chick_image_sheet")
 initialize_chick = initialize_chick or require("scene.initialize_chick")
-move_explosion = move_explosion or require("explosion.move_explosion")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 start_chasing_explosion_timer = start_chasing_explosion_timer or require("scene.start_chasing_explosion_timer")
 chick_jump = chick_jump or require("scene.chick_jump")
 create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
 generate_box = generate_box or require("scene.game.generate_box")
-move_box = move_box or require("box.move_box")
-box_queue = box_queue or require("box.box_queue")
+update_stage = update_stage or require("scene.game.update_stage")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -38,15 +35,10 @@ function scene:enterScene(event)
 	start_chasing_explosion_timer.evaluate()
 	generate_box.evaluate()
 	
-	Runtime:addEventListener( "enterFrame", self.update )
+	Runtime:addEventListener( "enterFrame", update_stage.evaluate )
 	Runtime:addEventListener( "tap", chick_jump.evaluate)
 end
 
-function scene.update(event)
-  move_ground.evaluate()
-  move_explosion.evaluate(game_scene_config.game_speed)
-  move_box.evaluate(box_queue[1], -game_scene_config.game_speed)
-end
 
 scene:addEventListener( "createScene", scene )
 scene:addEventListener( "enterScene", scene )

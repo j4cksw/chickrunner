@@ -57,8 +57,8 @@ describe("scene.game_scene", function ( ... )
 		chick_jump = {}
 		stub(chick_jump, "evaluate")
 
-		move_ground = {}
-		stub(move_ground, "evaluate")
+		update_stage = {}
+		stub(update_stage, "evaluate")
 		
 		move_explosion = {}
 
@@ -153,7 +153,7 @@ describe("scene.game_scene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", game_scene.update)
+		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", update_stage.evaluate)
 	end)
 	
 	it("Add tap event listener to Runtime in enterScene", function()
