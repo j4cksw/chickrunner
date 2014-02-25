@@ -5,6 +5,8 @@ describe("box_collision_listener", function()
   
   local target
   
+  local explosion_sprite = {}
+  
   setup(function()
   
     event = {
@@ -29,6 +31,13 @@ describe("box_collision_listener", function()
     
     display = {}
     stub(display, "remove")
+    
+    create_explosion_sprite = {
+      evaluate = function()
+        return explosion_sprite
+      end
+    }
+    spy.on(create_explosion_sprite, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -57,7 +66,12 @@ describe("box_collision_listener", function()
     assert.stub(display.remove).was_called_with(event.target)
   end)
   
-  it("Create explosion sprite")
+  it("Create explosion sprite", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(create_explosion_sprite.evaluate).was_called()
+  end)
   
   it("Set position to be same as box last position")
   
