@@ -38,6 +38,12 @@ describe("box_collision_listener", function()
       end
     }
     spy.on(create_explosion_sprite, "evaluate")
+    
+    get_groud_vertical_position = {
+      evaluate = function()
+        return 1000
+      end
+    }
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -80,6 +86,11 @@ describe("box_collision_listener", function()
     assert.are.equal(explosion_sprite.x, target.x)
   end)
   
-  it("Set y position as a result of get_ground_vertical_position")
+  it("Set y position as a result of get_ground_vertical_position", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.are.equal(explosion_sprite.y, 1000)
+  end)
   
 end)
