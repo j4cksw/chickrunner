@@ -3,7 +3,7 @@ describe("box_collision_listener", function()
   
   local event
   
-  local target
+  local target = { x= 300}
   
   local explosion_sprite = {}
   
@@ -73,6 +73,13 @@ describe("box_collision_listener", function()
     assert.stub(create_explosion_sprite.evaluate).was_called()
   end)
   
-  it("Set position to be same as box last position")
+  it("Set x position to be same as box last position", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.are.equal(explosion_sprite.x, target.x)
+  end)
+  
+  it("Set y position as a result of get_ground_vertical_position")
   
 end)

@@ -7,8 +7,12 @@ create_explosion_sprite = create_explosion_sprite or require("explosion.create_e
 function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("enterFrame", update_stage.evaluate)
   timer.cancel(explosion_timer)
+  
+  local box_x = event.target.x
+  
   display.remove(event.target)
-  create_explosion_sprite.evaluate()
+  local explosion_sprite = create_explosion_sprite.evaluate()
+  explosion_sprite.x = box_x
 end
 
 return box_collision_listener
