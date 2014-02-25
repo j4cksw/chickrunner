@@ -17,6 +17,7 @@ chick_jump = chick_jump or require("scene.chick_jump")
 create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
 generate_box = generate_box or require("scene.game.generate_box")
 move_box = move_box or require("box.move_box")
+box_queue = box_queue or require("box.box_queue")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -44,7 +45,7 @@ end
 function scene.update(event)
   move_ground.evaluate()
   move_explosion.evaluate(game_scene_config.game_speed)
-  move_box.evaluate(game_scene_config.game_speed)
+  move_box.evaluate(box_queue[1], -game_scene_config.game_speed)
 end
 
 scene:addEventListener( "createScene", scene )
