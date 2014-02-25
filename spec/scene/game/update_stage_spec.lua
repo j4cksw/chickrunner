@@ -37,7 +37,7 @@ describe("update_stage", function()
     update_stage.evaluate()
     -- then
     assert.stub(move_box.evaluate).was_called_with(box_queue[1],
-     game_scene_config.game_speed)
+     -game_scene_config.game_speed)
     
   end)
 end)

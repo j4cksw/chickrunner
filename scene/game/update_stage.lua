@@ -9,7 +9,7 @@ box_queue = box_queue or require("box.box_queue")
 function update_stage.evaluate()
   move_ground.evaluate()
   move_explosion.evaluate(game_scene_config.game_speed)
-  move_box.evaluate(box_queue[1], game_scene_config.game_speed)
+  move_box.evaluate(box_queue[1], -game_scene_config.game_speed)
 end
 
 return update_stage
