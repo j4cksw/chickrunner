@@ -5,6 +5,12 @@ describe("chick_ignite", function()
     chick = {}
     stub(chick, 'setSequence')
     stub(chick, "play")
+    stub(chick, "addEventListener")
+    
+    chick_ignite_sprite_listener = {
+      evaluate = function() end
+    }
+    
     chick_ignite = require("chick.chick_ignite")
   end)
   
@@ -22,5 +28,10 @@ describe("chick_ignite", function()
     assert.stub(chick.play).was_called_with(chick)
   end)
   
-  it("Set chick_ignite_sprite_listener to sprite event listener")
+  it("Set chick_ignite_sprite_listener to sprite event listener", function()
+    -- when
+    chick_ignite.evaluate()
+    -- then
+    assert.stub(chick.addEventListener).was_called_with(chick, "sprite", chick_ignite_sprite_listener.evaluate)
+  end)
 end)
