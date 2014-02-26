@@ -34,8 +34,8 @@ describe("box_collision_listener", function()
       evaluate = function()end
     }
     
-    storyboard = {}
-    stub(storyboard, "reloadScene")
+    chick_ignite = {}
+    stub(chick_ignite, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -69,5 +69,12 @@ describe("box_collision_listener", function()
     box_collision_listener.evaluate(event)
     -- then
     assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", chick_jump.evaluate)
+  end)
+  
+  it("Evaluate chick_ignite", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick_ignite.evaluate).was_called()
   end)
 end)

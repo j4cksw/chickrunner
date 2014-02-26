@@ -4,13 +4,14 @@ update_stage = update_stage or require("scene.game.update_stage")
 explosion_timer = explosion_timer or require("explosion.explosion_timer")
 replace_with_explosion = replace_with_explosion or require("scene.game.replace_with_explosion")
 chick_jump = chick_jump or require("scene.game.chick_jump")
-storyboard = storyboard or require("storyboard")
+chick_ignite = chick_ignite or require("chick.chick_ignite")
 
 function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("enterFrame", update_stage.evaluate)
-  --Runtime:removeEventListener("tap", chick_jump.evaluate)
+  Runtime:removeEventListener("tap", chick_jump.evaluate)
   timer.cancel(explosion_timer)
   replace_with_explosion.evaluate(event.target)
+  chick_ignite.evaluate()
 end
 
 return box_collision_listener
