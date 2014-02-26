@@ -24,5 +24,10 @@ describe("chick_ignite_sprite_listener", function()
     assert.stub(chick.setSequence).was_called_with(chick, "burn")
   end)
   
-  it("When sprite animate ended, Set sequence to burn then play")
+  it("When sprite animate ended, Set sequence to burn then play", function()
+    -- when
+    chick_ignite_sprite_listener.evaluate(event)
+    -- then
+    assert.stub(chick.play).was_called_with(chick)
+  end)
 end)

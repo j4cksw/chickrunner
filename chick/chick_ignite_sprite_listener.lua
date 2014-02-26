@@ -6,6 +6,7 @@ function chick_ignite_sprite_listener.evaluate(event)
   end
   
   chick:setSequence("burn")
+  chick:play()
 end
 
 return chick_ignite_sprite_listener
