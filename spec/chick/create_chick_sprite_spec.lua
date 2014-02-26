@@ -52,7 +52,7 @@ describe("create_chick_sprite", function()
     -- when
     create_chick_sprite.evaluate()
     -- then
-    assert.stub(chick_sprite.setSequence).was_called_with(chick_sprite, "normal")
+    assert.stub(chick_sprite.setSequence).was_called_with(chick_sprite, "run")
   end)
   
   it("Play the sprite", function() 

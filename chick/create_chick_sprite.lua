@@ -11,7 +11,7 @@ function create_chick_sprite.evaluate()
   insert_to_current_view_group.evaluate(chick_sprite)
   add_physics_body_to_chick.evaluate(chick_sprite)
   
-  chick_sprite:setSequence("normal")
+  chick_sprite:setSequence("run")
   chick_sprite:play()
   
   return chick_sprite
