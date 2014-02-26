@@ -8,7 +8,7 @@ storyboard = storyboard or require("storyboard")
 
 function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("enterFrame", update_stage.evaluate)
-  Runtime:removeEventListener("tap", chick_jump.evaluate)
+  --Runtime:removeEventListener("tap", chick_jump.evaluate)
   timer.cancel(explosion_timer)
   replace_with_explosion.evaluate(event.target)
 end
