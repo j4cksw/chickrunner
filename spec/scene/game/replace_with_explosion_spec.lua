@@ -33,6 +33,15 @@ describe("replace_with_explosion", function()
     assert.stub(display.remove).was_called_with(target)
   end)
   
+  it("Remove from queue", function()
+    -- given
+    box_queue = { {} }
+    -- when
+    replace_with_explosion.evaluate(target)
+    -- then
+    assert.are.same({}, box_queue)
+  end)
+  
   it("Create explosion sprite", function()
     -- when
     replace_with_explosion.evaluate(target)

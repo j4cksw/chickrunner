@@ -33,6 +33,9 @@ describe("box_collision_listener", function()
     chick_jump = {
       evaluate = function()end
     }
+    
+    storyboard = {}
+    stub(storyboard, "reloadScene")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)

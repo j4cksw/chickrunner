@@ -11,6 +11,7 @@ function replace_with_explosion.evaluate(target)
   explosion_sprite.y = get_ground_vertical_position.evaluate(explosion_sprite)
   
   display.remove(target)
+  table.remove(box_queue, 1)
 end
 
 return replace_with_explosion
