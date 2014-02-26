@@ -9,25 +9,17 @@ describe("chick_ignite_sprite_listener", function()
       phase = "ended"
     }
     
-    chick = {}
-    stub(chick, 'setSequence')
-    stub(chick, "play")
-    stub(chick, "addEventListener")  
+    chick_burn = {}
+    stub(chick_burn, "evaluate")
     
     chick_ignite_sprite_listener = require("chick.chick_ignite_sprite_listener")
   end)
   
-  it("When sprite animate ended, Set sequence to burn", function()
+  it("When sprite animate ended, evaluate chick_burn", function()
     -- when
     chick_ignite_sprite_listener.evaluate(event)
     -- then
-    assert.stub(chick.setSequence).was_called_with(chick, "burn")
+    assert.stub(chick_burn.evaluate).was_called()
   end)
-  
-  it("When sprite animate ended, Set sequence to burn then play", function()
-    -- when
-    chick_ignite_sprite_listener.evaluate(event)
-    -- then
-    assert.stub(chick.play).was_called_with(chick)
-  end)
+
 end)
