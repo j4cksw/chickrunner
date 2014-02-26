@@ -29,6 +29,10 @@ describe("box_collision_listener", function()
     
     replace_with_explosion = {}
     stub(replace_with_explosion, "evaluate")
+    
+    chick_jump = {
+      evaluate = function()end
+    }
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -57,5 +61,10 @@ describe("box_collision_listener", function()
     assert.stub(replace_with_explosion.evaluate).was_called_with(event.target)
   end)
   
-  
+  it("Remove tap event", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", chick_jump.evaluate)
+  end)
 end)
