@@ -7,7 +7,7 @@ chick_sprite_config = {
     {name="run", start=31, count=8, time=350, loopCount=0},
     {name="jump", start=28, count=4, time=100},
     {name="ignite", start=1, count=3, time=300, loopCount=1},
-    {name="burn", start=4, count=7, time=500}
+    {name="burn", start=4, count=4, time=300}
   },
   physics_options = {
       density=0.0,
