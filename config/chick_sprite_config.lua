@@ -1,11 +1,11 @@
 chick_sprite_config = {
   path = "img/sprite/chick.png",
   options = {
-    width = 192, height = 192, numFrames = 12
+    width = 256, height = 256, numFrames = 39
   },
   sequenceData = {
-    {name="normal", start=5, count=8, time=350, loopCount=0},
-    {name="jump", start=1, count=4, time=100}
+    {name="run", start=31, count=8, time=350, loopCount=0},
+    {name="jump", start=27, count=4, time=100}
   },
   physics_options = {
     {

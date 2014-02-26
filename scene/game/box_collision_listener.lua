@@ -11,7 +11,6 @@ function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("tap", chick_jump.evaluate)
   timer.cancel(explosion_timer)
   replace_with_explosion.evaluate(event.target)
-  Runtime:addEventListener("tap", storyboard.reloadScene)
 end
 
 return box_collision_listener
