@@ -26,6 +26,9 @@ describe("create_explosion_core", function()
       end
     }
     
+    physics = {}
+    stub(physics, "addBody")
+    
     create_explosion_core = require("scene.game.create_explosion_core")
   end)
   
@@ -57,7 +60,12 @@ describe("create_explosion_core", function()
     assert.are.equal(explosion_rect.alpha, 0)
   end)
   
-  it("Add physics body to the ractangle")
+  it("Add physics body to the ractangle", function()
+    -- when
+    create_explosion_core.evaluate()
+    -- then
+    assert.stub(physics.addBody).was_called_with(explosion_rect, "static")
+  end)
   
   it("Add collision event to the ractangle")
   
