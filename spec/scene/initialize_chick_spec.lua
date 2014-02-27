@@ -12,7 +12,8 @@ describe("initialize_chick", function()
     spy.on(create_chick_sprite, "evaluate")
     
     game_scene_config = {
-      chick_start = 99
+      chick_start = 99,
+      chick_vertical_offset = 46
     }
     
     get_ground_vertical_position = {
@@ -54,7 +55,7 @@ describe("initialize_chick", function()
     -- when
     initialize_chick.evaluate()
     -- then
-    assert.are.equal(chick_sprite.y, 1000)
+    assert.are.equal(chick_sprite.y, 1046)
   end)
   
   it("Set chick sprite to global variable 'chick'", function()
