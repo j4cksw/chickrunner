@@ -60,6 +60,9 @@ describe("scene.game_scene", function ( ... )
 		update_stage = {}
 		stub(update_stage, "evaluate")
 		
+		create_explosion_core = {}
+		stub(create_explosion_core, "evaluate")
+		
 		move_explosion = {}
 
 		game_scene = require("scene.game_scene")
@@ -147,6 +150,13 @@ describe("scene.game_scene", function ( ... )
 	 game_scene:enterScene(event)
 	 -- then
 	 assert.stub(generate_box.evaluate).was_called()
+	end)
+	
+	it("Evaluate create_explosion_core in enterScene", function()
+	 --when
+	 game_scene:enterScene(event)
+	 -- then
+	 assert.stub(create_explosion_core.evaluate).was_called()
 	end)
 
 	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )

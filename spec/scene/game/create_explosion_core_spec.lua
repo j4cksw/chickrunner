@@ -26,4 +26,6 @@ describe("create_explosion_core", function()
   it("Add physics body to the ractangle")
   
   it("Add collision event to the ractangle")
+  
+  it("Insert to current view group")
 end)
