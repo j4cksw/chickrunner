@@ -3,6 +3,8 @@ describe("create_explosion_core", function()
   
   local explosion_rect = {}
   
+  local explosion_core_y = 700
+  
   setup(function()
     display = {
       newRect = function()
@@ -12,8 +14,13 @@ describe("create_explosion_core", function()
     spy.on(display, "newRect")
     
     game_scene_config = {
-      explosion_core_x = 72
+      explosion_core_width = 10
     }
+    
+    explosion_sprite_config = {
+      options = {width = 320, height = 384, numFrames = 15}
+    }
+    
     create_explosion_core = require("scene.game.create_explosion_core")
   end)
   
@@ -21,8 +28,10 @@ describe("create_explosion_core", function()
     -- when
     create_explosion_core.evaluate()
     -- then
-    assert.stub(display.newRect).was_called_with(72, 1000, 10, 384)
+    assert.stub(display.newRect).was_called_with(0, 0, 10, 384)
   end)
+  
+  it("Evaluate set_explosion_core_posion")
   
   it("Set alpha of the rectangle to 0")
   
