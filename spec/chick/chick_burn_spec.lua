@@ -23,4 +23,5 @@ describe("chick_burn", function()
     -- then
     assert.stub(chick.play).was_called_with(chick)
   end)
+
 end)
