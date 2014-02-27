@@ -36,6 +36,14 @@ describe("box_collision_listener", function()
     
     chick_ignite = {}
     stub(chick_ignite, "evaluate")
+    
+    chick = {}
+    stub(chick, "setLinearVelocity")
+    
+    game_scene_config = {
+      chick_bounce_vertical_velocity = -500,
+      chick_bounce_horizontal_velocity = -500
+    }
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -76,5 +84,12 @@ describe("box_collision_listener", function()
     box_collision_listener.evaluate(event)
     -- then
     assert.stub(chick_ignite.evaluate).was_called()
+  end)
+  
+  it("Set linear velocity to chick", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, -500, -500)
   end)
 end)
