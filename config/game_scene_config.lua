@@ -8,6 +8,7 @@ game_scene_config = {
   game_speed=20,
   explosion_delay=200,
   explosion_core_x = 64,
+  explosion_core_width = 10, 
   draw_mode = "hidden",
   gravity = 40,
   box_horizontal_start = 720

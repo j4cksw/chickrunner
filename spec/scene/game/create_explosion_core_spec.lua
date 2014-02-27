@@ -14,7 +14,8 @@ describe("create_explosion_core", function()
     spy.on(display, "newRect")
     
     game_scene_config = {
-      explosion_core_width = 10
+      explosion_core_width = 10,
+      explosion_core_x = 64
     }
     
     explosion_sprite_config = {
@@ -31,7 +32,12 @@ describe("create_explosion_core", function()
     assert.stub(display.newRect).was_called_with(0, 0, 10, 384)
   end)
   
-  it("Evaluate set_explosion_core_posion")
+  it("Set x position from config", function()
+    -- when
+    create_explosion_core.evaluate()
+    -- then
+    assert.are.equal(explosion_rect.x, 64)
+  end)
   
   it("Set alpha of the rectangle to 0")
   
