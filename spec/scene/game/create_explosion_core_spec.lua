@@ -10,7 +10,10 @@ describe("create_explosion_core", function()
       end
     }
     spy.on(display, "newRect")
-  
+    
+    game_scene_config = {
+      explosion_core_x = 72
+    }
     create_explosion_core = require("scene.game.create_explosion_core")
   end)
   
@@ -18,7 +21,7 @@ describe("create_explosion_core", function()
     -- when
     create_explosion_core.evaluate()
     -- then
-    assert.stub(display.newRect).was_called_with(96, 192, 10, 384)
+    assert.stub(display.newRect).was_called_with(72, 1000, 10, 384)
   end)
   
   it("Set alpha of the rectangle to 0")

@@ -7,6 +7,7 @@ game_scene_config = {
   chick_bounce_horizontal_velocity = -500,
   game_speed=20,
   explosion_delay=200,
+  explosion_core_x = 72
   draw_mode = "hidden",
   gravity = 40,
   box_horizontal_start = 720
