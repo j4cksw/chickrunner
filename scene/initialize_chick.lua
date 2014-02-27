@@ -10,6 +10,7 @@ function initialize_chick.evaluate()
   
   chick.x = game_scene_config.chick_start
   chick.y = get_ground_vertical_position.evaluate(chick) + game_scene_config.chick_vertical_offset
+  
 end
 
 return initialize_chick

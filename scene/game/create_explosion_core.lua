@@ -4,6 +4,7 @@ game_scene_config = game_scene_config or require("config.game_scene_config")
 explosion_sprite_config = explosion_sprite_config or require("config.eplosion_sprite_config")
 get_ground_vertical_position = get_ground_vertical_position or require("ground.get_ground_vertical_position")
 physics = physics or require("physics")
+insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
 
 function create_explosion_core.evaluate()
   local width = game_scene_config.explosion_core_width
@@ -18,6 +19,7 @@ function create_explosion_core.evaluate()
   explosion_core.alpha = 0
   
   physics.addBody(explosion_core, "static")
+  insert_to_current_view_group.evaluate(explosion_core)
 end
 
 return create_explosion_core
