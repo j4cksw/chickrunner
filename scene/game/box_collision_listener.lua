@@ -13,7 +13,8 @@ function box_collision_listener.evaluate(event)
   timer.cancel(explosion_timer)
   replace_with_explosion.evaluate(event.target)
   chick_ignite.evaluate()
-  chick:setLinearVelocity(-500, -500)
+  chick:setLinearVelocity(game_scene_config.chick_bounce_horizontal_velocity,
+   game_scene_config.chick_bounce_vertical_velocity)
 end
 
 return box_collision_listener
