@@ -3,8 +3,6 @@ describe("create_explosion_core", function()
   
   local explosion_rect = {}
   
-  local explosion_core_y = 700
-  
   setup(function()
     display = {
       newRect = function()
@@ -22,6 +20,12 @@ describe("create_explosion_core", function()
       options = {width = 320, height = 384, numFrames = 15}
     }
     
+    get_ground_vertical_position = {
+      evaluate = function()
+        return 1000
+      end
+    }
+    
     create_explosion_core = require("scene.game.create_explosion_core")
   end)
   
@@ -37,6 +41,13 @@ describe("create_explosion_core", function()
     create_explosion_core.evaluate()
     -- then
     assert.are.equal(explosion_rect.x, 64)
+  end)
+  
+  it("Set y position from evaluating get_ground_vertical_position", function()
+    -- when
+    create_explosion_core.evaluate()
+    -- then
+    assert.are.equal(explosion_rect.y, 1000)
   end)
   
   it("Set alpha of the rectangle to 0")
