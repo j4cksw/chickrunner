@@ -14,7 +14,7 @@ function create_explosion_core.evaluate()
   local y = get_ground_vertical_position.evaluate(explosion_core)
   explosion_core.x = x
   explosion_core.y = y
-  
+  explosion_core.alpha = 0
 end
 
 return create_explosion_core

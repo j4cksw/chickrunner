@@ -50,7 +50,12 @@ describe("create_explosion_core", function()
     assert.are.equal(explosion_rect.y, 1000)
   end)
   
-  it("Set alpha of the rectangle to 0")
+  it("Set alpha of the rectangle to 0", function()
+    -- when
+    create_explosion_core.evaluate()
+    -- then
+    assert.are.equal(explosion_rect.alpha, 0)
+  end)
   
   it("Add physics body to the ractangle")
   
