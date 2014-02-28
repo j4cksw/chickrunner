@@ -16,6 +16,11 @@ describe("chick_bounce_collison_listener", function()
     stub(chick, "setSequence")
     stub(chick, "play")
     stub(chick, "setLinearVelocity")
+    stub(chick, "addEventListener")
+    
+    chick_dead_sprite_listener = {
+      evaluate = function()end
+    }
     
     chick_bounce_collision_listener = require("scene.game.chick_bounce_collision_listener")
   end)
@@ -46,5 +51,12 @@ describe("chick_bounce_collison_listener", function()
     chick_bounce_collision_listener.evaluate(event)
     -- then
     assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, 0)
+  end)
+  
+  it("When collide to the ground, Add sprite event listener", function()
+    -- when
+    chick_bounce_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.addEventListener).was_called_with(chick, "sprite", chick_dead_sprite_listener.evaluate)
   end)
 end)
