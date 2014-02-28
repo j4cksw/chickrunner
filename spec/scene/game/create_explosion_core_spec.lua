@@ -77,6 +77,4 @@ describe("create_explosion_core", function()
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(explosion_rect)
   end)
   
-  it("Add collision event to the ractangle")
-  
 end)
