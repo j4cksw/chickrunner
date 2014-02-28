@@ -40,4 +40,11 @@ describe("chick_bounce_collison_listener", function()
     -- then
     assert.stub(chick.play).was_called_with(chick)
   end)
+  
+  it("When collide to the ground, Set linear velocity to 0", function()
+    -- when
+    chick_bounce_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, 0)
+  end)
 end)
