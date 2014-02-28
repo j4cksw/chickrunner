@@ -17,6 +17,7 @@ function create_explosion_core.evaluate()
   explosion_core.x = x
   explosion_core.y = y
   explosion_core.alpha = 0
+  explosion_core.type = "explosion_core"
   
   physics.addBody(explosion_core, "static")
   insert_to_current_view_group.evaluate(explosion_core)

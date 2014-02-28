@@ -15,6 +15,7 @@ describe("chick_bounce_collison_listener", function()
     stub(chick, "removeEventListener")
     stub(chick, "setSequence")
     stub(chick, "play")
+    stub(chick, "setLinearVelocity")
     
     chick_bounce_collision_listener = require("scene.game.chick_bounce_collision_listener")
   end)

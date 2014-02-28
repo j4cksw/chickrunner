@@ -13,9 +13,16 @@ function box_collision_listener.evaluate(event)
   Runtime:removeEventListener("tap", chick_jump.evaluate)
   timer.cancel(explosion_timer)
   replace_with_explosion.evaluate(event.target)
-  chick_ignite.evaluate()
+  
   chick:setLinearVelocity(game_scene_config.chick_bounce_horizontal_velocity,
    game_scene_config.chick_bounce_vertical_velocity)
+  
+  timer.performWithDelay(50, box_collision_listener.delayAddCollision)
+  
+  chick_ignite.evaluate()
+end
+
+function box_collision_listener.delayAddCollision()
   chick:addEventListener("collision", chick_bounce_collision_listener.evaluate)
 end
 

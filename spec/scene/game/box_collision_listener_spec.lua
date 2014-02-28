@@ -26,6 +26,7 @@ describe("box_collision_listener", function()
     
     timer = {}
     stub(timer, "cancel")
+    stub(timer, "performWithDelay")
     
     replace_with_explosion = {}
     stub(replace_with_explosion, "evaluate")
@@ -84,13 +85,6 @@ describe("box_collision_listener", function()
     assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", chick_jump.evaluate)
   end)
   
-  it("Evaluate chick_ignite", function()
-    -- when
-    box_collision_listener.evaluate(event)
-    -- then
-    assert.stub(chick_ignite.evaluate).was_called()
-  end)
-  
   it("Set linear velocity to chick", function()
     -- when
     box_collision_listener.evaluate(event)
@@ -98,9 +92,23 @@ describe("box_collision_listener", function()
     assert.stub(chick.setLinearVelocity).was_called_with(chick, -500, -500)
   end)
   
-  it("Add chick_bounce_collission_listener", function()
+  it("Set timer for delay adding collision event listener", function()
     -- when
     box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(timer.performWithDelay).was_called_with(50, box_collision_listener.delayAddCollision)
+  end)
+  
+  it("Evaluate chick_ignite", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick_ignite.evaluate).was_called()
+  end)
+  
+  it("Add chick_bounce_collission_listener", function()
+    -- when
+    box_collision_listener.delayAddCollision()
     -- then
     assert.stub(chick.addEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
   end)
