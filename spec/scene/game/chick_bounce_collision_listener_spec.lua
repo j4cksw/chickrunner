@@ -13,6 +13,7 @@ describe("chick_bounce_collison_listener", function()
     
     chick = {}
     stub(chick, "removeEventListener")
+    stub(chick, "setSequence")
 
     chick_bounce_collision_listener = require("scene.game.chick_bounce_collision_listener")
   end)
@@ -23,6 +24,11 @@ describe("chick_bounce_collison_listener", function()
     -- then
     assert.stub(chick.removeEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
   end)
-  it("When collision to the ground, Set chick sequence to 'dead'")
+  it("When collision to the ground, Set chick sequence to 'dead'", function()
+    -- when
+    chick_bounce_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.setSequence).was_called_with(chick, "dead")
+  end)
   it("When collision to the ground, Play the sequence ")
 end)

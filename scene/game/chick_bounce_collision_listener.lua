@@ -6,6 +6,7 @@ function chick_bounce_collision_listener.evaluate(event)
   end 
   
   chick:removeEventListener("collision", chick_bounce_collision_listener.evaluate)
+  chick:setSequence("dead")
 end
 
 return chick_bounce_collision_listener
