@@ -1,6 +1,6 @@
 chick_bounce_collision_listener = {}
 
-chick_dead_sprite_listener = chick_dead_sprite_listener or require("scene.game.chick_dead_sprite_event_listener")
+chick_dead_sprite_listener = chick_dead_sprite_listener or require("scene.game.chick_dead_sprite_listener")
 
 function chick_bounce_collision_listener.evaluate(event)
   print("Bounce collision!")
