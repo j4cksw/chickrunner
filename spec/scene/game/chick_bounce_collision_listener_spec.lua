@@ -1,0 +1,28 @@
+describe("chick_bounce_collison_listener", function()
+  local chick_bounce_collision_listener
+  
+  local event
+  setup(function()
+  
+    event = {
+      phase = "began",
+      other = {
+        type = "ground"
+      }
+    }
+    
+    chick = {}
+    stub(chick, "removeEventListener")
+
+    chick_bounce_collision_listener = require("scene.game.chick_bounce_collision_listener")
+  end)
+  
+  it("When collision to the ground, Remove collision event from chick", function()
+    -- when
+    chick_bounce_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.removeEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
+  end)
+  it("When collision to the ground, Set chick sequence to 'dead'")
+  it("When collision to the ground, Play the sequence ")
+end)
