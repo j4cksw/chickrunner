@@ -11,7 +11,7 @@ function chick_bounce_collision_listener.evaluate(event)
       chick:setSequence("dead")
       chick:play()
       chick:setLinearVelocity(0,0)
-      chick:addEventListener("sprite", chick_dead_sprite_listener.evaluate)
+      Runtime:addEventListener("tap", restart_game.evaluate)
     end
   elseif event.phase == "ended" then
     if event.other.type == "explosion_core" then

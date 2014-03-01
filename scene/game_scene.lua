@@ -26,12 +26,14 @@ function scene:createScene(event)
 	create_box_image_sheet.evaluate()
 	
 	initialize_physics.evaluate()
+	
+	set_current_view_group.evaluate(self.view)
+  
+  create_background_image.evaluate()
 end
 
 function scene:enterScene(event)
-	set_current_view_group.evaluate(self.view)
-	
-	create_background_image.evaluate()
+	print("enterScene")
 	initialize_ground.evaluate()
 	create_chasing_explosion.evaluate()
 	create_explosion_core.evaluate()
