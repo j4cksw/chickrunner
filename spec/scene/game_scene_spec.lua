@@ -143,7 +143,7 @@ describe("scene.game_scene", function ( ... )
 	end)
 	
 	it("Evaluate create_explosion_core in enterScene", function()
-	 --when
+	 -- when
 	 game_scene:enterScene(event)
 	 -- then
 	 assert.stub(create_explosion_core.evaluate).was_called()
