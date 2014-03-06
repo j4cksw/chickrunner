@@ -1,7 +1,9 @@
 describe("set_obstacle_element_position_spec", function()
   local set_obstacle_element_position
   
-  local sample_obstacle_element = {}
+  local sample_obstacle_element = {
+    contentWidth = 128
+  }
   local ground_vertical_position = 1000
   
   setup(function()
@@ -24,6 +26,13 @@ describe("set_obstacle_element_position_spec", function()
     set_obstacle_element_position.evaluate(1,1, sample_obstacle_element)
     -- then
     assert.are.equal(sample_obstacle_element.x, game_scene_config.obstacle_horizontal_start)
+  end)
+  
+  it("Set element.x position from config and given element index", function()
+    -- when
+    set_obstacle_element_position.evaluate(1, 2, sample_obstacle_element)
+    -- then
+    assert.are.equal(sample_obstacle_element.x, game_scene_config.obstacle_horizontal_start + 128)
   end)
   
   it("Evaluate get_ground_vertical_position", function()
