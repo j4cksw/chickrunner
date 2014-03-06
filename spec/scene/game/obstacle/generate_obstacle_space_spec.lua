@@ -21,5 +21,12 @@ describe("generate_obstacle_space", function()
     assert.stub(display.newRect).was_called_with(0, 0, 128, 128)
   end)
   
+  it("Set alpha of rect to 0", function()
+    -- when
+    generate_obstacle_space.evaluate()
+    -- then
+    assert.are.equal(sample_obstacle_space.alpha, 0)
+  end)
+  
   it("Return a result of display.newRect")
 end)
