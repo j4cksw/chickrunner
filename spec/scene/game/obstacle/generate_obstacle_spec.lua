@@ -11,8 +11,8 @@ describe("generate_obstacle", function()
     }
     spy.on(generate_box, "evaluate")
     
-    set_obstacle_position = {}
-    stub(set_obstacle_position, "evaluate")
+    set_obstacle_element_position = {}
+    stub(set_obstacle_element_position, "evaluate")
     
     obstacle_pattern = {
       {
@@ -36,6 +36,6 @@ describe("generate_obstacle", function()
     -- when
     generate_obstacle.evaluate()
     -- then
-    assert.stub(set_obstacle_position.evaluate).was_called_with(1, 1, fake_box)
+    assert.stub(set_obstacle_element_position.evaluate).was_called_with(1, 1, fake_box)
   end)
 end)
