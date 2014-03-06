@@ -28,5 +28,10 @@ describe("generate_obstacle_space", function()
     assert.are.equal(sample_obstacle_space.alpha, 0)
   end)
   
-  it("Return a result of display.newRect")
+  it("Return a result of display.newRect", function()
+    -- when
+    local result = generate_obstacle_space.evaluate()
+    -- then
+    assert.are.same(result, sample_obstacle_space)
+  end)
 end)
