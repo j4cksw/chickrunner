@@ -33,5 +33,10 @@ describe("set_obstacle_element_position_spec", function()
     assert.stub(get_ground_vertical_position.evaluate).was_called_with(sample_obstacle_element)
   end)
   
-  it("Set element.y position from ground and given row index")
+  it("Set element.y position from ground and given row index", function()
+    -- when
+    set_obstacle_element_position.evaluate(1, 1, sample_obstacle_element)
+    -- then
+    assert.are.equal(sample_obstacle_element.y, ground_vertical_position)
+  end)
 end)
