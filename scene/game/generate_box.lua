@@ -14,6 +14,7 @@ function generate_box.evaluate()
   insert_to_box_queue.evaluate(box_sprite)
   add_physics_body_to_box.evaluate(box_sprite)
   add_collision_listener_to_box.evaluate(box_sprite)
+  return box_sprite
 end
 
 return generate_box

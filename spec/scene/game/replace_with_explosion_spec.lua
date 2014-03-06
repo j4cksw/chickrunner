@@ -35,11 +35,11 @@ describe("replace_with_explosion", function()
   
   it("Remove from queue", function()
     -- given
-    box_queue = { {} }
+    obstacle_queue = { {} }
     -- when
     replace_with_explosion.evaluate(target)
     -- then
-    assert.are.same({}, box_queue)
+    assert.are.same({}, obstacle_queue)
   end)
   
   it("Create explosion sprite", function()
