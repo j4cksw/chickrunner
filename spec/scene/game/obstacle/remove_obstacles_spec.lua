@@ -12,9 +12,7 @@ describe("remove_obstacle", function()
     -- given
     local sample_obstacle_element = "x"
     obstacle_queue = {
-      {
-        { sample_obstacle_element }
-      }
+       sample_obstacle_element 
     }
     -- when
     remove_obstacle.evaluate()

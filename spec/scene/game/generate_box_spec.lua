@@ -12,9 +12,6 @@ describe("generate_box", function()
     }
     spy.on(create_box_sprite, "evaluate")
     
-    insert_to_current_view_group = {}
-    stub(insert_to_current_view_group, "evaluate")
-    
     add_physics_body_to_box = {}
     stub(add_physics_body_to_box, "evaluate")
     
@@ -29,13 +26,6 @@ describe("generate_box", function()
     generate_box.evaluate()
     -- then
     assert.stub(create_box_sprite.evaluate).was_called()
-  end)
-  
-  it("Evaluate insert_to_current_view_group", function()
-    -- when
-    generate_box.evaluate()
-    -- then
-    assert.stub(insert_to_current_view_group.evaluate).was_called_with(box_sprite)
   end)
   
   it("Evalaute add_physics_body_to_box", function()

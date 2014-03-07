@@ -1,6 +1,6 @@
 obstacle_pattern = {
   {
-    { "box", "space", "space", "space", "space", "box" }
+    { "box", "space", "space", "box" }
   }
 }
 
