@@ -2,7 +2,10 @@ describe("chick_collision_listener", function()
   local chick_collision_listener
   
   local event = {
-    phase = "began"
+    phase = "began",
+    other = {
+      type = "ground"
+    }
   }
   
   setup(function()
