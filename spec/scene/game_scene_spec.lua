@@ -44,6 +44,9 @@ describe("scene.game_scene", function ( ... )
 		
 		start_chasing_explosion_timer = {}
 		stub(start_chasing_explosion_timer, "evaluate")
+		
+		generate_obstacle = {}
+		stub(generate_obstacle, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
