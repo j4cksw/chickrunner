@@ -13,7 +13,7 @@ function create_chick_sprite.evaluate()
   
   chick_sprite:setSequence("run")
   chick_sprite:play()
-  
+  chick_sprite.isFixedRotation = true
   return chick_sprite
 end
 
