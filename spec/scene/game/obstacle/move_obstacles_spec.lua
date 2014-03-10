@@ -15,6 +15,9 @@ describe("move_obstacles", function()
       obstacle_3
     }
     
+    check_next_obstacle_group = {}
+    stub(check_next_obstacle_group, "evaluate")
+    
     move_obstacles = require("scene.game.obstacle.move_obstacles")
   end)
   
@@ -23,5 +26,12 @@ describe("move_obstacles", function()
     move_obstacles.evaluate()
     -- then
     assert.stub(move_obstacle.evaluate).was_called_with(obstacle_queue[1])
+  end)
+  
+  it("Evalaute check_next_obstacle_group", function()
+    -- when
+    move_obstacles.evaluate()
+    -- then
+    assert.stub(check_next_obstacle_group.evaluate).was_called()
   end)
 end)

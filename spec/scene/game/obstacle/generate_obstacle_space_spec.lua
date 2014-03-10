@@ -4,6 +4,11 @@ describe("generate_obstacle_space", function()
   local sample_obstacle_space = {}
   
   setup(function()
+  
+    game_scene_config = {
+      obstacle_space_alpha = 0.75
+    }
+  
     display = {
       newRect = function()
         return sample_obstacle_space
@@ -21,11 +26,11 @@ describe("generate_obstacle_space", function()
     assert.stub(display.newRect).was_called_with(0, 0, 128, 128)
   end)
   
-  it("Set alpha of rect to 0", function()
+  it("Set alpha of rect from config", function()
     -- when
     generate_obstacle_space.evaluate()
     -- then
-    assert.are.equal(sample_obstacle_space.alpha, 0)
+    assert.are.equal(sample_obstacle_space.alpha, game_scene_config.obstacle_space_alpha)
   end)
   
   it("Return a result of display.newRect", function()

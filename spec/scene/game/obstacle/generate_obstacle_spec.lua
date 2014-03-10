@@ -3,7 +3,19 @@ describe("generate_obstacle", function()
   
   local sample_obstacle = {}
   
+  local obstacle_group = {}
+  
   setup(function()
+    
+    stub(obstacle_group, "insert")
+    
+    display = {
+      newGroup = function()
+        return obstacle_group
+      end
+    }
+    spy.on(display, "newGroup")
+    
     generate_box = {
       evaluate = function()
         return sample_obstacle

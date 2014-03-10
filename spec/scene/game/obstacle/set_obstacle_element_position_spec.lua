@@ -5,6 +5,7 @@ describe("set_obstacle_element_position_spec", function()
     contentWidth = 128
   }
   local ground_vertical_position = 1000
+  local obstacle_element_x = 500
   
   setup(function()
     game_scene_config = {
@@ -18,21 +19,35 @@ describe("set_obstacle_element_position_spec", function()
     }
     spy.on(get_ground_vertical_position, "evaluate")
     
+    calculate_obstacle_element_horizontal_position = {
+      evaluate = function()
+        return obstacle_element_x
+      end
+    }
+    spy.on(calculate_obstacle_element_horizontal_position, "evaluate")
+    
     set_obstacle_element_position = require("scene.game.obstacle.set_obstacle_element_position")
   end)
   
-  it("Set element.x position from config and given element index", function()
+  it("Evalaute calculate_obstacle_element_horizontal_position", function()
+    -- given
+    local element_index = 1
     -- when
-    set_obstacle_element_position.evaluate(1,1, sample_obstacle_element)
+    set_obstacle_element_position.evaluate(1, element_index, sample_obstacle_element)
     -- then
-    assert.are.equal(sample_obstacle_element.x, game_scene_config.obstacle_horizontal_start)
+    assert
+      .stub(calculate_obstacle_element_horizontal_position.evaluate)
+        .was_called_with(element_index,
+          sample_obstacle_element)
   end)
   
-  it("Set element.x position from config and given element index", function()
+  it("Set result from calculate_obstacle_element_horizontal_position to x", function()
+    -- given
+    local element_index = 1
     -- when
-    set_obstacle_element_position.evaluate(1, 2, sample_obstacle_element)
+    set_obstacle_element_position.evaluate(1, element_index, sample_obstacle_element)
     -- then
-    assert.are.equal(sample_obstacle_element.x, game_scene_config.obstacle_horizontal_start + 128)
+    assert.are.equal(sample_obstacle_element.x, obstacle_element_x)
   end)
   
   it("Evaluate get_ground_vertical_position", function()

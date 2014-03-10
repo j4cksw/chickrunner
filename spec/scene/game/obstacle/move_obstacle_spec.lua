@@ -8,12 +8,8 @@ describe("move_obstacle", function()
   it("Move element in obstacle", function()
     -- given
     local fake_obstacle = {
-      {
-        { x=5 }, { x=10 }
-      },
-      {
-        { x=5 }
-      }
+      { x=5 },
+      numChildren=1
     }
     game_scene_config = {
       game_speed = 5
@@ -21,8 +17,7 @@ describe("move_obstacle", function()
     -- when
     move_obstacle.evaluate(fake_obstacle)
     -- then
-    assert.are.equal(fake_obstacle[1][1].x, 0)
-    assert.are.equal(fake_obstacle[1][2].x, 5)
-    assert.are.equal(fake_obstacle[2][1].x, 0)
+    assert.are.equal(fake_obstacle[1].x, 0)
+    
   end)
 end)

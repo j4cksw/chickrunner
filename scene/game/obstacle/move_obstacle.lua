@@ -1,12 +1,12 @@
 move_obstacle = {}
 
 game_scene_config = game_scene_config or require("config.game_scene_config")
+generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_obstacle")
 
 function move_obstacle.evaluate(obstacle)
-  for key, row in pairs(obstacle) do
-    for  key, element in pairs(row) do
-      element.x = element.x - game_scene_config.game_speed
-    end
+  local i
+  for i=1, obstacle.numChildren do
+      obstacle[i].x = obstacle[i].x - game_scene_config.game_speed
   end
 end
 

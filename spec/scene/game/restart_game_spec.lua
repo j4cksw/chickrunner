@@ -6,6 +6,9 @@ describe("restart_game", function()
     storyboard = {}
     stub(storyboard, "reloadScene")
     
+    remove_obstacles = {}
+    stub(remove_obstacles, "evaluate")
+    
     Runtime = {}
     stub(Runtime, "removeEventListener")
   
@@ -19,7 +22,7 @@ describe("restart_game", function()
     assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", restart_game.evaluate)
   end)
   
-  it("REmove chick sprite", function()
+  it("Remove chick sprite", function()
     -- when
     restart_game.evaluate()
     -- then
@@ -31,5 +34,12 @@ describe("restart_game", function()
     restart_game.evaluate()
     -- then
     assert.stub(storyboard.reloadScene).was_called()
+  end)
+  
+  it("Evalaute remove_obstacles", function()
+    -- when
+    restart_game.evaluate()
+    -- then
+    assert.stub(remove_obstacles.evaluate).was_called()
   end)
 end)
