@@ -7,9 +7,6 @@ describe("replace_with_explosion", function()
   
   setup(function()
     
-    display = {}
-    stub(display, "remove")
-    
     create_explosion_sprite = {
       evaluate = function()
         return explosion_sprite
@@ -24,13 +21,6 @@ describe("replace_with_explosion", function()
     }
     
     replace_with_explosion = require("scene.game.replace_with_explosion")
-  end)
-  
-  it("Remove target sprite", function()
-    -- when
-    replace_with_explosion.evaluate(target)
-    -- then
-    assert.stub(display.remove).was_called_with(target)
   end)
   
   it("Create explosion sprite", function()

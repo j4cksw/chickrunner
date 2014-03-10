@@ -7,7 +7,7 @@ set_obstacle_element_position = set_obstacle_element_position or require("scene.
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
 
 function generate_obstacle.evaluate()
-  local selected_pattern = obstacle_pattern[1]
+  local selected_pattern = obstacle_pattern[2]
   
   local obstacle = display.newGroup()
   local obstacle_element
