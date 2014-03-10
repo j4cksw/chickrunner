@@ -12,7 +12,8 @@ describe("chick_jump", function()
     stub(chick, "addEventListener")
     
     game_scene_config = {
-      chick_vertical_velocity = -800
+      chick_vertical_velocity = -800,
+      chick_jump_count_limit = 3
     }
     
     chick_jump = require("scene.chick_jump")
@@ -48,5 +49,4 @@ describe("chick_jump", function()
     assert.stub(chick.play).was_called_with(chick)
   end)
   
-  it("Terminate function immediately when reach jump count limit")
 end)
