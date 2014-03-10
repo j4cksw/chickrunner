@@ -2,7 +2,6 @@ check_first_ground_block = {}
 
 ground_block_queue = ground_block_queue or require("ground.ground_block_queue")
 create_ground_blocks_from_pattern = create_ground_blocks_from_pattern or require("ground.create_ground_blocks_from_pattern")
-
 function check_first_ground_block.evaluate()
 	local first_ground_block = ground_block_queue[1][1]
 

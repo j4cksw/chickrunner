@@ -13,9 +13,9 @@ game_scene_config = game_scene_config or require("config.game_scene_config")
 start_chasing_explosion_timer = start_chasing_explosion_timer or require("scene.start_chasing_explosion_timer")
 chick_jump = chick_jump or require("scene.chick_jump")
 create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
-generate_box = generate_box or require("scene.game.generate_box")
 update_stage = update_stage or require("scene.game.update_stage")
 create_explosion_core = create_explosion_core or require("scene.game.create_explosion_core")
+generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_obstacle")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -26,18 +26,20 @@ function scene:createScene(event)
 	create_box_image_sheet.evaluate()
 	
 	initialize_physics.evaluate()
+	
+	set_current_view_group.evaluate(self.view)
+  
+  create_background_image.evaluate()
 end
 
 function scene:enterScene(event)
-	set_current_view_group.evaluate(self.view)
-	
-	create_background_image.evaluate()
+	print("enterScene")
 	initialize_ground.evaluate()
 	create_chasing_explosion.evaluate()
 	create_explosion_core.evaluate()
 	initialize_chick.evaluate()
 	start_chasing_explosion_timer.evaluate()
-	generate_box.evaluate()
+	generate_obstacle.evaluate()
 	
 	Runtime:addEventListener( "enterFrame", update_stage.evaluate )
 	Runtime:addEventListener( "tap", chick_jump.evaluate)

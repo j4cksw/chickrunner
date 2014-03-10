@@ -6,10 +6,12 @@ get_ground_vertical_position = get_ground_vertical_position or require("ground.g
 chick_collision_listener = chick_collision_listener or require("scene.chick_collision_listener")
 
 function initialize_chick.evaluate()
+  print("initialize_chick")
   chick = create_chick_sprite.evaluate()
   
   chick.x = game_scene_config.chick_start
   chick.y = get_ground_vertical_position.evaluate(chick) + game_scene_config.chick_vertical_offset
+  
 end
 
 return initialize_chick

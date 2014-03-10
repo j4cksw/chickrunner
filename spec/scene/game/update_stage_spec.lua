@@ -8,8 +8,8 @@ describe("update_stage", function()
     move_explosion = {}
     stub(move_explosion, "evaluate") --(game_scene_config.game_speed)
     
-    move_box = {}
-    stub(move_box, "evaluate") --(box_queue[1], -game_scene_config.game_speed)
+    move_obstacles = {}
+    stub(move_obstacles, "evaluate") --(box_queue[1], -game_scene_config.game_speed)
     
     game_scene_config = {
       game_speed = 9
@@ -32,12 +32,10 @@ describe("update_stage", function()
     assert.stub(move_explosion.evaluate).was_called_with(game_scene_config.game_speed)
   end)
   
-  it("Evaluate move_box", function()
+  it("Evaluate move_obstacles", function()
     -- when
     update_stage.evaluate()
     -- then
-    assert.stub(move_box.evaluate).was_called_with(box_queue[1],
-     -game_scene_config.game_speed)
-    
+    assert.stub(move_obstacles.evaluate).was_called()
   end)
 end)

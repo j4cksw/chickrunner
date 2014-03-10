@@ -41,4 +41,5 @@ describe("check_first_ground_block", function ( ... )
 		-- then
 		assert.stub(create_ground_blocks_from_pattern.evaluate).was_called()
 	end)
+	
 end)

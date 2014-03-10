@@ -29,6 +29,9 @@ describe("create_explosion_core", function()
     physics = {}
     stub(physics, "addBody")
     
+    insert_to_current_view_group = {}
+    stub(insert_to_current_view_group, "evaluate")
+    
     create_explosion_core = require("scene.game.create_explosion_core")
   end)
   
@@ -67,7 +70,11 @@ describe("create_explosion_core", function()
     assert.stub(physics.addBody).was_called_with(explosion_rect, "static")
   end)
   
-  it("Add collision event to the ractangle")
+  it("Insert to current view group", function()
+    -- when
+    create_explosion_core.evaluate()
+    -- then
+    assert.stub(insert_to_current_view_group.evaluate).was_called_with(explosion_rect)
+  end)
   
-  it("Insert to current view group")
 end)

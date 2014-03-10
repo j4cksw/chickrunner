@@ -15,12 +15,6 @@ describe("generate_box", function()
     insert_to_current_view_group = {}
     stub(insert_to_current_view_group, "evaluate")
     
-    set_box_position = {}
-    stub(set_box_position, "evaluate")
-    
-    insert_to_box_queue = {}
-    stub(insert_to_box_queue, "evaluate")
-    
     add_physics_body_to_box = {}
     stub(add_physics_body_to_box, "evaluate")
     
@@ -42,20 +36,6 @@ describe("generate_box", function()
     generate_box.evaluate()
     -- then
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(box_sprite)
-  end)
-  
-  it("Evaluate set_box_position", function()
-    -- when
-    generate_box.evaluate()
-    -- then
-    assert.stub(set_box_position.evaluate).was_called_with(box_sprite)
-  end)
-  
-  it("Evaluate insert_to_box_queue", function()
-    -- when
-    generate_box.evaluate()
-    -- then
-    assert.stub(insert_to_box_queue.evaluate).was_called_with(box_sprite)
   end)
   
   it("Evalaute add_physics_body_to_box", function()

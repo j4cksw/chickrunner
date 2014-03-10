@@ -11,6 +11,6 @@ game_scene_config = {
   explosion_core_width = 10, 
   draw_mode = "hidden",
   gravity = 40,
-  box_horizontal_start = 720
+  obstacle_horizontal_start = 720
 }
 return game_scene_config
