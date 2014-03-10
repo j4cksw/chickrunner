@@ -56,5 +56,10 @@ describe("set_obstacle_element_position_spec", function()
     assert.stub(calculate_obstacle_element_vertical_position.evaluate).was_called_with(row_index, sample_obstacle_element)
   end)
   
-  it("Set result from calculate_obstacle_element_vertical_position to y")
+  it("Set result from calculate_obstacle_element_vertical_position to y", function()
+    -- when
+    set_obstacle_element_position.evaluate(row_index, 1, sample_obstacle_element)
+    -- then
+    assert.are.equal(sample_obstacle_element.y, obstacle_element_y)
+  end)
 end)
