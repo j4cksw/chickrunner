@@ -27,7 +27,8 @@ describe("calculate_obstacle_element_vertical_position", function()
   
   local test_data = {
     { row_index=1, expected_result=1000 },
-    { row_index=2, expected_result=800 }
+    { row_index=2, expected_result=800 },
+    { row_index=3, expected_result=600 }
   }
   
   for index, data in pairs(test_data) do
