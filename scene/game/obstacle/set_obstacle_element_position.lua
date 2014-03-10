@@ -1,7 +1,7 @@
 set_obstacle_element_position = {}
 
 calculate_obstacle_element_horizontal_position = calculate_obstacle_element_horizontal_position or require("scene.game.obstacle.calculate_obstacle_element_horizontal_position")
-calculate_obstacle_element_vertical_position = calculate_obstacle_element_vertical_position or require("scene.game.obstacle.calculate_obstacle_element_vertical_position")
+calculate_obstacle_element_vertical_position = calculate_obstacle_element_vertical_position or require("scene.game.obstacle.calculate_obstalce_element_vertical_position")
 
 function set_obstacle_element_position.evaluate(row_index, element_index, element_sprite)
   element_sprite.x = calculate_obstacle_element_horizontal_position.evaluate(element_index, element_sprite)

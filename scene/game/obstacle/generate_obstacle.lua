@@ -12,7 +12,9 @@ function generate_obstacle.evaluate()
   local obstacle = display.newGroup()
   local obstacle_element
   for row_index, pattern_row in pairs(selected_pattern) do
+    
     for element_index, pattern_element in pairs(pattern_row) do      
+      
       if pattern_element == "box" then
         obstacle_element = generate_box.evaluate()
       elseif pattern_element == "space" then

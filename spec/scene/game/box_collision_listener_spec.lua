@@ -3,6 +3,8 @@ describe("box_collision_listener", function()
   
   local event
   
+  local target_parent = {}
+  
   local target = { }
   
   setup(function()
@@ -30,6 +32,9 @@ describe("box_collision_listener", function()
     
     replace_with_explosion = {}
     stub(replace_with_explosion, "evaluate")
+    
+    destroy_obstacle_group = {}
+    stub(destroy_obstacle_group, "evaluate")
     
     chick_jump = {
       evaluate = function()end
@@ -71,11 +76,11 @@ describe("box_collision_listener", function()
     assert.stub(timer.cancel).was_called_with(explosion_timer)
   end)
   
-  it("Evaluate replace_with_explosion", function()
+  it("Evaluate destroy_obstacle_group", function()
     -- when
     box_collision_listener.evaluate(event)
     -- then
-    assert.stub(replace_with_explosion.evaluate).was_called_with(event.target)
+    assert.stub(destroy_obstacle_group.evaluate).was_called_with(event.target)
   end)
   
   it("Remove tap event", function()
