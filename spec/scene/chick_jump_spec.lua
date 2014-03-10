@@ -3,7 +3,8 @@ describe("chick_jump", function()
   
   setup(function()
     chick = {
-      y = 100
+      y = 100,
+      jumpCount = 0
     }
     stub(chick, "setLinearVelocity")
     stub(chick, "setSequence")
@@ -15,6 +16,15 @@ describe("chick_jump", function()
     }
     
     chick_jump = require("scene.chick_jump")
+  end)
+  
+  it("Increase jumpCount", function()
+    -- given
+    chick.jumpCount = 0
+    -- when
+    chick_jump.evaluate()
+    -- then
+    assert.are.equal(chick.jumpCount, 1)
   end)
   
   it("Set linerVelocity to chick_sprite", function()
@@ -38,5 +48,5 @@ describe("chick_jump", function()
     assert.stub(chick.play).was_called_with(chick)
   end)
   
-  
+  it("Terminate function immediately when reach jump count limit")
 end)
