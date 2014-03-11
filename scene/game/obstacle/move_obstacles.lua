@@ -10,11 +10,6 @@ function move_obstacles.evaluate()
   end
   
   check_next_obstacle_group.evaluate()
---  local last_obstacle = obstacle_queue[#obstacle_queue]
---  local last_obstacle_element = last_obstacle[last_obstacle.numChildren]
---  if (last_obstacle_element.x + (last_obstacle_element.contentWidth/2)) < display.viewableContentWidth then
---    generate_obstacle.evaluate()
---  end 
 end
 
 return move_obstacles
