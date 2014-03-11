@@ -7,7 +7,7 @@ function chick_collision_listener.evaluate(event)
   local landing_condition = check_chick_landing_condition.evaluate(event)
   if landing_condition then 
       print("Landing")
-      chick.jumpCount = 0
+      chick.jumpCount = 1
       chick:setSequence('run')
       chick:play()
       chick:removeEventListener("collision", chick_collision_listener.evaluate)
