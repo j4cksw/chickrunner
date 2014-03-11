@@ -3,7 +3,9 @@ describe("generate_random_obstacle", function()
   
   local underscore_keys_result = {
     "pattern_1", "pattern_2"
-  } 
+  }
+  
+  local random_result = 2 
   
   setup(function()
     obstacle_pattern = {
@@ -18,8 +20,13 @@ describe("generate_random_obstacle", function()
     }
     spy.on(underscore, "keys")
     
-    math.random = function()end
+    math.random = function()
+      return random_result
+    end
     spy.on(math, "random")
+    
+    generate_obstacle = {}
+    stub(generate_obstacle, "evaluate")
   
     generate_random_obstacle = require("scene.game.obstacle.generate_random_obstacle")
   end)
@@ -38,5 +45,11 @@ describe("generate_random_obstacle", function()
     assert.stub(math.random).was_called_with(1, #underscore_keys_result)
   end)
   
-  it("Return obstacle pattern with random result")
+  it("Evaluate generate_obstacle with randomed result", function()
+    -- when
+    generate_random_obstacle.evaluate()
+    -- then
+    assert.stub(generate_obstacle.evaluate).was_called_with(obstacle_pattern.pattern_2)
+  end)
+
 end)
