@@ -19,5 +19,18 @@ describe("check_chick_landing_condition", function()
     assert.are.True(result)
   end)
   
-  it("Returm true when event is began and other type is box and otherElement greater than 1")
+  it("Returm true when event is began and other type is box and otherElement greater than 1", function()
+    -- given
+    local event = {
+      phase = "began",
+      other = {
+        type = "box"
+      },
+      otherElement = 2
+    }
+    -- when
+    local result = check_chick_landing_condition.evaluate(event)
+    -- then
+    assert.are.True(result)
+  end)
 end)
