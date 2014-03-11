@@ -3,8 +3,6 @@ chick_bounce_collision_listener = {}
 restart_game = restart_game or require("scene.game.restart_game")
 
 function chick_bounce_collision_listener.evaluate(event)
-  print("Bounce collision!")
-  print(event.other.type)
   if event.phase == "began" then
     if event.other.type == "ground" then
       chick:removeEventListener("collision", chick_bounce_collision_listener.evaluate)
