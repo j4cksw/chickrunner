@@ -9,7 +9,6 @@ function check_next_obstacle_group.evaluate()
   local last_element_position = get_last_obstacle_horizontal_position.evaluate()
   if last_element_position <= display.viewableContentWidth then
     generate_obstacle.evaluate(obstacle_pattern["long_space"])
-    --generate_obstacle.evaluate(obstacle_pattern["ladder_1"])
     generate_random_obstacle.evaluate()
   end
 end
