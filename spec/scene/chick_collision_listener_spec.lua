@@ -23,6 +23,9 @@ describe("chick_collision_listener", function()
       end
     }
     spy.on(check_chick_landing_condition, "evaluate")
+    
+    chick_landing = {}
+    stub(chick_landing, "evaluate")
   
     chick_collision_listener = require("scene.chick_collision_listener")
   end)
@@ -34,7 +37,12 @@ describe("chick_collision_listener", function()
     assert.stub(check_chick_landing_condition.evaluate).was_called_with(event)
   end)
   
-  it("If result is true evaluate chick_landing")
+  it("If result is true evaluate chick_landing", function()
+    -- when
+    chick_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick_landing.evaluate).was_called()
+  end)
   
   it("Set chick sequence to 'run'", function()
     -- when
