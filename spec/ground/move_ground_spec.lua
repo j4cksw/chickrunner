@@ -2,7 +2,7 @@ describe("move_ground", function ( ... )
 	local move_ground
 
 	setup(function ( ... )
-		ground_config = { speed=5 }
+		game_scene_config = { game_speed=5 }
 
 		check_first_ground_block = {}
 		stub(check_first_ground_block, "evaluate")

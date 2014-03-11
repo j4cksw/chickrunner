@@ -10,8 +10,6 @@ function replace_with_explosion.evaluate(target)
   
   explosion_sprite.x = box_x
   explosion_sprite.y = get_ground_vertical_position.evaluate(explosion_sprite)
-  
-  display.remove(target)
 end
 
 return replace_with_explosion

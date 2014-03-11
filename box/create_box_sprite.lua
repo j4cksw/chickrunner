@@ -8,7 +8,7 @@ function create_box_sprite.evaluate()
   
   box_sprite:setSequence("tnt")
   box_sprite.type = "box"
-  
+  box_sprite.isFixedRotation = true
   return box_sprite
 end
 

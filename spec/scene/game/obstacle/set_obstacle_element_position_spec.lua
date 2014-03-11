@@ -4,20 +4,17 @@ describe("set_obstacle_element_position_spec", function()
   local sample_obstacle_element = {
     contentWidth = 128
   }
-  local ground_vertical_position = 1000
   local obstacle_element_x = 500
+  local obstacle_element_y = 1000
   
   setup(function()
-    game_scene_config = {
-      obstacle_horizontal_start = 700
-    }
     
-    get_ground_vertical_position = {
+    calculate_obstacle_element_vertical_position = {
       evaluate = function(box_sprite)
-        return ground_vertical_position
+        return obstacle_element_y
       end
     }
-    spy.on(get_ground_vertical_position, "evaluate")
+    spy.on(calculate_obstacle_element_vertical_position, "evaluate")
     
     calculate_obstacle_element_horizontal_position = {
       evaluate = function()
@@ -50,17 +47,19 @@ describe("set_obstacle_element_position_spec", function()
     assert.are.equal(sample_obstacle_element.x, obstacle_element_x)
   end)
   
-  it("Evaluate get_ground_vertical_position", function()
+  it("Evaluate calculate_obstacle_element_vertical_position", function()
+    -- given
+    local row_index = 1
     -- when
-    set_obstacle_element_position.evaluate(1, 1, sample_obstacle_element)
+    set_obstacle_element_position.evaluate(row_index, 1, sample_obstacle_element)
     -- then
-    assert.stub(get_ground_vertical_position.evaluate).was_called_with(sample_obstacle_element)
+    assert.stub(calculate_obstacle_element_vertical_position.evaluate).was_called_with(row_index, sample_obstacle_element)
   end)
   
-  it("Set element.y position from ground and given row index", function()
+  it("Set result from calculate_obstacle_element_vertical_position to y", function()
     -- when
-    set_obstacle_element_position.evaluate(1, 1, sample_obstacle_element)
+    set_obstacle_element_position.evaluate(row_index, 1, sample_obstacle_element)
     -- then
-    assert.are.equal(sample_obstacle_element.y, ground_vertical_position)
+    assert.are.equal(sample_obstacle_element.y, obstacle_element_y)
   end)
 end)

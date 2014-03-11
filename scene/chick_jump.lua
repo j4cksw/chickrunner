@@ -3,8 +3,8 @@ chick_jump = {}
 game_scene_config = game_scene_config or require("config.game_scene_config")
 
 function chick_jump.evaluate()
-  print(chick.sequence)
-  if chick.sequence ~= "jump" then
+  if chick.jumpCount <= game_scene_config.chick_jump_count_limit then
+    chick.jumpCount = chick.jumpCount+1
     chick:setSequence("jump")
     chick:play()
     chick:setLinearVelocity(0, game_scene_config.chick_vertical_velocity)
