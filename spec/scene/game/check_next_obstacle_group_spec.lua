@@ -18,6 +18,13 @@ describe("check_next_obstacle_group", function()
     generate_obstacle = {}
     stub(generate_obstacle, "evaluate")
     
+    obstacle_pattern = {
+      long_space = {}
+    }
+    
+    generate_random_obstacle = {}
+    stub(generate_random_obstacle, "evaluate")
+    
     check_next_obstacle_group = require("scene.game.obstacle.check_next_obstacle_group")
   end)
   
@@ -32,6 +39,13 @@ describe("check_next_obstacle_group", function()
     -- when
     check_next_obstacle_group.evaluate()
     -- then
-    assert.stub(generate_obstacle.evaluate).was_called()
+    assert.stub(generate_obstacle.evaluate).was_called_with(obstacle_pattern["long_space"])
+  end)
+  
+  it("If result lower or equal screenWidth then evaluate generate_random_obstacle", function()
+    -- when
+    check_next_obstacle_group.evaluate()
+    -- then
+    assert.stub(generate_random_obstacle.evaluate).was_called()
   end)
 end)

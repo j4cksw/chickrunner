@@ -6,9 +6,7 @@ obstacle_queue = obstacle_queue or require("scene.game.obstacle.obstacle_queue")
 set_obstacle_element_position = set_obstacle_element_position or require("scene.game.obstacle.set_obstacle_element_position")
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
 
-function generate_obstacle.evaluate()
-  local selected_pattern = obstacle_pattern[1]
-  
+function generate_obstacle.evaluate(selected_pattern)
   local obstacle = display.newGroup()
   local obstacle_element
   for row_index, pattern_row in pairs(selected_pattern) do

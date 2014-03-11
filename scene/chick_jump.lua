@@ -7,7 +7,7 @@ function chick_jump.evaluate()
     chick.jumpCount = chick.jumpCount+1
     chick:setSequence("jump")
     chick:play()
-    chick:setLinearVelocity(0, game_scene_config.chick_vertical_velocity)
+    chick:setLinearVelocity(0, game_scene_config.chick_jump_velocity)
     chick.y = chick.y-1
     chick:addEventListener("collision", chick_collision_listener.evaluate)
   end
