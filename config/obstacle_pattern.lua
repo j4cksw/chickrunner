@@ -8,6 +8,13 @@ obstacle_pattern = {
   single_box={
     { "box" } 
   },
+  double_horizontal_box={
+    { "box", "box" } 
+  },
+  double_vertical_box={
+    { "box" },
+    { "box" } 
+  },
   ladder_1={
     { "box", "box", "box"},
     { "space", "space", "box"}
