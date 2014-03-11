@@ -58,6 +58,9 @@ describe("box_collision_listener", function()
     chick_bounce_collision_listener = {
       evaluate = function()end
     }
+    
+    chick_landing = {}
+    stub(chick_landing, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -119,5 +122,14 @@ describe("box_collision_listener", function()
     box_collision_listener.delayAddCollision()
     -- then
     assert.stub(chick.addEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
+  end)
+  
+  it("Given selfElement =2 then evalaute chick_landing", function()
+    -- given
+    event.selfElement = 2
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick_landing.evaluate).was_called()
   end)
 end)
