@@ -16,6 +16,7 @@ create_box_image_sheet = create_box_image_sheet or require("box.create_box_image
 update_stage = update_stage or require("scene.game.update_stage")
 create_explosion_core = create_explosion_core or require("scene.game.create_explosion_core")
 generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_obstacle")
+obstacle_pattern = obstacle_pattern or require("config.obstacle_pattern")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -39,7 +40,7 @@ function scene:enterScene(event)
 	create_explosion_core.evaluate()
 	initialize_chick.evaluate()
 	start_chasing_explosion_timer.evaluate()
-	generate_obstacle.evaluate()
+	generate_obstacle.evaluate(obstacle_pattern["short_space"])
 	
 	Runtime:addEventListener( "enterFrame", update_stage.evaluate )
 	Runtime:addEventListener( "tap", chick_jump.evaluate)

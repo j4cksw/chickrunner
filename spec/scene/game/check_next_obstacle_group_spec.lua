@@ -32,6 +32,6 @@ describe("check_next_obstacle_group", function()
     -- when
     check_next_obstacle_group.evaluate()
     -- then
-    assert.stub(generate_obstacle.evaluate).was_called()
+    assert.stub(generate_obstacle.evaluate).was_called_with()
   end)
 end)
