@@ -6,6 +6,7 @@ game_scene_config = {
   chick_bounce_vertical_velocity = -700,
   chick_bounce_horizontal_velocity = -500,
   chick_jump_count_limit = 3,
+  chick_jump_velocity = -900,
   game_speed=16,
   explosion_delay=200,
   explosion_core_x = 56,

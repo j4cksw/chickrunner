@@ -12,7 +12,7 @@ describe("chick_jump", function()
     stub(chick, "addEventListener")
     
     game_scene_config = {
-      chick_vertical_velocity = -800,
+      chick_jump_velocity = -800,
       chick_jump_count_limit = 3
     }
     
@@ -32,7 +32,7 @@ describe("chick_jump", function()
     -- when
     chick_jump.evaluate()
     -- then
-    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, game_scene_config.chick_vertical_velocity)
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, game_scene_config.chick_jump_velocity)
   end)
   
   it("Set chick sequence to 'jump'", function()
