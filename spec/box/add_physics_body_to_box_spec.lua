@@ -3,7 +3,14 @@ describe("add_physics_body_to_box", function()
   
   local box_sprite = {}
   
+  local physics_options = {shape={-64,-64,-64,64}},
+    {shape={-50,-64,64,-64}}
+  
   setup(function()
+    
+    box_sprite_config = {
+      physics_options
+    }
     
     physics = {}
     stub(physics, "addBody") 
@@ -15,6 +22,8 @@ describe("add_physics_body_to_box", function()
     -- when
     add_physics_body_to_box.evaluate(box_sprite)
     -- then
-    assert.stub(physics.addBody).was_called_with(box_sprite, "static")
+    assert.stub(physics.addBody).was_called_with(box_sprite, "static",
+     {shape={-64,-64,-64,64}},
+      {shape={-50,-64,64,-64}})
   end)
 end)

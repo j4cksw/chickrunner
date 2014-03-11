@@ -10,8 +10,9 @@ chick_bounce_collision_listener = chick_bounce_collision_listener or require("sc
 
 function box_collision_listener.evaluate(event)
   print("Box collide at x="..event.x.." y="..event.y)
+  print("element"..event.selfElement)
 --  if event.x < 0 then
---    if event.y >= 0 then
+    if event.selfElement == 1 then
       Runtime:removeEventListener("enterFrame", update_stage.evaluate)
       Runtime:removeEventListener("tap", chick_jump.evaluate)
       timer.cancel(explosion_timer)
@@ -22,7 +23,7 @@ function box_collision_listener.evaluate(event)
       timer.performWithDelay(50, box_collision_listener.delayAddCollision)
       
       chick_ignite.evaluate()
---    end
+    end
 --   end
 end
 

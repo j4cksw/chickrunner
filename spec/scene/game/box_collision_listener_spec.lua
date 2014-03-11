@@ -14,7 +14,10 @@ describe("box_collision_listener", function()
       other = {
         type = "chick"
       },
-      target = target
+      target = target,
+      x=0,
+      y=0,
+      selfElement=1
     }
     
     Runtime = {}
