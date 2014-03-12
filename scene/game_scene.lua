@@ -17,6 +17,7 @@ update_stage = update_stage or require("scene.game.update_stage")
 create_explosion_core = create_explosion_core or require("scene.game.create_explosion_core")
 generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_obstacle")
 obstacle_pattern = obstacle_pattern or require("config.obstacle_pattern")
+create_score_text = create_score_text or require("scene.game.score.create_score_text")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -31,6 +32,8 @@ function scene:createScene(event)
 	set_current_view_group.evaluate(self.view)
   
   create_background_image.evaluate()
+  
+  create_score_text.evaluate()
 end
 
 function scene:enterScene(event)

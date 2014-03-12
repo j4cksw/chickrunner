@@ -33,6 +33,9 @@ describe("scene.game_scene", function ( ... )
 		create_box_image_sheet = {}
 		stub(create_box_image_sheet, "evaluate")
 		
+		create_score_text = {}
+		stub(create_score_text, "evaluate")
+		
 		create_background_image = {}
 		stub(create_background_image, "evaluate")
 		
@@ -102,6 +105,13 @@ describe("scene.game_scene", function ( ... )
 	 -- then
 	 assert.stub(initialize_physics.evaluate).was_called()
 	end) 
+	
+	it("Evaluate create_score_text in create_scene", function()
+	 -- when
+	 game_scene:createScene(event)
+	 -- then
+	 assert.stub(create_score_text.evaluate).was_called()
+	end)
 	
 	it("Evaluating create_background_image in enterScene", function()
 	 -- when
