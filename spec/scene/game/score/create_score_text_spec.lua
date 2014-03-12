@@ -1,6 +1,8 @@
 describe("create_score_text", function()
   local create_score_text
   
+  local fontname = "font#1"
+  
   setup(function()
     display = {
       newText = function()
@@ -10,10 +12,25 @@ describe("create_score_text", function()
     spy.on(display, "newText")
     
     game_scene_config = {
-      score_text_y = 65
+      score_text_y = 65,
+      score_text_size = 125
     }
+    
+    get_fontname_by_platform = {
+      evaluate = function()
+        return fontname
+      end
+    }
+    spy.on(get_fontname_by_platform, "evaluate")
   
     create_score_text = require("scene.game.score.create_score_text")
+  end)
+  
+  it("Evaalute get_fontnamr_by_platform", function()
+    -- when
+    create_score_text.evaluate()
+    -- then
+    assert.stub(get_fontname_by_platform.evaluate).was_called()
   end)
   
   it("Evalaute display.newText", function()
@@ -23,7 +40,7 @@ describe("create_score_text", function()
     assert.stub(display.newText).was_called_with("0 m",
      display.contentCenterX,
       game_scene_config.score_text_y,
-      "ArcadeClassic"
-      , 120)
+      fontname,
+      game_scene_config.score_text_size)
   end)
 end)
