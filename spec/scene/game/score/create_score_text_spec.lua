@@ -4,7 +4,8 @@ describe("create_score_text", function()
   setup(function()
     display = {
       newText = function()
-      end
+      end,
+      contentCenterX = 350
     }
     spy.on(display, "newText")
   
@@ -15,10 +16,10 @@ describe("create_score_text", function()
     -- when
     create_score_text.evaluate()
     -- then
-    assert.stub(display.newText).was_called_with("0 m", 0, 0, "ArcadeClassic", 48)
+    assert.stub(display.newText).was_called_with("0 m",
+     display.contentCenterX,
+     60,
+      "ArcadeClassic"
+      , 120)
   end)
-  
-  it("Set x to center ")
-  
-  it("Set y to 50")
 end)
