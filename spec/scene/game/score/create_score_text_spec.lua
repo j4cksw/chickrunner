@@ -3,9 +3,12 @@ describe("create_score_text", function()
   
   local fontname = "font#1"
   
+  local _score_text = {}
+  
   setup(function()
     display = {
       newText = function()
+        return _score_text
       end,
       contentCenterX = 350
     }
@@ -42,5 +45,12 @@ describe("create_score_text", function()
       game_scene_config.score_text_y,
       fontname,
       game_scene_config.score_text_size)
+  end)
+  
+  it("Set text to global variable score_text", function()
+    -- when
+    create_score_text.evaluate()
+    -- then
+    assert.are.equal(score_text, _score_text)
   end)
 end)
