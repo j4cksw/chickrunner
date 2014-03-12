@@ -26,7 +26,7 @@ describe("destroy_obstacle_group", function()
     obstacle_element.parent = obstacle_group
     
     -- when
-    destroy_obstacle_group.evaluate(obstacle_element)
+    destroy_obstacle_group.evaluate(obstacle_group)
     -- then
     assert.stub(replace_with_explosion.evaluate).was_called_with(obstacle_element)
   end)
