@@ -13,7 +13,10 @@ describe("check_first_ground_block", function ( ... )
 
 		create_ground_blocks_from_pattern = {}
 		stub(create_ground_blocks_from_pattern, "evaluate")
-
+    
+    increase_score = {}
+    stub(increase_score, "evaluate")
+    
 		check_first_ground_block = require("ground.check_first_ground_block")
 	end)
 
@@ -42,4 +45,10 @@ describe("check_first_ground_block", function ( ... )
 		assert.stub(create_ground_blocks_from_pattern.evaluate).was_called()
 	end)
 	
+	it("If first ground block out of screen then evaluate increase_score", function ( ... )
+    -- when
+    check_first_ground_block.evaluate()
+    -- then
+    assert.stub(increase_score.evaluate).was_called()
+  end)
 end)
