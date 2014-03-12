@@ -5,7 +5,8 @@ restart_game = restart_game or require("scene.game.restart_game")
 function chick_bounce_collision_listener.evaluate(event)
   if event.phase == "began" then
     if event.other.type == "ground" then
-      chick:removeEventListener("collision", chick_bounce_collision_listener.evaluate)
+      chick._functionListeners = nil
+      chick._tableListeners = nil
       chick:setSequence("dead")
       chick:play()
       chick:setLinearVelocity(0,0)

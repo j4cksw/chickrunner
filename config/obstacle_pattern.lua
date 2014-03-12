@@ -23,8 +23,12 @@ obstacle_pattern = {
     { "box", "space", "box", "space", "box"}
   },
   short_air_zigzag={
-    { "space", "space", "space"},
-    { "box", "space", "box"}
+    { "space", "space", "space", "space", "space"},
+    {  "box", "space", "box", "space", "space",}
+  },
+  long_air_zigzag={
+    { "space", "space", "space", "space", "space", "space", "space", "space", "space"},
+    {  "box", "space",  "box",   "space", "box",   "space", "box",   "space", "space"}
   },
   
 }
