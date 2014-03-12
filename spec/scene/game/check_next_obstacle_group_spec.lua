@@ -15,13 +15,6 @@ describe("check_next_obstacle_group", function()
       viewableContentWidth = 1000
     }
     
-    generate_obstacle = {}
-    stub(generate_obstacle, "evaluate")
-    
-    obstacle_pattern = {
-      long_space = {}
-    }
-    
     generate_random_obstacle = {}
     stub(generate_random_obstacle, "evaluate")
     
@@ -33,13 +26,6 @@ describe("check_next_obstacle_group", function()
     check_next_obstacle_group.evaluate()
     -- then
     assert.stub(get_last_obstacle_horizontal_position.evaluate).was_called()
-  end)
-  
-  it("If result lower or equal screenWidth then evaluate generate_obstacle", function()
-    -- when
-    check_next_obstacle_group.evaluate()
-    -- then
-    assert.stub(generate_obstacle.evaluate).was_called_with(obstacle_pattern["long_space"])
   end)
   
   it("If result lower or equal screenWidth then evaluate generate_random_obstacle", function()
