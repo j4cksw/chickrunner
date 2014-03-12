@@ -38,6 +38,9 @@ describe("scene.game_scene", function ( ... )
 		
 		create_background_image = {}
 		stub(create_background_image, "evaluate")
+	
+	  initialize_score = {}
+	  stub(initialize_score, "evaluate")
 		
 		create_chasing_explosion = {}
 		stub(create_chasing_explosion, "evaluate")
@@ -111,6 +114,13 @@ describe("scene.game_scene", function ( ... )
 	 game_scene:createScene(event)
 	 -- then
 	 assert.stub(create_score_text.evaluate).was_called()
+	end)
+	
+	it("Evaluate initialize_score in enterScene", function()
+	 -- when
+	 game_scene:enterScene(event)
+	 -- then
+	 assert.stub(initialize_score.evaluate).was_called()
 	end)
 	
 	it("Evaluating create_background_image in enterScene", function()
