@@ -5,6 +5,7 @@ function play_bgm.evaluate()
   audio.play(bgm_stream, {channel=1, loops=-1})
   audio.setVolume(1, {channel=1})
   audio.play(chasing_explosion_sound, {channel=2, loops=-1})
+  audio.setVolume(0.7, {channel=2})
 end
 
 return play_bgm
