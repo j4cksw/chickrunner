@@ -14,6 +14,8 @@ game_scene_config = {
   draw_mode = "hidden",
   gravity = 60,
   obstacle_horizontal_start = 776,
-  obstacle_space_alpha = 0
+  obstacle_space_alpha = 0,
+  score_text_y = 100,
+  score_text_size = 120
 }
 return game_scene_config
