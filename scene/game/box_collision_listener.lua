@@ -7,6 +7,7 @@ chick_jump = chick_jump or require("scene.game.chick_jump")
 chick_ignite = chick_ignite or require("chick.chick_ignite")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 chick_bounce_collision_listener = chick_bounce_collision_listener or require("scene.game.chick_bounce_collision_listener")
+stop_bgm = stop_bgm or require("scene.game.audio.stop_bgm")
 
 function box_collision_listener.evaluate(event)
 
@@ -19,6 +20,7 @@ function box_collision_listener.evaluate(event)
       game_scene_config.chick_bounce_vertical_velocity)
     timer.performWithDelay(50, box_collision_listener.delayAddCollision)
     chick_ignite.evaluate()
+    stop_bgm.evaluate()
   end
 
 end

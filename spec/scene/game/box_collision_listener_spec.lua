@@ -58,6 +58,9 @@ describe("box_collision_listener", function()
     chick_bounce_collision_listener = {
       evaluate = function()end
     }
+    
+    stop_bgm = {}
+    stub(stop_bgm, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -119,6 +122,13 @@ describe("box_collision_listener", function()
     box_collision_listener.delayAddCollision()
     -- then
     assert.stub(chick.addEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
+  end)
+  
+  it("Evalaute stop_bgm", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(stop_bgm.evaluate).was_called()
   end)
   
 end)
