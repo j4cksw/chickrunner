@@ -9,8 +9,6 @@ game_scene_config = game_scene_config or require("config.game_scene_config")
 chick_bounce_collision_listener = chick_bounce_collision_listener or require("scene.game.chick_bounce_collision_listener")
 
 function box_collision_listener.evaluate(event)
-  print("Box collide at x="..event.x.." y="..event.y)
-  print("element"..event.selfElement)
 
   if event.selfElement <= 2 then
     Runtime:removeEventListener("enterFrame", update_stage.evaluate)
