@@ -23,5 +23,10 @@ describe("load_audio", function()
     assert.stub(audio.loadSound).was_called_with("audio/booming.mp3")
   end)
   
-  it("Load explosion sound")
+  it("Load box explosion sound", function()
+    -- when
+    load_audio.evaluate()
+    -- then
+    assert.stub(audio.loadSound).was_called_with("audio/bomb_hitbox.mp3")
+  end)
 end)
