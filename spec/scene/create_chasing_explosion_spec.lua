@@ -25,9 +25,6 @@ describe("create_chasing_explosion", function()
     
     push_to_explosion_queue = {}
     stub(push_to_explosion_queue, "evaluate")
-    
-    play_chasing_explosion_sound = {}
-    stub(play_chasing_explosion_sound, "evaluate")
   
     create_chasing_explosion = require("scene.create_chasing_explosion")
   end)
@@ -65,13 +62,6 @@ describe("create_chasing_explosion", function()
     create_chasing_explosion.evaluate()
     -- then
     assert.stub(push_to_explosion_queue.evaluate).was_called_with(explosion_sprite)
-  end)
-  
-  it("Evalaute play_chasing_explosion_sound", function()
-    -- when
-    create_chasing_explosion.evaluate()
-    -- then
-    assert.stub(play_chasing_explosion_sound.evaluate).was_called()
   end)
   
 end)

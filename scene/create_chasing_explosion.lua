@@ -4,7 +4,6 @@ create_explosion_sprite = create_explosion_sprite or require("explosion.create_e
 game_scene_config = game_scene_config or require("config.game_scene_config")
 get_ground_vertical_position = get_ground_vertical_position or require("ground.get_ground_vertical_position")
 push_to_explosion_queue = push_to_explosion_queue or require("explosion.push_to_explosion_queue")
-play_chasing_explosion_sound = play_chasing_explosion_sound or require("explosion.play_chasing_explosion_sound")
 
 function create_chasing_explosion.evaluate()
   local explosion_sprite = create_explosion_sprite.evaluate()
@@ -12,7 +11,6 @@ function create_chasing_explosion.evaluate()
   explosion_sprite.x = game_scene_config.chasing_explosion_start
   explosion_sprite.y = get_ground_vertical_position.evaluate(explosion_sprite)
   
-  play_chasing_explosion_sound.evaluate()
   push_to_explosion_queue.evaluate(explosion_sprite)
 end
 
