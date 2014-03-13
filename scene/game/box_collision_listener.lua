@@ -17,8 +17,8 @@ function box_collision_listener.evaluate(event)
     Runtime:removeEventListener("tap", chick_jump.evaluate)
     timer.cancel(explosion_timer)
     
-    destroy_all_obstacles.evaluate()
     play_box_explosion_sound.evaluate()
+    destroy_all_obstacles.evaluate()
     
     chick:setLinearVelocity(game_scene_config.chick_bounce_horizontal_velocity,
       game_scene_config.chick_bounce_vertical_velocity)

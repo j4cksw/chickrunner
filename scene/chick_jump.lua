@@ -10,6 +10,7 @@ function chick_jump.evaluate()
     chick:setLinearVelocity(0, game_scene_config.chick_jump_velocity)
     chick.y = chick.y-1
     chick:addEventListener("collision", chick_collision_listener.evaluate)
+    audio.play(jump_sound)
   end
 end
 

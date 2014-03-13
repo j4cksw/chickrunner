@@ -16,6 +16,11 @@ describe("chick_jump", function()
       chick_jump_count_limit = 3
     }
     
+    audio = {}
+    stub(audio, "play")
+    
+    jump_sound = {}
+    
     chick_jump = require("scene.chick_jump")
   end)
   
@@ -47,6 +52,13 @@ describe("chick_jump", function()
     chick_jump.evaluate()
     -- then
     assert.stub(chick.play).was_called_with(chick)
+  end)
+  
+  it("Play jump sound", function()
+    -- when
+    chick_jump.evaluate()
+    -- then
+    assert.stub(audio.play).was_called_with(jump_sound)
   end)
   
 end)
