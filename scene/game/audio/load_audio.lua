@@ -5,6 +5,7 @@ function load_audio.evaluate()
   chasing_explosion_sound = audio.loadSound("audio/booming.mp3")
   box_explosion_sound = audio.loadSound("audio/bomb_hitbox.mp3")
   jump_sound = audio.loadSound("audio/jump1.mp3")
+  air_jump_sound = audio.loadSound("audio/jump2.mp3")
 end
 
 return load_audio
