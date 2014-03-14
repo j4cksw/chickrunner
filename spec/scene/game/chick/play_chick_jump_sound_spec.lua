@@ -5,9 +5,12 @@ describe("play_chick_jump_sound_spec", function()
     audio = {}
     stub(audio, "play")
     
-    jump_sound = {}
+    jump_sound = {
+      "jump_sound"
+    }
     
-    air_jump_sound = {}
+    air_jump_sound = {
+    }
     
     play_chick_jump_sound = require("scene.game.chick.play_chick_jump_sound")
   end)
