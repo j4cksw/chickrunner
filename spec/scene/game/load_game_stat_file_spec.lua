@@ -79,4 +79,10 @@ describe("load_game_stat_file", function()
     assert.are.equal(expectedResult, result)
   end)
   
+  it("Error if no highscore file available", function ( ... )
+    -- given
+    fake_game_stat_file = nil
+    -- when then
+    assert.has_error(load_game_stat_file.evaluate, "Game stat file not found")
+  end)
 end)

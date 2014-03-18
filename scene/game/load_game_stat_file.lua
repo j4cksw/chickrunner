@@ -9,6 +9,8 @@ function load_game_stat_file.evaluate()
     local result = json.decode(content)
     io.close(file)
     return result
+  else
+    error("Game stat file not found")  
   end
 end
 
