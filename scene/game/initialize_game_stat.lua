@@ -7,6 +7,10 @@ function initialize_game_stat.evaluate()
 
   if isOk then
     game_stat = value
+  else
+    game_stat = {
+      high_score = 0
+    }
   end
 end
 
