@@ -7,6 +7,8 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
   
   local fontname = ""
   
+  local fake_ending_score_text = {}
+  
   setup(function()
   
     current_score = 100
@@ -25,9 +27,12 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     spy.on(get_fontname_by_platform, "evaluate")
     
     display = {
-      contentCenterX=600
+      contentCenterX=600,
+      newText = function()
+        return fake_ending_score_text
+      end
     }
-    stub(display, "newText")
+    spy.on(display, "newText")
     
     score_text = {}
   
@@ -50,5 +55,12 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
       game_scene_config.ending_score_text_y,
       fontname,
       game_scene_config.ending_score_text_size)
+  end)
+  
+  it("When sprite animate ended set text to global ending_score_text", function()
+    -- when
+    chick_dead_sequence_ended_listener.evaluate(event)
+    -- then
+    assert.are.equal(ending_score_text, fake_ending_score_text)
   end)
 end)

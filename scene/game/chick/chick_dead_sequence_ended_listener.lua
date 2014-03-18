@@ -6,7 +6,7 @@ function chick_dead_sequence_ended_listener.evaluate(event)
   if event.phase == "ended" then
     score_text.isVisible = false
     
-    display.newText("Distance: "..current_score.."m",
+    ending_score_text = display.newText("Distance: "..current_score.."m",
       display.contentCenterX,
       game_scene_config.ending_score_text_y,
       get_fontname_by_platform.evaluate(),
