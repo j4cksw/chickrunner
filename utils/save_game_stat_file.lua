@@ -1,5 +1,7 @@
 save_game_stat_file = {}
 
+json = json or require("json")
+
 function save_game_stat_file.evaluate()
   local pathToFile = system.pathForFile( "game_stat" , system.DocumentsDirectory )
 
