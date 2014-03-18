@@ -9,6 +9,7 @@ function restart_game.evaluate()
   display.remove(chick)
   remove_obstacles.evaluate()
   storyboard.reloadScene()
+  display.remove(ending_score_text)
 end
 
 return restart_game
