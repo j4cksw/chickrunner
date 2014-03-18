@@ -32,6 +32,8 @@ describe("load_game_stat_file", function()
     
     spy.on(fake_game_stat_file, "read")
     
+    spy.on(json, "decode")
+    
     load_game_stat_file = require("scene.game.load_game_stat_file")
   end)
   
@@ -55,4 +57,13 @@ describe("load_game_stat_file", function()
     -- then
     assert.stub(fake_game_stat_file.read).was_called_with(fake_game_stat_file, "*a")
   end)
+  
+  it("If file available decode after read", function ( ... )
+    -- when
+    load_game_stat_file.evaluate()
+    -- then
+    assert.stub(json.decode).was_called_with(fake_content)
+  end)
+  
+  
 end)
