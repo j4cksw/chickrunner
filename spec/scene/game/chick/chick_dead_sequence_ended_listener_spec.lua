@@ -5,9 +5,29 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     phase = "ended"
   }
   
+  local fontname = ""
+  
   setup(function()
-    display = {}
-    stub(display, "remove")
+  
+    current_score = 100
+    
+    game_scene_config = {
+      ending_score_text_y = 65,
+      score_text_size = 125
+    }
+    
+    get_fontname_by_platform = {
+      evaluate = function()
+        return fontname
+      end
+    }
+    
+    spy.on(get_fontname_by_platform, "evaluate")
+    
+    display = {
+      contentCenterX=600
+    }
+    stub(display, "newText")
     
     score_text = {}
   
@@ -19,5 +39,16 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     chick_dead_sequence_ended_listener.evaluate(event)
     -- then
     assert.are.False(score_text.isVisible)
+  end)
+  
+  it("When sprite animate ended show ending_score_text", function()
+    -- when
+    chick_dead_sequence_ended_listener.evaluate(event)
+    -- then
+    assert.stub(display.newText).was_called_with("Distance: 100m",
+     display.contentCenterX,
+      game_scene_config.ending_score_text_y,
+      fontname,
+      game_scene_config.score_text_size)
   end)
 end)
