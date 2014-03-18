@@ -65,5 +65,11 @@ describe("load_game_stat_file", function()
     assert.stub(json.decode).was_called_with(fake_content)
   end)
   
+  it("If file available close file after decoded", function ( ... )
+    -- when
+    load_game_stat_file.evaluate()
+    -- then
+    assert.stub(io.close).was_called_with(fake_game_stat_file)
+  end)
   
 end)

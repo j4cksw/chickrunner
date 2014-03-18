@@ -7,6 +7,7 @@ function load_game_stat_file.evaluate()
   if file then
     local content = file:read("*a")
     json.decode(content)
+    io.close(file)
   end
 end
 
