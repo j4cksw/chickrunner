@@ -1,5 +1,6 @@
 storyboard = storyboard or require("storyboard")
 
+initialize_game_stat = initialize_game_stat or require("scene.game.initialize_game_stat")
 initialize_physics = initialize_physics or require("scene.initialize_physics")
 initialize_ground = initialize_ground or require("ground.initialize_ground")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
@@ -25,6 +26,7 @@ play_bgm = play_bgm or require("scene.game.audio.play_bgm")
 local scene = storyboard.newScene("game_scene")
 
 function scene:createScene(event)
+  initialize_game_stat.evaluate()
   load_audio.evaluate()
 	create_ground_image_sheet.evaluate()
 	create_explosion_image_sheet.evaluate()

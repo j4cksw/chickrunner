@@ -15,6 +15,9 @@ describe("scene.game_scene", function ( ... )
 			end
 		}
 		
+		initialize_game_stat = {}
+		stub(initialize_game_stat, "evaluate")
+		
 		initialize_physics = {}
 		stub(initialize_physics, "evaluate")
 
@@ -79,7 +82,14 @@ describe("scene.game_scene", function ( ... )
 
 		game_scene = require("scene.game_scene")
 	end)
-
+  
+  it("EValuate initialize_game_stat", function()
+    -- when
+    game_scene:createScene(event)
+    -- then
+    assert.stub(initialize_game_stat.evaluate).was_called()
+  end)
+  
 	it("Evalaute create_ground_image_sheet in createScene", function ( ... )
 		-- when
 		game_scene:createScene(event)

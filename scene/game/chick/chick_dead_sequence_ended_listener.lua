@@ -12,7 +12,7 @@ function chick_dead_sequence_ended_listener.evaluate(event)
       get_fontname_by_platform.evaluate(),
       game_scene_config.ending_score_text_size)
     
-    ending_high_score_text = display.newText("Highest: "..game_stat.high_score.."m",
+    ending_high_score_text = display.newText("Highest: "..current_score.."m",
       display.contentCenterX,
       game_scene_config.ending_high_score_text_y,
       get_fontname_by_platform.evaluate(),
