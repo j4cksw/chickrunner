@@ -41,7 +41,6 @@ function scene:createScene(event)
 end
 
 function scene:enterScene(event)
-	print("enterScene")
 	play_bgm.evaluate()
 	initialize_score.evaluate()
 	initialize_ground.evaluate()
