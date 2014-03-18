@@ -10,7 +10,7 @@ function chick_dead_sequence_ended_listener.evaluate(event)
       display.contentCenterX,
       game_scene_config.ending_score_text_y,
       get_fontname_by_platform.evaluate(),
-      game_scene_config.score_text_size)
+      game_scene_config.ending_score_text_size)
   end
 end
 

@@ -13,7 +13,7 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     
     game_scene_config = {
       ending_score_text_y = 65,
-      score_text_size = 125
+      ending_score_text_size = 125
     }
     
     get_fontname_by_platform = {
@@ -49,6 +49,6 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
      display.contentCenterX,
       game_scene_config.ending_score_text_y,
       fontname,
-      game_scene_config.score_text_size)
+      game_scene_config.ending_score_text_size)
   end)
 end)
