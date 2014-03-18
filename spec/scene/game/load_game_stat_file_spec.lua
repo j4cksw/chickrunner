@@ -1,11 +1,14 @@
 describe("load_game_stat_file", function()
   local load_game_stat_file
   
-  local fake_game_stat_path
-  local fake_game_stat_file
-  
+  local fake_content = "..."
+  local fake_game_stat_path = "path/to/game_stat"
+  local fake_game_stat_file = {
+    read = function ( ... )
+      return fake_content
+    end
+  }
   local expectedResult = {}
-
   json = {
     decode = function ( ... )
       return expectedResult
@@ -27,6 +30,8 @@ describe("load_game_stat_file", function()
     spy.on(io, "open")
     stub(io, "close")
     
+    spy.on(fake_game_stat_file, "read")
+    
     load_game_stat_file = require("scene.game.load_game_stat_file")
   end)
   
@@ -42,5 +47,12 @@ describe("load_game_stat_file", function()
     load_game_stat_file.evaluate()
     -- then
     assert.stub(io.open).was_called_with(fake_game_stat_path, "r")
+  end)
+  
+  it("If file availables then read", function ( ... )
+    -- when
+    load_game_stat_file.evaluate()
+    -- then
+    assert.stub(fake_game_stat_file.read).was_called_with(fake_game_stat_file, "*a")
   end)
 end)
