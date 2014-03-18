@@ -10,6 +10,7 @@ function load_game_stat_file.evaluate()
     io.close(file)
     return result
   else
+    print("Game stat file not found")
     error("Game stat file not found")  
   end
 end

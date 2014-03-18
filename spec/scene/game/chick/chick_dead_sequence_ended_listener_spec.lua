@@ -40,6 +40,9 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     spy.on(display, "newText")
     
     score_text = {}
+    
+    check_high_score = {}
+    stub(check_high_score, "evaluate")
   
     chick_dead_sequence_ended_listener = require("scene.game.chick.chick_dead_sequence_ended_listener") 
   end)
@@ -67,6 +70,13 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     chick_dead_sequence_ended_listener.evaluate(event)
     -- then
     assert.are.equal(ending_score_text, fake_ending_score_text)
+  end)
+  
+  it("when sprite animate ended. Evalaute check_high_score", function()
+    -- when
+    chick_dead_sequence_ended_listener.evaluate(event)
+    -- then
+    assert.stub(check_high_score.evaluate).was_called()
   end)
   
   it("When sprite animate ended show ending_score_text", function()
