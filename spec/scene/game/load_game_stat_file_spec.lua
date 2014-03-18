@@ -72,4 +72,11 @@ describe("load_game_stat_file", function()
     assert.stub(io.close).was_called_with(fake_game_stat_file)
   end)
   
+  it("If file available return game_stat table", function ( ... )
+    -- when
+    local result = load_game_stat_file.evaluate()
+    -- then
+    assert.are.equal(expectedResult, result)
+  end)
+  
 end)
