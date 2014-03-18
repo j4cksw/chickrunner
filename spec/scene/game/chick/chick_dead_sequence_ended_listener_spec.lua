@@ -80,6 +80,16 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
       game_scene_config.ending_score_text_size)
   end)
   
-  it("When sprite animate ended set text to global ending_score_text")
+  it("When sprite animate ended set text to global ending_score_text", function()
+    -- given
+    local fake_high_score_text = "fake_high_score_text"
+    display.newText = function()
+      return fake_high_score_text
+    end
+    -- when
+    chick_dead_sequence_ended_listener.evaluate(event)
+    -- then
+    assert.are.equal(ending_high_score_text, fake_high_score_text)
+  end)
   
 end)
