@@ -14,10 +14,10 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     chick_dead_sequence_ended_listener = require("scene.game.chick.chick_dead_sequence_ended_listener") 
   end)
   
-  it("When sprite animate ended Remove score_text", function()
+  it("When sprite animate ended hide score_text", function()
     -- when
     chick_dead_sequence_ended_listener.evaluate(event)
     -- then
-    assert.stub(display.remove).was_called_with(score_text)
+    assert.are.False(score_text.isVisible)
   end)
 end)
