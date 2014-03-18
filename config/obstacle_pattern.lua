@@ -11,6 +11,9 @@ obstacle_pattern = {
   double_horizontal_box={
     { "box", "box" } 
   },
+  triple_horizontal_box={
+    { "box", "box", "box" } 
+  },
   double_vertical_box={
     { "box" },
     { "box" } 

@@ -22,6 +22,6 @@ describe("increase_score", function()
     -- when
     increase_score.evaluate()
     -- then
-    assert.are.equal(score_text.text, "1 m")
+    assert.are.equal(score_text.text, "1m")
   end)
 end)

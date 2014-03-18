@@ -19,10 +19,13 @@ generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_o
 obstacle_pattern = obstacle_pattern or require("config.obstacle_pattern")
 create_score_text = create_score_text or require("scene.game.score.create_score_text")
 initialize_score = initialize_score or require("scene.game.score.initialize_score")
+load_audio = load_audio or require("scene.game.audio.load_audio")
+play_bgm = play_bgm or require("scene.game.audio.play_bgm")
 
 local scene = storyboard.newScene("game_scene")
 
 function scene:createScene(event)
+  load_audio.evaluate()
 	create_ground_image_sheet.evaluate()
 	create_explosion_image_sheet.evaluate()
 	create_chick_image_sheet.evaluate()
@@ -39,6 +42,7 @@ end
 
 function scene:enterScene(event)
 	print("enterScene")
+	play_bgm.evaluate()
 	initialize_score.evaluate()
 	initialize_ground.evaluate()
 	create_chasing_explosion.evaluate()

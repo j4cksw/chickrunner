@@ -8,6 +8,7 @@ function add_physics_body_to_chick.evaluate(chick)
     "dynamic", 
     chick_sprite_config.physics_options
    )
+  chick.isSleepingAllowed = false
 end
 
 return add_physics_body_to_chick

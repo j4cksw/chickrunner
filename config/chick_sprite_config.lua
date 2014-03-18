@@ -11,6 +11,7 @@ chick_sprite_config = {
     {name="dead", start=9, count=19, time=1500, loopCount=1}
   },
   physics_options = {
+      friction=0.0,
       density=0.0,
       bounce=0.0,
       shape = {

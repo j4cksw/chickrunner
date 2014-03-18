@@ -63,4 +63,5 @@ describe("create_chasing_explosion", function()
     -- then
     assert.stub(push_to_explosion_queue.evaluate).was_called_with(explosion_sprite)
   end)
+  
 end)

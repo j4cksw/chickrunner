@@ -7,22 +7,30 @@ chick_jump = chick_jump or require("scene.game.chick_jump")
 chick_ignite = chick_ignite or require("chick.chick_ignite")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 chick_bounce_collision_listener = chick_bounce_collision_listener or require("scene.game.chick_bounce_collision_listener")
+stop_bgm = stop_bgm or require("scene.game.audio.stop_bgm")
+play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_explosion_sound")
 
 function box_collision_listener.evaluate(event)
-  print("Box collide at x="..event.x.." y="..event.y)
-  print("element"..event.selfElement)
-
-  if event.selfElement <= 2 then
+  print("Box collision detected")
+  print("Element id#"..event.selfElement)
+  if event.selfElement <= 1 then
     Runtime:removeEventListener("enterFrame", update_stage.evaluate)
     Runtime:removeEventListener("tap", chick_jump.evaluate)
     timer.cancel(explosion_timer)
+    
+    play_box_explosion_sound.evaluate()
     destroy_all_obstacles.evaluate()
+    
     chick:setLinearVelocity(game_scene_config.chick_bounce_horizontal_velocity,
       game_scene_config.chick_bounce_vertical_velocity)
     timer.performWithDelay(50, box_collision_listener.delayAddCollision)
     chick_ignite.evaluate()
+    
+    stop_bgm.evaluate()
+  else
+    --print("Not explode")
   end
-
+  
 end
 
 function box_collision_listener.delayAddCollision()
