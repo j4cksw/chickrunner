@@ -14,6 +14,13 @@ describe("initialize_score", function()
     assert.are.equal(current_score, 0)
   end)
   
+  it("Set text of score_text to 0m", function()
+    -- when
+    initialize_score.evaluate()
+    -- then
+    assert.are.equal(score_text.text, "0m")
+  end)
+  
   it("Set visible of score_text to true", function()
     -- when
     initialize_score.evaluate()
