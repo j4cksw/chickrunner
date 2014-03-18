@@ -7,7 +7,6 @@ _ = require("lib.underscore")
 
 function generate_obstacles_from_config.evaluate()
   _.each(obstacles_config, function(each_pattern_name)
-    print(each_pattern_name)
     local selected_pattern = obstacle_pattern[each_pattern_name]
     generate_obstacle.evaluate(selected_pattern)
   end)

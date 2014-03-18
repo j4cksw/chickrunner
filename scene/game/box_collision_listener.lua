@@ -11,8 +11,9 @@ stop_bgm = stop_bgm or require("scene.game.audio.stop_bgm")
 play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_explosion_sound")
 
 function box_collision_listener.evaluate(event)
-
-  if event.selfElement <= 2 then
+  print("Box collision detected")
+  print("Element id#"..event.selfElement)
+  if event.selfElement <= 1 then
     Runtime:removeEventListener("enterFrame", update_stage.evaluate)
     Runtime:removeEventListener("tap", chick_jump.evaluate)
     timer.cancel(explosion_timer)
@@ -26,8 +27,10 @@ function box_collision_listener.evaluate(event)
     chick_ignite.evaluate()
     
     stop_bgm.evaluate()
+  else
+    --print("Not explode")
   end
-
+  
 end
 
 function box_collision_listener.delayAddCollision()
