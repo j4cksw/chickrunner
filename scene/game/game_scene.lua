@@ -22,6 +22,7 @@ create_score_text = create_score_text or require("scene.game.score.create_score_
 initialize_score = initialize_score or require("scene.game.score.initialize_score")
 load_audio = load_audio or require("scene.game.audio.load_audio")
 play_bgm = play_bgm or require("scene.game.audio.play_bgm")
+start_game = start_game or require("scene.game.start_game")
 
 local scene = storyboard.newScene("game_scene")
 
@@ -43,17 +44,17 @@ function scene:createScene(event)
 end
 
 function scene:enterScene(event)
-	play_bgm.evaluate()
-	initialize_score.evaluate()
+	--play_bgm.evaluate()
+	--initialize_score.evaluate()
 	initialize_ground.evaluate()
-	create_chasing_explosion.evaluate()
-	create_explosion_core.evaluate()
+	--create_chasing_explosion.evaluate()
+	--create_explosion_core.evaluate()
 	initialize_chick.evaluate()
-	start_chasing_explosion_timer.evaluate()
-	generate_obstacle.evaluate(obstacle_pattern["short_space"])
+	--start_chasing_explosion_timer.evaluate()
+	--generate_obstacle.evaluate(obstacle_pattern["short_space"])
 	
-	Runtime:addEventListener( "enterFrame", update_stage.evaluate )
-	Runtime:addEventListener( "tap", chick_jump.evaluate)
+	--Runtime:addEventListener( "enterFrame", update_stage.evaluate )
+	Runtime:addEventListener( "tap", start_game.evaluate)
 end
 
 
