@@ -5,6 +5,11 @@ describe("explode_before_start", function()
     Runtime = {}
     stub(Runtime, "removeEventListener")
     
+    start_game = {}
+    stub(start_game, "evaluate")
+    
+    box_explosion_sound = {}
+    
     explode_before_start = require("scene.game.explode_before_start")
   end)
   
@@ -15,6 +20,14 @@ describe("explode_before_start", function()
    assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
   end)
   
-  it("Play audio and add start_game to oncomplete")
+  it("Play audio and add start_game to oncomplete", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(audio.play).was_called_with(box_explosion_sound, {onComplete=start_game.evaluate} )
+  end)
   
+  it("Set chick to run stat")
+  
+  it("Play chick animate")
 end)
