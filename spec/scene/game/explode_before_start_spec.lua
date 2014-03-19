@@ -10,6 +10,10 @@ describe("explode_before_start", function()
     
     box_explosion_sound = {}
     
+    chick = {}
+    stub(chick, "setSequence")
+    stub(chick, "play")
+    
     explode_before_start = require("scene.game.explode_before_start")
   end)
   
@@ -27,7 +31,17 @@ describe("explode_before_start", function()
     assert.stub(audio.play).was_called_with(box_explosion_sound, {onComplete=start_game.evaluate} )
   end)
   
-  it("Set chick to run stat")
+  it("Set chick to run stat", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(chick.setSequence).was_called_with(chick, "run")
+  end)
   
-  it("Play chick animate")
+  it("Play chick animate", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(chick.play).was_called_with(chick)
+  end)
 end)
