@@ -9,10 +9,13 @@ generate_obstacle = generate_obstacle or require("scene.game.obstacle.generate_o
 obstacle_pattern = obstacle_pattern or require("config.obstacle_pattern")
 update_stage = update_stage or require("scene.game.update_stage")
 chick_jump = chick_jump or require("scene.chick_jump")
+play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_explosion_sound")
+
 
 function start_game.evaluate(event)
   Runtime:removeEventListener( "tap", start_game.evaluate)
   play_bgm.evaluate()
+  play_box_explosion_sound.evaluate()
   initialize_score.evaluate()
   create_chasing_explosion.evaluate()
   create_explosion_core.evaluate()

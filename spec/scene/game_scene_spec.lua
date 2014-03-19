@@ -54,8 +54,8 @@ describe("scene.game_scene", function ( ... )
 		Runtime = {}
 		stub(Runtime, "addEventListener")
 		
-    start_game = {}
-    stub(start_game, "evaluate")
+    explode_before_start = {}
+    stub(explode_before_start, "evaluate")
 
 		game_scene = require("scene.game.game_scene")
 	end)
@@ -134,7 +134,7 @@ describe("scene.game_scene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", start_game.evaluate)
+		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
 	end)
 	
 end)
