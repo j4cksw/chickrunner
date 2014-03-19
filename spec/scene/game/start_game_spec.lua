@@ -22,6 +22,7 @@ describe("start_game", function()
     
     Runtime = {}
     stub(Runtime, "addEventListener")
+    stub(Runtime, "removeEventListener")
     
     start_chasing_explosion_timer = {}
     stub(start_chasing_explosion_timer, "evaluate")
@@ -30,6 +31,13 @@ describe("start_game", function()
     stub(generate_obstacle, "evaluate")
     
     start_game = require("scene.game.start_game")
+  end)
+  
+  it("Remove tap event listener for start game", function()
+    -- when
+   start_game.evaluate()
+   -- then
+   assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", start_game.evaluate)
   end)
   
   it("Evaluate play_bgm in enterScene", function()
