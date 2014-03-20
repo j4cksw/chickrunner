@@ -11,6 +11,9 @@ describe("enter_ready_state", function()
     generate_obstacles_from_config = {}
     stub(generate_obstacles_from_config, "evaluate")
     
+    hide_all_obstacles = {}
+    stub(hide_all_obstacles, "evaluate")
+    
     Runtime = {}
     stub(Runtime, "addEventListener")
     
@@ -38,7 +41,12 @@ describe("enter_ready_state", function()
     assert.stub(generate_obstacles_from_config.evaluate).was_called()
   end)
   
-  it("Evaluate hide_all_obstacles")
+  it("Evaluate hide_all_obstacles", function()
+    -- when
+    enter_ready_state.evaluate()
+    -- then
+    assert.stub(hide_all_obstacles.evaluate).was_called()
+  end)
   
   it("Evaluate play_chick_ready_sound")
 
