@@ -14,6 +14,9 @@ describe("explode_before_start", function()
     stub(chick, "setSequence")
     stub(chick, "play")
     
+    destroy_all_obstacles = {}
+    stub(destroy_all_obstacles, "evaluate")
+    
     explode_before_start = require("scene.game.explode_before_start")
   end)
   
@@ -31,9 +34,14 @@ describe("explode_before_start", function()
     assert.stub(audio.play).was_called_with(box_explosion_sound, {channel=3} )
   end)
   
-  it("Stop chick_ready_sound")
+  it("Evaluate destroy_all_obstacles", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(destroy_all_obstacles.evaluate).was_called()
+  end)
   
-  it("Evaluate destroy_all_obstacles")
+  it("Stop chick_ready_sound")
   
   it("Set chick to run state", function()
     -- when
