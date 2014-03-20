@@ -31,7 +31,7 @@ describe("explode_before_start", function()
     assert.stub(audio.play).was_called_with(box_explosion_sound, {channel=3} )
   end)
   
-  it("Set chick to run stat", function()
+  it("Set chick to run state", function()
     -- when
     explode_before_start.evaluate()
     -- then
