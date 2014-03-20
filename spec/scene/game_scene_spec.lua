@@ -21,9 +21,6 @@ describe("scene.game_scene", function ( ... )
 		initialize_physics = {}
 		stub(initialize_physics, "evaluate")
 
-		initialize_ground = {}
-		stub(initialize_ground, "evaluate")
-
 		create_ground_image_sheet = {}
 		stub(create_ground_image_sheet, "evaluate")
 		
@@ -45,17 +42,11 @@ describe("scene.game_scene", function ( ... )
 		load_audio = {}
 		stub(load_audio, "evaluate")
 
-		initialize_chick = {}
-		stub(initialize_chick, "evaluate")
-
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
-
-		Runtime = {}
-		stub(Runtime, "addEventListener")
-		
-    explode_before_start = {}
-    stub(explode_before_start, "evaluate")
+    
+    enter_ready_state = {}
+    stub(enter_ready_state, "evaluate")
 
 		game_scene = require("scene.game.game_scene")
 	end)
@@ -116,25 +107,13 @@ describe("scene.game_scene", function ( ... )
 	 assert.stub(load_audio.evaluate).was_called()
 	end)
 
-	it("Evaluate initialize_ground in enterScene", function ( ... )
+	it("Evaluate enter_ready_state in enterScene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(initialize_ground.evaluate).was_called()
+		assert.stub(enter_ready_state.evaluate).was_called()
 	end)
 	
-	it("Evalaute initialize_chick in enterScene", function()
-	 -- when
-   game_scene:enterScene(event)
-   -- then
-   assert.stub(initialize_chick.evaluate).was_called()
-	end)
 
-	it("Add tap event lister to Runtime in enterScene", function ( ... )
-		-- when
-		game_scene:enterScene(event)
-		-- then
-		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
-	end)
 	
 end)
