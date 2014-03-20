@@ -44,4 +44,11 @@ describe("explode_before_start", function()
     -- then
     assert.stub(chick.play).was_called_with(chick)
   end)
+  
+  it("start timer for actual start game", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(timer.performWithDelay).was_called_with(100, start_game.evaluate)
+  end)
 end)
