@@ -50,7 +50,7 @@ describe("explode_before_start", function()
     -- when
     explode_before_start.evaluate()
     -- then
-    assert.stub(audio.stop).was_called_with(chick_ready_sound)
+    assert.stub(audio.stop).was_called_with({channel=4})
   end)
   
   it("Set chick to run state", function()

@@ -6,7 +6,7 @@ remove_obstacles = remove_obstacles or require("scene.game.obstacle.remove_obsta
 
 function explode_before_start.evaluate()
   Runtime:removeEventListener("tap", explode_before_start.evaluate)
-  audio.stop(chick_ready_sound)
+  audio.stop({channel=4})
   audio.play(box_explosion_sound, {channel=3})
   destroy_all_obstacles.evaluate()
   remove_obstacles.evaluate()
