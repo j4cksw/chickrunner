@@ -8,6 +8,9 @@ describe("enter_ready_state", function()
     initialize_chick = {}
     stub(initialize_chick, "evaluate")
     
+    generate_obstacles_from_config = {}
+    stub(generate_obstacles_from_config, "evaluate")
+    
     Runtime = {}
     stub(Runtime, "addEventListener")
     
@@ -27,6 +30,17 @@ describe("enter_ready_state", function()
    -- then
    assert.stub(initialize_chick.evaluate).was_called()
   end)
+  
+  it("Evaluate generate_obstacles_from_config", function()
+    -- when
+    enter_ready_state.evaluate()
+    -- then
+    assert.stub(generate_obstacles_from_config.evaluate).was_called()
+  end)
+  
+  it("Evaluate hide_all_obstacles")
+  
+  it("Evaluate play_chick_ready_sound")
 
   it("Add tap event listener to Runtime in enterScene", function ( ... )
     -- when
