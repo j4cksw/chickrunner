@@ -7,6 +7,7 @@ _ = require("lib.underscore")
 function destroy_all_obstacles.evaluate()
   _.each(obstacle_queue, function(obstacle_group)
     destroy_obstacle_group.evaluate(obstacle_group)
+    --table.remove(obstacle_queue, 1)
   end)
 end
 

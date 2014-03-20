@@ -1,5 +1,5 @@
 obstacles_config = {
   "triple_horizontal_box",
-  "long_space"
+  "single_box"
 }
 return obstacles_config

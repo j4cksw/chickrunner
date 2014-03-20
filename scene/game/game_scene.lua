@@ -28,6 +28,7 @@ function scene:createScene(event)
 end
 
 function scene:enterScene(event)
+  print("enter scene")
 	enter_ready_state.evaluate()
 end
 

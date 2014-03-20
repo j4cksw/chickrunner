@@ -14,6 +14,10 @@ describe("enter_ready_state", function()
     hide_all_obstacles = {}
     stub(hide_all_obstacles, "evaluate")
     
+    chick_ready_sound = {"fake_chick_ready_sound"}
+    audio = {}
+    stub(audio, "play")
+    
     Runtime = {}
     stub(Runtime, "addEventListener")
     
@@ -48,7 +52,12 @@ describe("enter_ready_state", function()
     assert.stub(hide_all_obstacles.evaluate).was_called()
   end)
   
-  it("Evaluate play_chick_ready_sound")
+  it("Evaluate play_chick_ready_sound", function()
+    -- when
+    enter_ready_state.evaluate()
+    -- then
+    assert.stub(audio.play).was_called_with(chick_ready_sound)
+  end)
 
   it("Add tap event listener to Runtime in enterScene", function ( ... )
     -- when
