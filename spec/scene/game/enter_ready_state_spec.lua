@@ -56,7 +56,7 @@ describe("enter_ready_state", function()
     -- when
     enter_ready_state.evaluate()
     -- then
-    assert.stub(audio.play).was_called_with(chick_ready_sound)
+    assert.stub(audio.play).was_called_with(chick_ready_sound, {loops=-1, channel=4})
   end)
 
   it("Add tap event listener to Runtime in enterScene", function ( ... )

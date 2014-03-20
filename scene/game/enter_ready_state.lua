@@ -9,7 +9,7 @@ explode_before_start = explode_before_start or require("scene.game.explode_befor
 function enter_ready_state.evaluate()
   initialize_ground.evaluate()
   initialize_chick.evaluate()
-  audio.play(chick_ready_sound)
+  audio.play(chick_ready_sound, {loops=-1, channel=4})
   generate_obstacles_from_config.evaluate()
   hide_all_obstacles.evaluate()
   Runtime:addEventListener( "tap", explode_before_start.evaluate)
