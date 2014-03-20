@@ -12,7 +12,7 @@ initialize_chick = initialize_chick or require("scene.initialize_chick")
 create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
 create_score_text = create_score_text or require("scene.game.score.create_score_text")
 load_audio = load_audio or require("scene.game.audio.load_audio")
-start_game = start_game or require("scene.game.explode_before_start")
+explode_before_start = explode_before_start or require("scene.game.explode_before_start")
 
 local scene = storyboard.newScene("game_scene")
 

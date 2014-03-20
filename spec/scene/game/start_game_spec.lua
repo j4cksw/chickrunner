@@ -33,12 +33,6 @@ describe("start_game", function()
     start_game = require("scene.game.start_game")
   end)
   
-  it("Remove tap event listener for start game", function()
-    -- when
-   start_game.evaluate()
-   -- then
-   assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", start_game.evaluate)
-  end)
   
   it("Evaluate play_bgm in enterScene", function()
    -- when

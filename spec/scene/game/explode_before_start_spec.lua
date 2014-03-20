@@ -28,7 +28,7 @@ describe("explode_before_start", function()
     -- when
     explode_before_start.evaluate()
     -- then
-    assert.stub(audio.play).was_called_with(box_explosion_sound, {onComplete=start_game.evaluate} )
+    assert.stub(audio.play).was_called_with(box_explosion_sound, {channel=3} )
   end)
   
   it("Set chick to run stat", function()

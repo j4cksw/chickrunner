@@ -13,9 +13,8 @@ play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_exp
 
 
 function start_game.evaluate(event)
-  Runtime:removeEventListener( "tap", start_game.evaluate)
+  print("start game")
   play_bgm.evaluate()
-  play_box_explosion_sound.evaluate()
   initialize_score.evaluate()
   create_chasing_explosion.evaluate()
   create_explosion_core.evaluate()
