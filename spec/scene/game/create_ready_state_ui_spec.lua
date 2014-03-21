@@ -10,7 +10,7 @@ describe("create_ready_state_ui", function()
   local fake_ui_group = {}
   
   local fake_first_text = {"first_text", y=620}
-  local fake_second_text = {"second_text"}
+  local fake_second_text = {"second_text", y=999}
   
   setup(function()
     create_tap_to_start_button = {
@@ -25,8 +25,12 @@ describe("create_ready_state_ui", function()
     
     display = {
       contentCenterX=600,
-      newText = function()
-        return fake_first_text
+      newText = function(text)
+        if text == "TO" then
+          return fake_first_text
+        else
+          return fake_second_text
+        end
       end,
       newGroup = function()
         return fake_ui_group
@@ -85,8 +89,13 @@ describe("create_ready_state_ui", function()
     -- when
     create_ready_state_ui.evaluate()
     -- then
-    assert.stub(display.newText).was_called_with("START", display.contentCenterX, fake_first_text.y+20, fontname, 64)
+    assert.stub(display.newText).was_called_with("START", display.contentCenterX, fake_first_text.y+50, fontname, 48)
   end)
   
-  it("Insert 'start' to group")
+  it("Insert 'start' to group", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, fake_second_text)
+  end)
 end)
