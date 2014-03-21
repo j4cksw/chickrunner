@@ -22,6 +22,10 @@ describe("explode_before_start", function()
     stub(audio, "play")
     stub(audio, "stop")
     
+    tap_to_start_button = {}
+    display = {}
+    stub(display, "remove")
+    
     explode_before_start = require("scene.game.explode_before_start")
   end)
   
@@ -31,6 +35,14 @@ describe("explode_before_start", function()
    -- then
    assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
   end)
+  
+  it("Remove tap_to_start_button", function()
+    -- when
+    explode_before_start.evaluate()
+    -- then
+    assert.stub(display.remove).was_called_with(tap_to_start_button)
+  end)
+  
   
   it("Play audio and add start_game to oncomplete", function()
     -- when

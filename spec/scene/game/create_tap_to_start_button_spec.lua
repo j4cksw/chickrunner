@@ -21,7 +21,7 @@ describe("create_tap_to_start_button", function()
     -- when
     create_tap_to_start_button.evaluate()
     -- then
-    assert.spy(display.newImage).was_called_with("img/screen/reay/tap.png")
+    assert.spy(display.newImage).was_called_with("img/screen/ready/tap.png")
   end)
 
   it("Move button to center x", function ( ... )
