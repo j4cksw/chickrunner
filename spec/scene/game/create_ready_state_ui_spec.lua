@@ -1,7 +1,7 @@
 describe("create_ready_state_ui", function()
   local create_ready_state_ui
   
-  tap_to_start_button = {
+  local tap_to_start_button = {
     y = 500
   }
   
@@ -9,11 +9,11 @@ describe("create_ready_state_ui", function()
   
   setup(function()
     create_tap_to_start_button = {
-      evalaute = function()
+      evaluate = function()
         return tap_to_start_button 
       end
     }
-    stub(create_tap_to_start_button, "evaluate")
+    spy.on(create_tap_to_start_button, "evaluate")
     
     get_fontname_by_platform = {}
     stub(get_fontname_by_platform, "evaluate")
@@ -21,10 +21,14 @@ describe("create_ready_state_ui", function()
     display = {
       contentCenterX=600,
       newText = function()
-        return fake_ending_score_text
+        return fake_text
+      end,
+      newGroup = function()
+        return fake_ui_group
       end
     }
     spy.on(display, "newText")
+    spy.on(display, "newGroup")
     
     get_fontname_by_platform = {
       evaluate = function()
@@ -46,11 +50,19 @@ describe("create_ready_state_ui", function()
     -- when
     create_ready_state_ui.evaluate()
     -- then
-    assert.stub(display.newText).was_called_with("TO", display.contentCenterX, tap_to_start_button.y+20, fontname, 32)
+    assert.stub(display.newText).was_called_with("TO", display.contentCenterX, tap_to_start_button.y+120, fontname, 32)
   end)
   
+  it("Create display group", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(display.newGroup).was_called()
+  end)
+  
+  it("Insert tap button to ready_state_ui_group")
+  
+  it("Insert 'to' to ready_state_ui_group")
+  
   it("Create text 'start' under 'to'")
-  
-  it("Create display group")
-  
 end)
