@@ -13,6 +13,7 @@ function create_ready_state_ui.evaluate()
   ready_state_ui_group:insert(tap_to_start_button)
   ready_state_ui_group:insert(first_text)
   ready_state_ui_group:insert(second_text)
+  ready_state_ui_group:insert(tutorial_image)
   ready_state_ui_group.y = ready_state_ui_group.y-180
 end
 

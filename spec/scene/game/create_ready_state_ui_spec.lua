@@ -114,5 +114,10 @@ describe("create_ready_state_ui", function()
     assert.stub(display.newImage).was_called_with("img/screen/ready/tutorial.png")
   end)
   
-  it("Insert tutorial image to group")
+  it("Insert tutorial image to group", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, fake_tutorial_image)
+  end)
 end)
