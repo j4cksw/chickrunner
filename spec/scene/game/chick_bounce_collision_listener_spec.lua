@@ -21,6 +21,10 @@ describe("chick_bounce_collison_listener", function()
       evaluate = function()end
     }
     
+    chick_dead_sequence_ended_listener = {
+      evaluate = function()end
+    }
+    
     Runtime = {}
     stub(Runtime, "addEventListener")
     
@@ -53,5 +57,12 @@ describe("chick_bounce_collison_listener", function()
     chick_bounce_collision_listener.evaluate(event)
     -- then
     assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", restart_game.evaluate)
+  end)
+  
+  it("When collide to the ground, Add dead_sequence_ended_litener to chick", function()
+    -- when
+    chick_bounce_collision_listener.evaluate(event)
+    -- then
+    assert.stub(chick.addEventListener).was_called_with(chick, "sprite", chick_dead_sequence_ended_listener.evaluate)
   end)
 end)

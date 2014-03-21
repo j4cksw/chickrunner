@@ -48,11 +48,11 @@ describe("create_chick_sprite", function()
     assert.stub(add_physics_body_to_chick.evaluate).was_called_with(chick_sprite)
   end)
   
-  it("Set normal sequence", function()
+  it("Set idle sequence", function()
     -- when
     create_chick_sprite.evaluate()
     -- then
-    assert.stub(chick_sprite.setSequence).was_called_with(chick_sprite, "run")
+    assert.stub(chick_sprite.setSequence).was_called_with(chick_sprite, "idle")
   end)
   
   it("Play the sprite", function() 

@@ -13,9 +13,13 @@ game_scene_config = {
   explosion_core_width = 10, 
   draw_mode = "hidden",
   gravity = 60,
-  obstacle_horizontal_start = 776,
+  obstacle_horizontal_start = 350,
+  obstacle_horizontal_start_game = 700,
   obstacle_space_alpha = 0,
+  score_text_size = 60,
   score_text_y = 100,
-  score_text_size = 60
+  ending_score_text_size = 40,
+  ending_score_text_y = 400,
+  ending_high_score_text_y = 500
 }
 return game_scene_config

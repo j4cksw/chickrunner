@@ -15,11 +15,11 @@ describe("scene.game_scene", function ( ... )
 			end
 		}
 		
+		initialize_game_stat = {}
+		stub(initialize_game_stat, "evaluate")
+		
 		initialize_physics = {}
 		stub(initialize_physics, "evaluate")
-
-		initialize_ground = {}
-		stub(initialize_ground, "evaluate")
 
 		create_ground_image_sheet = {}
 		stub(create_ground_image_sheet, "evaluate")
@@ -41,45 +41,23 @@ describe("scene.game_scene", function ( ... )
 		
 		load_audio = {}
 		stub(load_audio, "evaluate")
-	
-	  initialize_score = {}
-	  stub(initialize_score, "evaluate")
-		
-		create_chasing_explosion = {}
-		stub(create_chasing_explosion, "evaluate")
-		
-		initialize_chick = {}
-		stub(initialize_chick, "evaluate")
-		
-		start_chasing_explosion_timer = {}
-		stub(start_chasing_explosion_timer, "evaluate")
-		
-		generate_obstacle = {}
-		stub(generate_obstacle, "evaluate")
 
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
-		
-		play_bgm = {}
-		stub(play_bgm, "evaluate")
+    
+    enter_ready_state = {}
+    stub(enter_ready_state, "evaluate")
 
-		Runtime = {}
-		stub(Runtime, "addEventListener")
-		
-		chick_jump = {}
-		stub(chick_jump, "evaluate")
-
-		update_stage = {}
-		stub(update_stage, "evaluate")
-		
-		create_explosion_core = {}
-		stub(create_explosion_core, "evaluate")
-		
-		move_explosion = {}
-
-		game_scene = require("scene.game_scene")
+		game_scene = require("scene.game.game_scene")
 	end)
-
+  
+  it("EValuate initialize_game_stat", function()
+    -- when
+    game_scene:createScene(event)
+    -- then
+    assert.stub(initialize_game_stat.evaluate).was_called()
+  end)
+  
 	it("Evalaute create_ground_image_sheet in createScene", function ( ... )
 		-- when
 		game_scene:createScene(event)
@@ -128,82 +106,14 @@ describe("scene.game_scene", function ( ... )
 	 -- then
 	 assert.stub(load_audio.evaluate).was_called()
 	end)
-	
-	it("Evaluate play_bgm in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(play_bgm.evaluate).was_called()
-	end)
-	
-	it("Evaluate initialize_score in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(initialize_score.evaluate).was_called()
-	end)
-	
-	it("Evaluating create_background_image in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(create_background_image.evaluate).was_called()
-	end)
 
-	it("Evaluate set_current_view with self.view in enterScene", function ( ... )
-		-- when
-		game_scene:enterScene()
-		-- then
-		assert.stub(set_current_view_group.evaluate).was_called_with(scene.view)
-	end)
-
-	it("Evaluate initialize_ground in enterScene", function ( ... )
+	it("Evaluate enter_ready_state in enterScene", function ( ... )
 		-- when
 		game_scene:enterScene(event)
 		-- then
-		assert.stub(initialize_ground.evaluate).was_called()
+		assert.stub(enter_ready_state.evaluate).was_called()
 	end)
 	
-	it("Evaluate create_chasing_explosion in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(create_chasing_explosion.evaluate).was_called()
-	end)
-	
-	it("Evalaute initialize_chick in enterScene", function()
-	 -- when
-   game_scene:enterScene(event)
-   -- then
-   assert.stub(initialize_chick.evaluate).was_called()
-	end)
-	
-	it("Evaluate start_chasing_explosion_timer", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(start_chasing_explosion_timer.evaluate).was_called()
-	end)
-	
-	it("Evaluate create_explosion_core in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(create_explosion_core.evaluate).was_called()
-	end)
 
-	it("Add enterFrame event lister to Runtime in enterScene", function ( ... )
-		-- when
-		game_scene:enterScene(event)
-		-- then
-		assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", update_stage.evaluate)
-	end)
-	
-	it("Add tap event listener to Runtime in enterScene", function()
-	 -- when
-	 game_scene:enterScene(event)
-	 -- then
-	 assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", chick_jump.evaluate)
-	end)
 	
 end)

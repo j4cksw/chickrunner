@@ -9,6 +9,7 @@ function create_score_text.evaluate()
     game_scene_config.score_text_y, 
     get_fontname_by_platform.evaluate(), 
     game_scene_config.score_text_size)
+  score_text.isVisible = false
 end
 
 return create_score_text
