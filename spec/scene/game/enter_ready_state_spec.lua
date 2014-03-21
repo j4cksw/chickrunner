@@ -18,8 +18,8 @@ describe("enter_ready_state", function()
     audio = {}
     stub(audio, "play")
     
-    create_tap_to_start_button = {}
-    stub(create_tap_to_start_button, "evaluate")
+    create_ready_state_ui = {}
+    stub(create_ready_state_ui, "evaluate")
     
     Runtime = {}
     stub(Runtime, "addEventListener")
@@ -62,11 +62,11 @@ describe("enter_ready_state", function()
     assert.stub(audio.play).was_called_with(chick_ready_sound, {loops=-1, channel=4})
   end)
   
-  it("Evaluate create_tap_to_start_button", function()
+  it("Evaluate create_ready_state_ui", function()
     -- when
     enter_ready_state.evaluate()
     -- then
-    assert.stub(create_tap_to_start_button.evaluate).was_called()
+    assert.stub(create_ready_state_ui.evaluate).was_called()
   end)
   
   it("Add tap event listener to Runtime in enterScene", function ( ... )
