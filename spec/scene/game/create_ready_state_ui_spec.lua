@@ -7,6 +7,8 @@ describe("create_ready_state_ui", function()
   
   local fontname = "f"
   
+  local fake_ui_group = {}
+  
   setup(function()
     create_tap_to_start_button = {
       evaluate = function()
@@ -36,6 +38,8 @@ describe("create_ready_state_ui", function()
       end
     }
     
+    stub(fake_ui_group, "insert")
+    
     create_ready_state_ui = require("scene.game.create_ready_state_ui")
   end)
   
@@ -60,7 +64,12 @@ describe("create_ready_state_ui", function()
     assert.stub(display.newGroup).was_called()
   end)
   
-  it("Insert tap button to ready_state_ui_group")
+  it("Insert tap button to ready_state_ui_group", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, tap_to_start_button)
+  end)
   
   it("Insert 'to' to ready_state_ui_group")
   
