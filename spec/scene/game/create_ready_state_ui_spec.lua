@@ -7,10 +7,14 @@ describe("create_ready_state_ui", function()
   
   local fontname = "f"
   
-  local fake_ui_group = {}
+  local fake_ui_group = {
+    y = 500
+  }
   
   local fake_first_text = {"first_text", y=620}
   local fake_second_text = {"second_text", y=999}
+  
+  local fake_tutorial_image = {"fake_image"}
   
   setup(function()
     create_tap_to_start_button = {
@@ -34,10 +38,14 @@ describe("create_ready_state_ui", function()
       end,
       newGroup = function()
         return fake_ui_group
+      end,
+      newImage = function()
+        return fake_tutorial_image
       end
     }
     spy.on(display, "newText")
     spy.on(display, "newGroup")
+    spy.on(display, "newImage")
     
     get_fontname_by_platform = {
       evaluate = function()
@@ -98,4 +106,13 @@ describe("create_ready_state_ui", function()
     -- then
     assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, fake_second_text)
   end)
+  
+  it("Create tutorial image", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(display.newImage).was_called_with("img/screen/ready/tutorial.png")
+  end)
+  
+  it("Insert tutorial image to group")
 end)
