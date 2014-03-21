@@ -9,7 +9,7 @@ describe("create_ready_state_ui", function()
   
   local fake_ui_group = {}
   
-  local fake_first_text = {"first_text"}
+  local fake_first_text = {"first_text", y=620}
   local fake_second_text = {"second_text"}
   
   setup(function()
@@ -81,5 +81,12 @@ describe("create_ready_state_ui", function()
     assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, fake_first_text)
   end)
   
-  it("Create text 'start' under 'to'")
+  it("Create text 'start' under 'to'", function()
+    -- when
+    create_ready_state_ui.evaluate()
+    -- then
+    assert.stub(display.newText).was_called_with("START", display.contentCenterX, fake_first_text.y+20, fontname, 64)
+  end)
+  
+  it("Insert 'start' to group")
 end)

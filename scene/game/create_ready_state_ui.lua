@@ -7,7 +7,7 @@ get_fontname_by_platform = get_fontname_by_platform or require("utils.get_fontna
 function create_ready_state_ui.evaluate()
   local tap_to_start_button = create_tap_to_start_button.evaluate()
   local first_text = display.newText("TO", display.contentCenterX, tap_to_start_button.y+120, get_fontname_by_platform.evaluate(), 32)
-  
+  local second_text = display.newText("START", display.contentCenterX, first_text.y+20, get_fontname_by_platform.evaluate(), 64)
   ready_state_ui_group = display.newGroup()
   ready_state_ui_group:insert(tap_to_start_button)
   ready_state_ui_group:insert(first_text)
