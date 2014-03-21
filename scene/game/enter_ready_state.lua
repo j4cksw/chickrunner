@@ -5,6 +5,7 @@ initialize_chick = initialize_chick or require("scene.initialize_chick")
 generate_obstacles_from_config = generate_obstacles_from_config or require("scene.game.obstacle.generate_obstacles_from_config")
 hide_all_obstacles = hide_all_obstacles or require("scene.game.obstacle.hide_all_obstacles")
 explode_before_start = explode_before_start or require("scene.game.explode_before_start")
+create_tap_to_start_button = create_tap_to_start_button or require("scene.game.create_tap_to_start_button")
 
 function enter_ready_state.evaluate()
   initialize_ground.evaluate()
@@ -12,6 +13,7 @@ function enter_ready_state.evaluate()
   audio.play(chick_ready_sound, {loops=-1, channel=4})
   generate_obstacles_from_config.evaluate()
   hide_all_obstacles.evaluate()
+  create_tap_to_start_button.evaluate()
   Runtime:addEventListener( "tap", explode_before_start.evaluate)
 end
 
