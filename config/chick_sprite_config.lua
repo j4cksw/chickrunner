@@ -9,7 +9,7 @@ chick_sprite_config = {
     {name="ignite", start=1, count=3, time=300, loopCount=1},
     {name="burn", start=4, count=5, time=300},
     {name="dead", start=9, count=19, time=1500, loopCount=1},
-    {name="idle", start=40, count=9, time=1000}
+    {name="idle", start=40, count=9, time=800}
   },
   physics_options = {
       friction=0.0,

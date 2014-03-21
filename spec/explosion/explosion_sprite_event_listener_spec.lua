@@ -21,15 +21,4 @@ describe("explosion_sprite_event_listener", function()
     -- then
     assert.stub(display.remove).was_called_with(target)
   end)
-  
-  it("Remove first element in explosion_queue", function()
-    -- given
-    local explosion_1 = {}
-    local explosion_2 = {}
-    explosion_queue = { explosion_1, explosion_2}
-    -- when
-    explosion_sprite_event_listener.evaluate(event)
-    -- then
-    assert.are_not.equal(explosion_1, explosion_queue[1])
-  end)
 end)
