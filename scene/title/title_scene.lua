@@ -11,11 +11,14 @@ function title_scene:createScene(event)
   create_background_image.evaluate()
   local start_button = widget.newButton({
     id = "start",
-    defaultFile = "img/ui/start.png"
+    defaultFile = "img/ui/start.png",
+    onRelease = self.go_to_game_scene
   })
   start_button.x = display.contentCenterX
   start_button.y = display.contentCenterY
 end
+
+function title_scene.go_to_game_scene()end
 
 title_scene:addEventListener( "createScene", title_scene )
 

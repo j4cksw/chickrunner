@@ -59,7 +59,8 @@ describe("title_scene", function()
     assert.stub(widget.newButton).
       was_called_with({
         id="start", 
-        defaultFile="img/ui/start.png"
+        defaultFile="img/ui/start.png",
+        onRelease=title_scene.go_to_game_scene
       })
   end)
   
