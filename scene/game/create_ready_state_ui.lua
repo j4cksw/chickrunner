@@ -3,14 +3,11 @@ create_ready_state_ui = {}
 create_tap_to_start_button = create_tap_to_start_button or require("scene.game.create_tap_to_start_button")
 get_fontname_by_platform = get_fontname_by_platform or require("utils.get_fontname_by_platform")
 game_scene_config = game_scene_config or require("config.game_scene_config")
+create_ready_first_text = create_ready_first_text or require("scene.game.create_ready_first_text")
 
 function create_ready_state_ui.evaluate()
   local tap_to_start_button = create_tap_to_start_button.evaluate()
-  local first_text = display.newText("TO",
-    display.contentCenterX, 
-    tap_to_start_button.y+game_scene_config.ready_first_text_y_offset, 
-    get_fontname_by_platform.evaluate(), 
-    game_scene_config.ready_first_text_size)
+  local first_text = create_ready_first_text.evaluate(tap_to_start_button)
   local second_text = display.newText("START", display.contentCenterX, first_text.y+50, get_fontname_by_platform.evaluate(), 48)
   local tutorial_image = display.newImage("img/screen/ready/tutorial.png")
   tutorial_image.x = tap_to_start_button.x+200

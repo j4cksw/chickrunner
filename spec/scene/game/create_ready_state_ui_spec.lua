@@ -62,6 +62,13 @@ describe("create_ready_state_ui", function()
     
     stub(fake_ui_group, "insert")
     
+    create_ready_first_text = {
+      evaluate = function()
+        return fake_first_text
+      end
+    }
+    spy.on(create_ready_first_text, "evaluate")
+    
     create_ready_state_ui = require("scene.game.create_ready_state_ui")
   end)
   
@@ -72,16 +79,11 @@ describe("create_ready_state_ui", function()
     assert.stub(create_tap_to_start_button.evaluate).was_called()
   end)
   
-  it("Create 'to' text under tap button", function()
+  it("Create first_text under tap button", function()
     -- when
     create_ready_state_ui.evaluate()
     -- then
-    assert.stub(display.newText)
-      .was_called_with("TO",
-       display.contentCenterX,
-       tap_to_start_button.y+game_scene_config.ready_first_text_y_offset,
-       fontname, 
-       game_scene_config.ready_first_text_size)
+    assert.stub(create_ready_first_text.evaluate).was_called_with(tap_to_start_button)
   end)
   
   it("Create display group", function()
