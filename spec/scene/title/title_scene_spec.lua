@@ -18,6 +18,9 @@ describe("title_scene", function()
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
     
+    create_background_image = {}
+    stub(create_background_image, "evaluate")
+    
     title_scene = require("scene.title.title_scene")
   end)
   
@@ -28,5 +31,10 @@ describe("title_scene", function()
     assert.stub(set_current_view_group.evaluate).was_called_with(scene.view)
   end)
   
-  it("Evaluate create background image")
+  it("Evaluate create background image", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.stub(create_background_image.evaluate).was_called()
+  end)
 end)

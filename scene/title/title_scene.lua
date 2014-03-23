@@ -7,6 +7,7 @@ local title_scene = storyboard.newScene("title_scene")
 
 function title_scene:createScene(event)
   set_current_view_group.evaluate(self.view)
+  create_background_image.evaluate()
 end
 
 return title_scene
