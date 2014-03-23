@@ -7,7 +7,9 @@ describe("title_scene", function()
     end,
     view = {}
   }
-
+  
+  local fake_button = {}
+  
   setup(function ( ... )
     storyboard = {
       newScene = function ( ... )
@@ -21,6 +23,11 @@ describe("title_scene", function()
       end 
     }
     spy.on(widget, "newButton")
+    
+    display = {
+      contentCenterX = 10,
+      contentCenterY = 20
+    }
     
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
@@ -56,7 +63,13 @@ describe("title_scene", function()
       })
   end)
   
-  it("Set start button on centerr of screen")
+  it("Set start button on centerr of screen", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.are.equal(fake_button.x, display.contentCenterX)
+    assert.are.equal(fake_button.y, display.contentCenterY)
+  end)
   
   it("Go to game scene when push start button")
   

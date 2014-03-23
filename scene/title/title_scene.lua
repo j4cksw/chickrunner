@@ -9,10 +9,12 @@ local title_scene = storyboard.newScene("title_scene")
 function title_scene:createScene(event)
   set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
-  start_button = widget.newButton({
+  local start_button = widget.newButton({
     id = "start",
     defaultFile = "img/ui/start.png"
   })
+  start_button.x = display.contentCenterX
+  start_button.y = display.contentCenterY
 end
 
 title_scene:addEventListener( "createScene", title_scene )
