@@ -40,5 +40,12 @@ describe("create_ready_first_text", function()
        game_scene_config.ready_first_text_size)
   end)
   
-  it("Return a text display object")
+  it("Return a text display object", function()
+    -- given
+    local pivot = { y=500 }
+    -- when
+    local result = create_ready_first_text.evaluate(pivot)
+    -- then
+    assert.are.equal(result, fake_first_text)
+  end)
 end)
