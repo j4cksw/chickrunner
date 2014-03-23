@@ -2,7 +2,8 @@ describe("create_ready_state_ui", function()
   local create_ready_state_ui
   
   local tap_to_start_button = {
-    y = 500
+    y = 500,
+    x = 500
   }
   
   local fontname = "f"
@@ -17,6 +18,11 @@ describe("create_ready_state_ui", function()
   local fake_tutorial_image = {"fake_image"}
   
   setup(function()
+  
+    game_scene_config = {
+      ready_first_text_y_offset = 20
+    }
+    
     create_tap_to_start_button = {
       evaluate = function()
         return tap_to_start_button 
@@ -69,7 +75,11 @@ describe("create_ready_state_ui", function()
     -- when
     create_ready_state_ui.evaluate()
     -- then
-    assert.stub(display.newText).was_called_with("TO", display.contentCenterX, tap_to_start_button.y+120, fontname, 32)
+    assert.stub(display.newText)
+      .was_called_with("TO",
+       display.contentCenterX,
+       tap_to_start_button.y+game_scene_config.ready_first_text_y_offset,
+       fontname, 32)
   end)
   
   it("Create display group", function()
