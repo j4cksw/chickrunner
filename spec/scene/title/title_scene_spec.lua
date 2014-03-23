@@ -15,6 +15,13 @@ describe("title_scene", function()
       end
     }
     
+    widget = {
+      newButton = function()
+        return fake_button
+      end 
+    }
+    spy.on(widget, "newButton")
+    
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
     
@@ -37,4 +44,23 @@ describe("title_scene", function()
     -- then
     assert.stub(create_background_image.evaluate).was_called()
   end)
+  
+  it("Create start button", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.stub(widget.newButton).
+      was_called_with({
+        id="start", 
+        defaultFile="img/ui/start.png"
+      })
+  end)
+  
+  it("Set start button on centerr of screen")
+  
+  it("Go to game scene when push start button")
+  
+  it("Create ground")
+  
+  it("CReate game title image")
 end)
