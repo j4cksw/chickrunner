@@ -16,6 +16,7 @@ describe("title_scene", function()
         return scene
       end
     }
+    stub(storyboard, "gotoScene")
     
     widget = {
       newButton = function()
@@ -72,7 +73,14 @@ describe("title_scene", function()
     assert.are.equal(fake_button.y, display.contentCenterY)
   end)
   
-  it("Go to game scene when push start button")
+  it("Go to game scene when push start button", function()
+    -- when
+    title_scene.go_to_game_scene()
+    -- then
+    assert.stub(storyboard.gotoScene).was_called_with("scene.game.game_scene",{
+      effect = "fade",
+      time = 500})
+  end)
   
   it("Create ground")
   

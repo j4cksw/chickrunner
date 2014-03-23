@@ -18,7 +18,11 @@ function title_scene:createScene(event)
   start_button.y = display.contentCenterY
 end
 
-function title_scene.go_to_game_scene()end
+function title_scene.go_to_game_scene()
+  storyboard.gotoScene("scene.game.game_scene",{
+    effect = "fade",
+    time = 500})
+end
 
 title_scene:addEventListener( "createScene", title_scene )
 
