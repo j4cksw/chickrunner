@@ -20,7 +20,8 @@ describe("create_ready_state_ui", function()
   setup(function()
   
     game_scene_config = {
-      ready_first_text_y_offset = 20
+      ready_first_text_y_offset = 20,
+      ready_first_text_size = 32
     }
     
     create_tap_to_start_button = {
@@ -79,7 +80,8 @@ describe("create_ready_state_ui", function()
       .was_called_with("TO",
        display.contentCenterX,
        tap_to_start_button.y+game_scene_config.ready_first_text_y_offset,
-       fontname, 32)
+       fontname, 
+       game_scene_config.ready_first_text_size)
   end)
   
   it("Create display group", function()

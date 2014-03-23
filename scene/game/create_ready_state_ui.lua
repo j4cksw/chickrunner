@@ -10,7 +10,7 @@ function create_ready_state_ui.evaluate()
     display.contentCenterX, 
     tap_to_start_button.y+game_scene_config.ready_first_text_y_offset, 
     get_fontname_by_platform.evaluate(), 
-    32)
+    game_scene_config.ready_first_text_size)
   local second_text = display.newText("START", display.contentCenterX, first_text.y+50, get_fontname_by_platform.evaluate(), 48)
   local tutorial_image = display.newImage("img/screen/ready/tutorial.png")
   tutorial_image.x = tap_to_start_button.x+200
