@@ -112,7 +112,11 @@ describe("title_scene", function()
     assert.are.equal(fake_logo.y, 200)
   end)
   
-  it("Add title image to current view group")
+  it("Insert title image to current view group", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_logo)
+  end)
   
-  it("Create ground")
 end)
