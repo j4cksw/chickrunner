@@ -21,6 +21,7 @@ function title_scene:createScene(event)
   
   local logo_image = display.newImage("img/screen/title/logo.png")
   logo_image.x = display.contentCenterX
+  logo_image.y = 200
 end
 
 function title_scene.go_to_game_scene()

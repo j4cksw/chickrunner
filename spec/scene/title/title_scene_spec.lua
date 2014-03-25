@@ -105,7 +105,12 @@ describe("title_scene", function()
     assert.are.equal(fake_logo.x, display.contentCenterX)
   end)
   
-  it("Set y of title image to 200")
+  it("Set y of title image to 200", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.are.equal(fake_logo.y, 200)
+  end)
   
   it("Add title image to current view group")
   
