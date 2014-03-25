@@ -29,12 +29,16 @@ describe("title_scene", function()
       contentCenterX = 10,
       contentCenterY = 20
     }
+    stub(display, "newImage")
     
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
     
     create_background_image = {}
     stub(create_background_image, "evaluate")
+    
+    insert_to_current_view_group = {}
+    stub(insert_to_current_view_group, "evaluate")
     
     title_scene = require("scene.title.title_scene")
   end)
@@ -82,7 +86,18 @@ describe("title_scene", function()
       time = 500})
   end)
   
-  it("Create ground")
+  it("Create game title image", function()
+    -- when
+    title_scene:createScene(event)
+    -- then
+    assert.stub(display.newImage).was_called_with("img/screen/title/logo.png")
+  end)
   
-  it("CReate game title image")
+  it("Set x of title image to center of screen")
+  
+  it("Set y of title image to 200")
+  
+  it("Add title image to current view group")
+  
+  it("Create ground")
 end)
