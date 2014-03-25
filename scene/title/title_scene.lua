@@ -4,6 +4,8 @@ widget = widget or require("widget")
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
 create_background_image = create_background_image or require("scene.create_background_image")
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
+create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
+initialize_ground = initialize_ground or require("ground.initialize_ground")
 
 local title_scene = storyboard.newScene("title_scene")
 
@@ -23,6 +25,9 @@ function title_scene:createScene(event)
   logo_image.x = display.contentCenterX
   logo_image.y = 200
   insert_to_current_view_group.evaluate(logo_image)
+  
+  create_ground_image_sheet.evaluate()
+  initialize_ground.evaluate()
 end
 
 function title_scene.go_to_game_scene()
