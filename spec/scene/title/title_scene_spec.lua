@@ -10,6 +10,8 @@ describe("title_scene", function()
   
   local fake_button = {}
   
+  local fake_logo = {}
+  
   setup(function ( ... )
     storyboard = {
       newScene = function ( ... )
@@ -27,9 +29,12 @@ describe("title_scene", function()
     
     display = {
       contentCenterX = 10,
-      contentCenterY = 20
+      contentCenterY = 20,
+      newImage = function()
+        return fake_logo
+      end
     }
-    stub(display, "newImage")
+    spy.on(display, "newImage")
     
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
@@ -93,7 +98,12 @@ describe("title_scene", function()
     assert.stub(display.newImage).was_called_with("img/screen/title/logo.png")
   end)
   
-  it("Set x of title image to center of screen")
+  it("Set x of title image to center of screen", function()
+     -- when
+    title_scene:createScene(event)
+    -- then
+    assert.are.equal(fake_logo.x, display.contentCenterX)
+  end)
   
   it("Set y of title image to 200")
   

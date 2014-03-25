@@ -19,7 +19,8 @@ function title_scene:createScene(event)
   start_button.y = display.contentCenterY
   insert_to_current_view_group.evaluate(start_button)
   
-  display.newImage("img/screen/title/logo.png")
+  local logo_image = display.newImage("img/screen/title/logo.png")
+  logo_image.x = display.contentCenterX
 end
 
 function title_scene.go_to_game_scene()
