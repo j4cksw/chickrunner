@@ -58,13 +58,6 @@ describe("scene.game_scene", function ( ... )
     assert.stub(initialize_game_stat.evaluate).was_called()
   end)
   
-	it("Evalaute create_ground_image_sheet in createScene", function ( ... )
-		-- when
-		game_scene:createScene(event)
-		-- then
-		assert.stub(create_ground_image_sheet.evaluate).was_called()
-	end)
-	
 	it("Evaluating create_explostion_image_sheet", function()
 	 -- when
 	 game_scene:createScene(event)
