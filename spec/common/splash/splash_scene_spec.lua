@@ -32,7 +32,7 @@ describe("splash_scene", function()
   it("Should show a logo image", function()
     splash_scene:createScene(event)
     
-    assert.stub(display.newImageRect).was_called_with("img/splash/kongDev.jpg",600,488)
+    assert.stub(display.newImageRect).was_called_with("img/splash/logo.jpg",600,488)
   end)
   
   it("Should set logo image to center of screen", function()
