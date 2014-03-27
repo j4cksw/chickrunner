@@ -34,4 +34,11 @@ describe("splash_scene", function()
     
     assert.stub(display.newImageRect).was_called_with("img/splash/kongDev.jpg",600,488)
   end)
+  
+  it("Should set logo image to center of screen", function()
+    splash_scene:createScene(event)
+    
+    assert.are.equal(fake_logo.x, display.contentCenterX)
+    assert.are.equal(fake_logo.y, display.contentCenterY)
+  end)
 end)
