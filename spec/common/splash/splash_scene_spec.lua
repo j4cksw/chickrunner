@@ -38,6 +38,12 @@ describe("splash_scene", function()
     }
     stub(transition, "to")
     
+    timer = {}
+    stub(timer, "performWithDelay")
+    
+    transit_after_splash_scene = {}
+    stub(transit_after_splash_scene, "evaluate")
+    
     splash_scene = require("common.splash.splash_scene")
   end)
   
@@ -72,7 +78,11 @@ describe("splash_scene", function()
     assert.stub(transition.to).was_called_with(fake_logo , {time = 1000 , xScale = 1, yScale = 1, alpha = 1})
   end)
   
-  it("should start exit timer")
+  it("should start exit timer", function()
+    splash_scene:enterScene(event)
+    
+    assert.stub(timer.performWithDelay).was_called_with(2000, transit_after_splash_scene.evaluate)
+  end)
   
   it("should go to title_scene when timer end ")
 end)
