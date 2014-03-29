@@ -15,5 +15,5 @@ function scene:enterScene(event)
 end
 
 scene:addEventListener("createScene", scene);
-
+scene:addEventListener("enterScene", scene);
 return scene
