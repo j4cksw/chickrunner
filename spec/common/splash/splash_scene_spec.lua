@@ -83,6 +83,4 @@ describe("splash_scene", function()
     
     assert.stub(timer.performWithDelay).was_called_with(2000, transit_after_splash_scene.evaluate)
   end)
-  
-  it("should go to title_scene when timer end ")
 end)
