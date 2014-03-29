@@ -33,6 +33,11 @@ describe("splash_scene", function()
     
     stub(scene.view, "insert")
     
+    transition = {
+      to = function()end
+    }
+    stub(transition, "to")
+    
     splash_scene = require("common.splash.splash_scene")
   end)
   
@@ -49,13 +54,23 @@ describe("splash_scene", function()
     assert.are.equal(fake_logo.y, display.contentCenterY)
   end)
   
+  it("should set logo alpha to 0", function()
+    splash_scene:createScene(event)
+    
+    assert.are.equal(fake_logo.alpha, 0)
+  end)
+  
   it("should insert to viewgroup", function()
     splash_scene:createScene(event)
     
     assert.stub(scene.view.insert).was_called_with(scene.view, fake_logo)
   end)
   
-  it("should start fadein transition")
+  it("should start fadein transition in enter scene", function()
+    splash_scene:enterScene(event)
+    
+    assert.stub(transition.to).was_called_with(fake_logo , {time = 1000 , xScale = 1, yScale = 1, alpha = 1})
+  end)
   
   it("should start exit timer")
   
