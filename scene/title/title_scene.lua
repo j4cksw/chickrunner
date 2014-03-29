@@ -7,6 +7,7 @@ create_background_image = create_background_image or require("scene.create_backg
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
 initialize_ground = initialize_ground or require("ground.initialize_ground")
+show_ads = show_ads or require("common.ads.show_ads")
 
 local title_scene = storyboard.newScene("title_scene")
 
@@ -36,6 +37,10 @@ function title_scene.go_to_game_scene()
   storyboard.gotoScene("scene.game.game_scene",{
     effect = "fade",
     time = 500})
+end
+
+function title_scene:enterScene(event)
+  show_ads.evaluate()
 end
 
 title_scene:addEventListener( "createScene", title_scene )
