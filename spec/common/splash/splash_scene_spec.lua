@@ -5,7 +5,9 @@ describe("splash_scene", function()
     addEventListener = function ( ... )
       -- body
     end,
-    view = {}
+    view = {
+      insert = function()end
+    }
   }
   
   local fake_logo = {"..."}
@@ -26,6 +28,11 @@ describe("splash_scene", function()
     }
     spy.on(display, "newImageRect")
     
+    set_current_view_group = {}
+    stub(set_current_view_group, "evaluate")
+    
+    stub(scene.view, "insert")
+    
     splash_scene = require("common.splash.splash_scene")
   end)
   
@@ -41,4 +48,16 @@ describe("splash_scene", function()
     assert.are.equal(fake_logo.x, display.contentCenterX)
     assert.are.equal(fake_logo.y, display.contentCenterY)
   end)
+  
+  it("should insert to viewgroup", function()
+    splash_scene:createScene(event)
+    
+    assert.stub(scene.view.insert).was_called_with(scene.view, fake_logo)
+  end)
+  
+  it("should start fadein transition")
+  
+  it("should start exit timer")
+  
+  it("should go to title_scene when timer end ")
 end)
