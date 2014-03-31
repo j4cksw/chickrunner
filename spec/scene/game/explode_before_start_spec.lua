@@ -26,7 +26,16 @@ describe("explode_before_start", function()
     display = {}
     stub(display, "remove")
     
+    hide_ads = {}
+    stub(hide_ads, "evaluate")
+        
     explode_before_start = require("scene.game.explode_before_start")
+  end)
+  
+  it("should hide ads", function()
+    explode_before_start.evaluate()
+    
+    assert.stub(hide_ads.evaluate).was_called()
   end)
   
   it("Remove tap event listener", function()
