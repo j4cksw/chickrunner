@@ -24,7 +24,16 @@ describe("enter_ready_state", function()
     Runtime = {}
     stub(Runtime, "addEventListener")
     
+    show_top_ads = {}
+    stub(show_top_ads, "evaluate")
+    
     enter_ready_state = require("scene.game.enter_ready_state")
+  end)
+  
+  it("should show ads at top of screen", function()
+    enter_ready_state.evaluate()
+    
+    assert.stub(show_top_ads.evaluate).was_called()
   end)
   
   it("Evaluate initialize_ground in enterScene", function ( ... )

@@ -3,7 +3,7 @@ application =
     content =	{
   		width = 720,
   		height = 1280,
-  		scale = "zoomEven",
+  		scale = "letterbox",
       fps = 30,
   	}
 }
