@@ -18,6 +18,7 @@ game_scene_config = {
   obstacle_space_alpha = 0,
   score_text_size = 60,
   score_text_y = 100,
+  ending_score_text_format = "Distance: %dm",
   ending_score_text_size = 40,
   ending_score_text_y = 400,
   ending_high_score_text_y = 500,

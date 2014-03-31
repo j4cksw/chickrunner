@@ -21,7 +21,7 @@ describe("ceate_final_score_text", function()
     game_scene_config = {
       ending_score_text_y = 65,
       ending_score_text_size = 125,
-      ending_high_score_text_y = 75
+      ending_score_text_format = "Distance: %dm"
     }
 
     create_ending_score_text = require("scene.game.gameover.create_ending_score_text")
