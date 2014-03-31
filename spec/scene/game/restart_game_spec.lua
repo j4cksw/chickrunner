@@ -14,8 +14,17 @@ describe("restart_game", function()
     
     display = {}
     stub(display, "remove")
+    
+    hide_ads = {}
+    stub(hide_ads, "evaluate")
   
     restart_game = require("scene.game.restart_game")
+  end)
+  
+  it("should hide ads", function()
+    restart_game.evaluate()
+    
+    assert.stub(hide_ads.evaluate).was_called()
   end)
   
   it("Remove tap event listener from runtime", function()
