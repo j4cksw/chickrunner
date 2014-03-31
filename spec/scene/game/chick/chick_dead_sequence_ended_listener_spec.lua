@@ -43,8 +43,18 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     
     check_high_score = {}
     stub(check_high_score, "evaluate")
+    
+    show_ads = {}
+    stub(show_ads, "evaluate")
   
     chick_dead_sequence_ended_listener = require("scene.game.chick.chick_dead_sequence_ended_listener") 
+  end)
+  
+  it("should show ads when sprite animate ended", function()
+    -- when
+    chick_dead_sequence_ended_listener.evaluate(event)
+    -- then
+    assert.stub(show_ads.evaluate).was_called()
   end)
   
   it("When sprite animate ended hide score_text", function()
