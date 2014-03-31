@@ -44,10 +44,6 @@ function title_scene.go_to_game_scene()
     time = 500})
 end
 
-function title_scene:enterScene(event)
-  show_ads.evaluate()
-end
-
 title_scene:addEventListener( "createScene", title_scene )
 
 return title_scene

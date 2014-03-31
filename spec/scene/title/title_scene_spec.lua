@@ -48,9 +48,6 @@ describe("title_scene", function()
     insert_to_current_view_group = {}
     stub(insert_to_current_view_group, "evaluate")
 
-    show_ads = {}
-    stub(show_ads, "evaluate")
-
     hide_ads = {}
     stub(hide_ads, "evaluate")
     
@@ -142,12 +139,6 @@ describe("title_scene", function()
     title_scene:createScene(event)
     -- then
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_logo)
-  end)
-
-  it("Show ads while enter scene", function()
-    title_scene:enterScene(event)
-
-    assert.stub(show_ads.evaluate).was_called()
   end)
 
 end)
