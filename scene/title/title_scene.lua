@@ -9,6 +9,7 @@ create_ground_image_sheet = create_ground_image_sheet or require("scene.create_g
 initialize_ground = initialize_ground or require("ground.initialize_ground")
 show_ads = show_ads or require("common.ads.show_ads")
 hide_ads = hide_ads or require("common.ads.hide_ads")
+play_ui_button_sound  = play_ui_button_sound or require("scene.audio.play_ui_button_sound")
 
 local title_scene = storyboard.newScene("title_scene")
 
@@ -19,10 +20,12 @@ function title_scene:createScene(event)
   local start_button = widget.newButton({
     id = "start",
     defaultFile = "img/ui/start.png",
-    onRelease = self.go_to_game_scene
+    onRelease = self.go_to_game_scene,
+    onPress = play_ui_button_sound.evaluate
   })
   start_button.x = display.contentCenterX
   start_button.y = display.contentCenterY
+  
   insert_to_current_view_group.evaluate(start_button)
   
   local logo_image = display.newImage("img/screen/title/logo.png")

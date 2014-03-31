@@ -53,6 +53,9 @@ describe("title_scene", function()
 
     hide_ads = {}
     stub(hide_ads, "evaluate")
+    
+    play_ui_button_sound = {}
+    stub(play_ui_button_sound, "evaluate")
 
     title_scene = require("scene.title.title_scene")
   end)
@@ -85,6 +88,7 @@ describe("title_scene", function()
       was_called_with({
         id="start",
         defaultFile="img/ui/start.png",
+        onPress=play_ui_button_sound.evaluate,
         onRelease=title_scene.go_to_game_scene
       })
   end)
