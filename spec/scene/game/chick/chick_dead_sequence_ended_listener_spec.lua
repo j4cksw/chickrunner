@@ -46,6 +46,9 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     
     show_ads = {}
     stub(show_ads, "evaluate")
+    
+    create_ending_score_text = {}
+    stub(create_ending_score_text, "evaluate")
   
     chick_dead_sequence_ended_listener = require("scene.game.chick.chick_dead_sequence_ended_listener") 
   end)
@@ -64,22 +67,11 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     assert.are.False(score_text.isVisible)
   end)
   
-  it("When sprite animate ended show ending_score_text", function()
+  it("should create ending_score_text when sprite animate ended", function()
     -- when
     chick_dead_sequence_ended_listener.evaluate(event)
     -- then
-    assert.stub(display.newText).was_called_with("Distance: 100m",
-     display.contentCenterX,
-      game_scene_config.ending_score_text_y,
-      fontname,
-      game_scene_config.ending_score_text_size)
-  end)
-  
-  it("When sprite animate ended set text to global ending_score_text", function()
-    -- when
-    chick_dead_sequence_ended_listener.evaluate(event)
-    -- then
-    assert.are.equal(ending_score_text, fake_ending_score_text)
+    assert.stub(create_ending_score_text.evaluate).was_called()
   end)
   
   it("when sprite animate ended. Evalaute check_high_score", function()
