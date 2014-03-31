@@ -1,7 +1,6 @@
 storyboard = storyboard or require("storyboard")
 
 widget = widget or require("widget")
-initialize_ads = initialize_ads or require("common.ads.initialize_ads")
 set_current_view_group = set_current_view_group or require("scene.set_current_view_group")
 create_background_image = create_background_image or require("scene.create_background_image")
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
@@ -14,7 +13,6 @@ play_ui_button_sound  = play_ui_button_sound or require("scene.audio.play_ui_but
 local title_scene = storyboard.newScene("title_scene")
 
 function title_scene:createScene(event)
-  initialize_ads.evaluate()
   set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
   local start_button = widget.newButton({

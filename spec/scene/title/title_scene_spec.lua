@@ -36,9 +36,6 @@ describe("title_scene", function()
     }
     spy.on(display, "newImage")
 
-    initialize_ads = {}
-    stub(initialize_ads, "evaluate")
-
     set_current_view_group = {}
     stub(set_current_view_group, "evaluate")
 
@@ -55,12 +52,6 @@ describe("title_scene", function()
     stub(play_ui_button_sound, "evaluate")
 
     title_scene = require("scene.title.title_scene")
-  end)
-
-  it("should initialize ads", function()
-    title_scene:createScene(event)
-
-    assert.stub(initialize_ads.evaluate).was_called()
   end)
 
   it("Set current view", function()
