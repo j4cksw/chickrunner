@@ -5,11 +5,13 @@ show_ads = show_ads or require("common.ads.show_ads")
 create_ending_score_text = create_ending_score_text or require("scene.game.gameover.create_ending_score_text")
 create_ending_high_score_text = create_ending_high_score_text or require("scene.game.gameover.create_ending_high_score_text")
 create_gameover_title_image = create_gameover_title_image or require("scene.game.gameover.create_gameover_title_image")
+create_score_panel_background = create_score_panel_background or require("scene.game.gameover.create_score_panel_background")
 
 function create_game_over_ui.evaluate()
   show_ads.evaluate()
   score_text.isVisible = false
   create_gameover_title_image.evaluate()
+  create_score_panel_background.evaluate()
   create_ending_score_text.evaluate()
   check_high_score.evaluate()
   create_ending_high_score_text.evaluate()

@@ -18,6 +18,9 @@ describe("create_game_over_ui", function()
     
     create_gameover_title_image = {}
     stub(create_gameover_title_image, "evaluate")
+    
+    create_score_panel_background = {}
+    stub(create_score_panel_background, "evaluate")
   
     create_game_over_ui = require("scene.game.gameover.create_game_over_ui") 
   end)
@@ -39,6 +42,12 @@ describe("create_game_over_ui", function()
     create_game_over_ui.evaluate()
     -- then
     assert.are.False(score_text.isVisible)
+  end)
+  
+  it("should create score panel background", function()
+    create_game_over_ui.evaluate()
+    
+    assert.stub(create_score_panel_background.evaluate).was_called()
   end)
   
   it("should create ending_score_text", function()
