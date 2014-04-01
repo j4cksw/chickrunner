@@ -1,17 +1,10 @@
 chick_dead_sequence_ended_listener = {}
 
-check_high_score = check_high_score or require("scene.game.check_high_score")
-show_ads = show_ads or require("common.ads.show_ads")
-create_ending_score_text = create_ending_score_text or require("scene.game.gameover.create_ending_score_text")
-create_ending_high_score_text = create_ending_high_score_text or require("scene.game.gameover.create_ending_high_score_text")
+create_game_over_ui = create_game_over_ui or require("scene.game.gameover.create_game_over_ui")
 
 function chick_dead_sequence_ended_listener.evaluate(event)
   if event.phase == "ended" then
-    show_ads.evaluate()
-    score_text.isVisible = false
-    create_ending_score_text.evaluate()
-    check_high_score.evaluate()
-    create_ending_high_score_text.evaluate()
+    create_game_over_ui.evaluate()
   end
 end
 
