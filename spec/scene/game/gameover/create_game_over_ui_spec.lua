@@ -15,14 +15,22 @@ describe("create_game_over_ui", function()
     
     create_ending_high_score_text = {}
     stub(create_ending_high_score_text, "evaluate")
+    
+    create_gameover_title_image = {}
+    stub(create_gameover_title_image, "evaluate")
   
     create_game_over_ui = require("scene.game.gameover.create_game_over_ui") 
   end)
   
-  it("should show ads when sprite animate ended", function()
-    -- when
+  it("should create gameover title image", function()
     create_game_over_ui.evaluate()
-    -- then
+    
+    assert.stub(create_gameover_title_image.evaluate).was_called()
+  end)
+  
+  it("should show ads when sprite animate ended", function()
+    create_game_over_ui.evaluate()
+    
     assert.stub(show_ads.evaluate).was_called()
   end)
   
