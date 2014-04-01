@@ -21,6 +21,9 @@ describe("create_game_over_ui", function()
     
     create_score_panel_background = {}
     stub(create_score_panel_background, "evaluate")
+    
+    create_gameover_ui_group = {}
+    stub(create_gameover_ui_group, "evaluate")
   
     create_game_over_ui = require("scene.game.gameover.create_game_over_ui") 
   end)
@@ -51,24 +54,27 @@ describe("create_game_over_ui", function()
   end)
   
   it("should create ending_score_text", function()
-    -- when
     create_game_over_ui.evaluate()
-    -- then
+    
     assert.stub(create_ending_score_text.evaluate).was_called()
   end)
   
   it("should evalaute check_high_score", function()
-    -- when
     create_game_over_ui.evaluate()
-    -- then
+    
     assert.stub(check_high_score.evaluate).was_called()
   end)
   
   it("should show ending_score_text", function()
-    -- when
-    create_game_over_ui.evaluate(event)
-    -- then
+    create_game_over_ui.evaluate()
+    
     assert.stub(create_ending_high_score_text.evaluate).was_called()
+  end)
+  
+  it("should create gameover ui grounp", function()
+    create_game_over_ui.evaluate()
+    
+    assert.stub(create_gameover_ui_group.evaluate).was_called()
   end)
   
 end)
