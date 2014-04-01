@@ -4,6 +4,11 @@ describe("create_gameover_title_image", function()
   local fake_gameover_title_image = {"..."}
 
   setup(function()
+    gameover_ui_config = {
+      gameover_title_image_path="img/screen/gameover/gameover.png",
+      gameover_title_image_y=215
+    }
+    
     display = {
       contentCenterX = 50,
       newImage = function()
