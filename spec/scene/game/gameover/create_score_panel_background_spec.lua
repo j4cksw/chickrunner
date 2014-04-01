@@ -29,4 +29,10 @@ describe("create_score_panel_background",function()
 
     assert.are.equal(fake_image.x, 50)
   end)
+  
+  it("should set y to 448", function()
+    create_score_panel_background.evaluate()
+    
+    assert.are.equal(fake_image.y, 448)
+  end)
 end)
