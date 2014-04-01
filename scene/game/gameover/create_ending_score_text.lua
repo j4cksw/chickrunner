@@ -1,13 +1,13 @@
 create_ending_score_text = {}
 
 game_scene_config = game_scene_config or require("config.game_scene_config")
-get_fontname_by_platform = get_fontname_by_platform or require("utils.get_fontname_by_platform")
+create_text = create_text or require("common.text.create_text")
+
 
 function create_ending_score_text.evaluate()
-  ending_score_text = display.newText(string.format(game_scene_config.ending_score_text_format, current_score),
+  ending_score_text = create_text.evaluate(string.format(game_scene_config.ending_score_text_format, current_score),
     display.contentCenterX,
     game_scene_config.ending_score_text_y,
-    get_fontname_by_platform.evaluate(),
     game_scene_config.ending_score_text_size)
 end
 

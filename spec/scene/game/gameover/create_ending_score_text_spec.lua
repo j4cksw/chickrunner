@@ -1,40 +1,36 @@
 describe("ceate_final_score_text", function()
   local create_ending_score_text
 
-  local fontname = ""
+  local fake_text = {"..."}
 
   setup(function()
-    get_fontname_by_platform = {
+    
+    create_text = {
       evaluate = function()
-        return fontname
+        return fake_text
       end
     }
-
-    display = {
-      contentCenterX=600,
-      newText = function()
-        return fake_ending_score_text
-      end
-    }
-    spy.on(display, "newText")
-
-    game_scene_config = {
-      ending_score_text_y = 65,
-      ending_score_text_size = 125,
-      ending_score_text_format = "Distance: %dm"
-    }
-
+    stub(create_text, "evaluate")
+    
     create_ending_score_text = require("scene.game.gameover.create_ending_score_text")
   end)
 
-  it("When sprite animate ended show ending_score_text", function()
-    -- when
+  it("should evaluate text with proper parameters", function()
+    current_score = 100
+    display = {
+      contentCenterX = 5
+    }
+    game_scene_config = {
+      ending_score_text_format = "Distance: %dm",
+      ending_score_text_y = 10,
+      ending_score_text_size = 32
+    }
+    
     create_ending_score_text.evaluate()
-    -- then
-    assert.stub(display.newText).was_called_with("Distance: 100m",
+    
+    assert.stub(create_text.evaluate).was_called_with("Distance: 100m",
       display.contentCenterX,
       game_scene_config.ending_score_text_y,
-      fontname,
       game_scene_config.ending_score_text_size)
   end)
 
