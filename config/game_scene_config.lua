@@ -21,6 +21,7 @@ game_scene_config = {
   ending_score_text_format = "Distance: %dm",
   ending_score_text_size = 40,
   ending_score_text_y = 400,
+  ending_score_text_format = "Highest: %dm",
   ending_high_score_text_y = 500,
   ready_first_text_y_offset = 120,
   ready_first_text_size = 32

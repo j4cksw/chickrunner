@@ -49,6 +49,9 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     
     create_ending_score_text = {}
     stub(create_ending_score_text, "evaluate")
+    
+    create_ending_high_score_text = {}
+    stub(create_ending_high_score_text, "evaluate")
   
     chick_dead_sequence_ended_listener = require("scene.game.chick.chick_dead_sequence_ended_listener") 
   end)
@@ -85,23 +88,7 @@ describe("chick_dead_sequence_ended_listener.evaluate", function()
     -- when
     chick_dead_sequence_ended_listener.evaluate(event)
     -- then
-    assert.stub(display.newText).was_called_with("Highest: 1000m",
-     display.contentCenterX,
-      game_scene_config.ending_high_score_text_y,
-      fontname,
-      game_scene_config.ending_score_text_size)
-  end)
-  
-  it("When sprite animate ended set text to global ending_score_text", function()
-    -- given
-    local fake_high_score_text = "fake_high_score_text"
-    display.newText = function()
-      return fake_high_score_text
-    end
-    -- when
-    chick_dead_sequence_ended_listener.evaluate(event)
-    -- then
-    assert.are.equal(ending_high_score_text, fake_high_score_text)
+    assert.stub(create_ending_high_score_text.evaluate).was_called()
   end)
   
 end)
