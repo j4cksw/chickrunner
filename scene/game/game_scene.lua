@@ -9,6 +9,8 @@ create_chick_image_sheet = create_chick_image_sheet or require("chick.create_chi
 create_box_image_sheet = create_box_image_sheet or require("box.create_box_image_sheet")
 create_score_text = create_score_text or require("scene.game.score.create_score_text")
 load_audio = load_audio or require("scene.game.audio.load_audio")
+initialize_ground = initialize_ground or require("ground.initialize_ground")
+initialize_chick = initialize_chick or require("scene.initialize_chick")
 enter_ready_state = enter_ready_state or require("scene.game.enter_ready_state")
 
 local scene = storyboard.newScene("game_scene")
@@ -23,6 +25,8 @@ function scene:createScene(event)
 	set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
   create_score_text.evaluate()
+  initialize_chick.evaluate()
+  initialize_ground.evaluate()
 end
 
 function scene:enterScene(event)
