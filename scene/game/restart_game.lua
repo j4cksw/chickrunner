@@ -11,8 +11,6 @@ function restart_game.evaluate()
   display.remove(chick)
   remove_obstacles.evaluate()
   storyboard.reloadScene()
-  display.remove(ending_score_text)
-  display.remove(ending_high_score_text)
   display.remove(gameover_ui_group)
 end
 
