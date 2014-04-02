@@ -8,8 +8,8 @@ function create_play_again_button.evaluate()
         id="play_again",
         defaultFile=gameover_ui_config.play_again_button_image_path,
       })
-  play_again_button.x = display.contentCenterX
-  play_again_button.y = 745
+  play_again_button.x = gameover_ui_config.play_again_button_x
+  play_again_button.y = gameover_ui_config.play_again_button_y
 end
 
 return create_play_again_button

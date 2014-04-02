@@ -4,12 +4,14 @@ describe("create_play_again_button", function()
   local fake_button = {}
   
   setup(function()
-    gameover_ui_config = {
-      play_again_button_image_path="img/ui/play.png"
+    display = {
+      contentCenterX=500
     }
     
-    display = {
-      contentCenterX
+    gameover_ui_config = {
+      play_again_button_image_path="img/ui/play.png",
+      play_again_button_x = display.contentCenterX,
+      play_again_button_y = 745
     }
     
     widget = {
