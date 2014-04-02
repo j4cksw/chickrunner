@@ -40,5 +40,9 @@ describe("create_play_again_button", function()
     assert.are.equal(fake_button.x, display.contentCenterX)
   end)
   
-  it("should set y to 745")
+  it("should set y to 745", function()
+    create_play_again_button.evaluate()
+    
+    assert.are.equal(fake_button.y, 745)
+  end)
 end)
