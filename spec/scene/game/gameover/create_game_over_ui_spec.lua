@@ -24,6 +24,9 @@ describe("create_game_over_ui", function()
     
     create_gameover_ui_group = {}
     stub(create_gameover_ui_group, "evaluate")
+    
+    create_play_again_button = {}
+    stub(create_play_again_button, "evaluate")
   
     create_game_over_ui = require("scene.game.gameover.create_game_over_ui") 
   end)
@@ -75,6 +78,12 @@ describe("create_game_over_ui", function()
     create_game_over_ui.evaluate()
     
     assert.stub(create_gameover_ui_group.evaluate).was_called()
+  end)
+  
+  it("sgould create play again button", function()
+    create_game_over_ui.evaluate()
+    
+    assert.stub(create_play_again_button.evaluate).was_called()
   end)
   
 end)
