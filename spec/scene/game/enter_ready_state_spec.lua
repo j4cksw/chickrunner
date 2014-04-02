@@ -2,11 +2,6 @@ describe("enter_ready_state", function()
   local enter_ready_state
   
   setup(function()
-    initialize_ground = {}
-    stub(initialize_ground, "evaluate")
-    
-    initialize_chick = {}
-    stub(initialize_chick, "evaluate")
     
     generate_obstacles_from_config = {}
     stub(generate_obstacles_from_config, "evaluate")
@@ -34,20 +29,6 @@ describe("enter_ready_state", function()
     enter_ready_state.evaluate()
     
     assert.stub(show_top_ads.evaluate).was_called()
-  end)
-  
-  it("Evaluate initialize_ground in enterScene", function ( ... )
-    -- when
-    enter_ready_state.evaluate()
-    -- then
-    assert.stub(initialize_ground.evaluate).was_called()
-  end)
-  
-  it("Evalaute initialize_chick in enterScene", function()
-   -- when
-   enter_ready_state.evaluate()
-   -- then
-   assert.stub(initialize_chick.evaluate).was_called()
   end)
   
   it("Evaluate generate_obstacles_from_config", function()
