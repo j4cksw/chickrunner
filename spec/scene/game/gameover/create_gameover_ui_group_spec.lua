@@ -60,4 +60,12 @@ describe("create_gameover_ui_group", function()
     assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, ending_high_score_text)
   end)
   
+  it("should add play again button to the group", function()
+    play_again_button = {"fake_play_again_button"}
+    
+    create_gameover_ui_group.evaluate()
+    
+    assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, play_again_button)
+  end)
+  
 end)
