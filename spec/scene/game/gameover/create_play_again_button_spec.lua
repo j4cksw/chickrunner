@@ -4,6 +4,10 @@ describe("create_play_again_button", function()
   local fake_button = {}
   
   setup(function()
+    display = {
+      contentCenterX
+    }
+    
     widget = {
       newButton = function()
         return fake_button
@@ -30,7 +34,11 @@ describe("create_play_again_button", function()
     assert.are.equal(play_again_button, fake_button)
   end)
   
-  it("should set x to center of screen")
+  it("should set x to center of screen", function()
+    create_play_again_button.evaluate()
+    
+    assert.are.equal(fake_button.x, display.contentCenterX)
+  end)
   
   it("should set y to 745")
 end)
