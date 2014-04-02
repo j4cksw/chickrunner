@@ -72,4 +72,13 @@ describe("restart_game", function()
     -- then
     assert.stub(display.remove).was_called_with(ending_high_score_text)
   end)
+  
+  it("Remove ending_high_score_text from display", function()
+    -- given
+    gameover_ui_group = {"fake_gameover_ui_group"}
+    -- when
+    restart_game.evaluate()
+    -- then
+    assert.stub(display.remove).was_called_with(gameover_ui_group)
+  end)
 end)

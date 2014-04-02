@@ -13,6 +13,7 @@ function restart_game.evaluate()
   storyboard.reloadScene()
   display.remove(ending_score_text)
   display.remove(ending_high_score_text)
+  display.remove(gameover_ui_group)
 end
 
 return restart_game
