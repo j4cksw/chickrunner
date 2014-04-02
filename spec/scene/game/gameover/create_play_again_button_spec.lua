@@ -17,14 +17,18 @@ describe("create_play_again_button", function()
   it("should create play again button", function()
     create_play_again_button.evaluate()
     
-    assert.stub(assert.stub(widget.newButton).
+    assert.stub(widget.newButton).
       was_called_with({
         id="play_again",
         defaultFile="img/ui/play.png",
-      }))
+      })
   end)
   
-  it("should set global variabla play_again_button")
+  it("should set global variabla play_again_button", function()
+    create_play_again_button.evaluate()
+    
+    assert.are.equal(play_again_button, fake_button)
+  end)
   
   it("should set x to center of screen")
   
