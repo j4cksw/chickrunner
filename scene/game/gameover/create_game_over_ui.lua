@@ -11,9 +11,10 @@ function create_game_over_ui.evaluate()
   show_ads.evaluate()
   score_text.isVisible = false
   create_gameover_title_image.evaluate()
+  check_high_score.evaluate()
   create_score_panel.evaluate()
   create_play_again_button.evaluate()
-  check_high_score.evaluate()
+  
   create_gameover_ui_group.evaluate()
 end
 
