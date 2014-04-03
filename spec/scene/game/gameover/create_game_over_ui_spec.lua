@@ -40,7 +40,7 @@ describe("create_game_over_ui", function()
     assert.stub(create_gameover_title_image.evaluate).was_called()
   end)
   
-  it("should show ads when sprite animate ended", function()
+  it("should show ads", function()
     create_game_over_ui.evaluate()
     
     assert.stub(show_ads.evaluate).was_called()
@@ -71,7 +71,7 @@ describe("create_game_over_ui", function()
     assert.stub(check_high_score.evaluate).was_called()
   end)
   
-  it("should show ending_score_text", function()
+  it("should show ending_highscore_text", function()
     create_game_over_ui.evaluate()
     
     assert.stub(create_ending_high_score_text.evaluate).was_called()
