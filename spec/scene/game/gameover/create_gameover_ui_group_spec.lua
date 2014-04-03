@@ -60,6 +60,14 @@ describe("create_gameover_ui_group", function()
     assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, ending_score_text)
   end)
   
+  it("should add ending high score label to the group", function()
+    ending_high_score_label = {"fake_ending_high_score_label"}
+    
+    create_gameover_ui_group.evaluate()
+    
+    assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, ending_high_score_label)
+  end)
+  
   it("should add ending high score text to the group", function()
     ending_high_score_text = {"fake_ending_high_score_text"}
     

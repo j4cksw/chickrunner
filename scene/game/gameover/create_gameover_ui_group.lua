@@ -7,6 +7,7 @@ function create_gameover_ui_group.evaluate()
   gameover_ui_group:insert(ending_score_label)
   gameover_ui_group:insert(ending_score_text)
   gameover_ui_group:insert(ending_high_score_text)
+  gameover_ui_group:insert(ending_high_score_label)
   gameover_ui_group:insert(play_again_button)
 end
 
