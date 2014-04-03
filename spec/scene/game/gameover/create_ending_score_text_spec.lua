@@ -20,7 +20,7 @@ describe("ceate_final_score_text", function()
     display = {
       contentCenterX = 5
     }
-    game_scene_config = {
+    gameover_ui_config = {
       ending_score_text_format = "Distance: %dm",
       ending_score_text_y = 10,
       ending_score_text_size = 32
@@ -30,8 +30,8 @@ describe("ceate_final_score_text", function()
     
     assert.stub(create_text.evaluate).was_called_with("Distance: 100m",
       display.contentCenterX,
-      game_scene_config.ending_score_text_y,
-      game_scene_config.ending_score_text_size)
+      gameover_ui_config.ending_score_text_y,
+      gameover_ui_config.ending_score_text_size)
   end)
 
   it("When sprite animate ended set text to global ending_score_text", function()
