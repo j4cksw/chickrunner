@@ -4,6 +4,12 @@ describe("create_ending_score_label", function()
   local fake_image = {"fake_image"}
   
   setup(function()
+    gameover_ui_config = {
+      ending_score_label_image_path = "img/screen/gameover/score.png",
+      ending_score_label_x = 200,
+      ending_score_label_y = 374
+    }
+    
     display = {
       newImage = function()
         return fake_image
@@ -29,7 +35,7 @@ describe("create_ending_score_label", function()
   it("should set x to 220", function()
     create_ending_score_label.evaluate()
     
-    assert.are.equal(fake_image.x, 220)
+    assert.are.equal(fake_image.x, 200)
   end)
   
   it("should set y to 374", function()
