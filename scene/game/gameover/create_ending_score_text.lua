@@ -8,6 +8,7 @@ function create_ending_score_text.evaluate()
     display.contentCenterX,
     gameover_ui_config.ending_score_text_y,
     gameover_ui_config.ending_score_text_size)
+  ending_score_text.anchorX = 0
 end
 
 return create_ending_score_text
