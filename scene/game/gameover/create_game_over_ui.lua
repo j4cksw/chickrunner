@@ -6,6 +6,7 @@ create_ending_score_text = create_ending_score_text or require("scene.game.gameo
 create_ending_high_score_text = create_ending_high_score_text or require("scene.game.gameover.create_ending_high_score_text")
 create_gameover_title_image = create_gameover_title_image or require("scene.game.gameover.create_gameover_title_image")
 create_score_panel_background = create_score_panel_background or require("scene.game.gameover.create_score_panel_background")
+create_ending_score_label = create_ending_score_label or require("scene.game.gameover.create_ending_score_label")
 create_play_again_button = create_play_again_button or require("scene.game.gameover.create_play_again_button")
 create_gameover_ui_group = create_gameover_ui_group or require("scene.game.gameover.create_gameover_ui_group")
 
@@ -17,6 +18,7 @@ function create_game_over_ui.evaluate()
   create_ending_score_text.evaluate()
   check_high_score.evaluate()
   create_ending_high_score_text.evaluate()
+  create_ending_score_label.evaluate()
   create_play_again_button.evaluate()
   create_gameover_ui_group.evaluate()
 end
