@@ -19,12 +19,9 @@ describe("create_ending_highscore_text", function()
       high_score = 1000
     }
     
-    display = {
-      contentCenterX = 5
-    }
-    
     gameover_ui_config = {
       ending_high_score_text_format = "Best: %dm",
+      ending_high_score_text_x = 5,
       ending_high_score_text_y = 10,
       ending_score_text_size = 32
     }
