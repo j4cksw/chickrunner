@@ -5,12 +5,14 @@ create_ending_high_score_text = create_ending_high_score_text or require("scene.
 create_score_panel_background = create_score_panel_background or require("scene.game.gameover.create_score_panel_background")
 create_ending_score_label = create_ending_score_label or require("scene.game.gameover.create_ending_score_label")
 create_ending_high_score_label = create_ending_high_score_label or require("scene.game.gameover.create_ending_high_score_label")
+create_new_high_score_image = create_new_high_score_image or require("scene.game.gameover.create_new_high_score_image")
 
 function create_score_panel.evaluate()
   create_score_panel_background.evaluate()
   create_ending_score_label.evaluate()
   create_ending_score_text.evaluate()
   create_ending_high_score_label.evaluate()
+  create_new_high_score_image.evaluate()
   create_ending_high_score_text.evaluate()
 end
 

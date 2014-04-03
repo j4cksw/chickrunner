@@ -13,6 +13,9 @@ describe("create_score_panel", function()
       
       create_ending_high_score_label = {}
       stub(create_ending_high_score_label, "evaluate")
+      
+      create_new_high_score_image = {}
+      stub(create_new_high_score_image, "evaluate")
 
       create_ending_high_score_text = {}
       stub(create_ending_high_score_text, "evaluate")
@@ -42,6 +45,12 @@ describe("create_score_panel", function()
     create_score_panel.evaluate()
     
     assert.stub(create_ending_high_score_label.evaluate).was_called()
+  end)
+  
+  it("should create new_high_score_image", function()
+    create_score_panel.evaluate()
+    
+    assert.stub(create_new_high_score_image.evaluate).was_called()
   end)
   
   it("should show ending_high_score_text", function()
