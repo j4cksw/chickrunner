@@ -23,7 +23,7 @@ describe("create_ending_highscore_text", function()
       contentCenterX = 5
     }
     
-    game_scene_config = {
+    gameover_ui_config = {
       ending_high_score_text_format = "Best: %dm",
       ending_high_score_text_y = 10,
       ending_score_text_size = 32

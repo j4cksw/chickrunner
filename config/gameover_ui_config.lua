@@ -13,8 +13,8 @@ gameover_ui_config = {
   ending_score_text_y = 410,
 
   ending_high_score_label_image_path = "img/screen/gameover/best.png",
-  ending_high_score_label_x = 200,
-  ending_high_score_label_y = 374,
+  ending_high_score_label_x = 195,
+  ending_high_score_label_y = 480,
 
   play_again_button_image_path="img/ui/play.png",
   play_again_button_x = display.contentCenterX,
