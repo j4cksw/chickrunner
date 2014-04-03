@@ -45,4 +45,10 @@ describe("create_new_high_score_image", function()
     
     assert.are.equal(fake_image.y, 450)
   end)
+  
+  it("should hide an image", function()
+    create_new_high_score_image.evaluate()
+    
+    assert.are.equal(fake_image.isVisible, false)
+  end)
 end)
