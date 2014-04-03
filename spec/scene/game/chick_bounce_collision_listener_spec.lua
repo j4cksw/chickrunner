@@ -25,9 +25,6 @@ describe("chick_bounce_collison_listener", function()
       evaluate = function()end
     }
     
-    Runtime = {}
-    stub(Runtime, "addEventListener")
-    
     chick_bounce_collision_listener = require("scene.game.chick_bounce_collision_listener")
   end)
   
@@ -50,13 +47,6 @@ describe("chick_bounce_collison_listener", function()
     chick_bounce_collision_listener.evaluate(event)
     -- then
     assert.stub(chick.setLinearVelocity).was_called_with(chick, 0, 0)
-  end)
-  
-  it("When collide to the ground, Add tap event to Runtime with restart_game", function()
-    -- when
-    chick_bounce_collision_listener.evaluate(event)
-    -- then
-    assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", restart_game.evaluate)
   end)
   
   it("When collide to the ground, Add dead_sequence_ended_litener to chick", function()
