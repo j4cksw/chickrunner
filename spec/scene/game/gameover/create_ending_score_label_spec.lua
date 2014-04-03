@@ -32,5 +32,9 @@ describe("create_ending_score_label", function()
     assert.are.equal(fake_image.x, 220)
   end)
   
-  it("should set y to 374")
+  it("should set y to 374", function()
+    create_ending_score_label.evaluate()
+    
+    assert.are.equal(fake_image.y, 374)
+  end)
 end)
