@@ -21,6 +21,12 @@ describe("create_play_again_button", function()
     }
     spy.on(widget, "newButton")
     
+    restart_game = {}
+    stub(restart_game, "evaluate")
+    
+    play_ui_sound_button = {}
+    stub(play_ui_sound_button, "evaluate")
+    
     create_play_again_button = require("scene.game.gameover.create_play_again_button")
   end)
   
@@ -31,6 +37,8 @@ describe("create_play_again_button", function()
       was_called_with({
         id="play_again",
         defaultFile="img/ui/play.png",
+        onRelease=restart_game.evaluate,
+        onPress=play_ui_button_sound.evaluate
       })
   end)
   
