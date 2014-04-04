@@ -2,13 +2,7 @@ get_pedal_by_score = {}
 
 _ = require("lib.underscore")
 
-local pedal_config = {
-  {50, "red"},
-  {100, "bronze"},
-  {150, "silver"},
-  {200, "gold"},
-  {250, "platinum"}, 
-}
+pedal_config = pedal_config or require("config.pedal_config")
 
 function get_pedal_by_score.evaluate()
   
