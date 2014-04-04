@@ -63,4 +63,12 @@ describe("create_pedal_image_spec", function()
     assert.are.equal(fake_image.x, 550)
   end)
   
+  it("should set x position of pedal image to 550", function()
+    current_score = 50
+    
+    create_pedal_image_spec.evaluate()
+    
+    assert.are.equal(fake_image.y, 448)
+  end)
+  
 end)
