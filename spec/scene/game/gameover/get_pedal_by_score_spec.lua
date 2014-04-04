@@ -10,6 +10,6 @@ describe("get_pedal_by_score", function()
     
     local result = get_pedal_by_score.evaluate()
     
-    assert.are.equal(result, "img/screen/gameover/red.png")
+    assert.are.equal(result, "img/screen/gameover/pendal_red.png")
   end)
 end)
