@@ -12,4 +12,12 @@ describe("get_pedal_by_score", function()
     
     assert.are.equal(result, "img/screen/gameover/pendal_red.png")
   end)
+  
+  it("should return bronze when score is greater than or equal to 100", function()
+    current_score = 100
+    
+    local result = get_pedal_by_score.evaluate()
+    
+    assert.are.equal(result, "img/screen/gameover/pendal_bronze.png")
+  end)
 end)
