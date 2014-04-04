@@ -25,6 +25,9 @@ gameover_ui_config = {
 
   play_again_button_image_path="img/ui/play.png",
   play_again_button_x = display.contentCenterX,
-  play_again_button_y = 745
+  play_again_button_y = 745,
+
+  pedal_image_x = 550,
+  pedal_image_y = 448
 }
 return gameover_ui_config
