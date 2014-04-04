@@ -11,16 +11,12 @@ describe("create_pedal_image_spec", function()
     }
     spy.on(display, "newImage")
     
-    gameover_ui_group = {
-      insert = function()end
+    gameover_ui_config = {
+      pedal_image_x = 550,
+      pedal_image_y = 448
     }
-    stub(gameover_ui_group, "insert")
     
     create_pedal_image_spec = require("scene.game.gameover.create_pedal_image")
-  end)
-  
-  before_each(function()
-  
   end)
   
   it("should not create pedal image when score lower than 50", function()
