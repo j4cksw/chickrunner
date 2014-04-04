@@ -1,17 +1,24 @@
 get_pedal_by_score = {}
 
+_ = require("lib.underscore")
+
+local pedal_config = {
+  {50, "red"},
+  {100, "bronze"},
+  {150, "silver"},
+  {200, "gold"},
+  {250, "platinum"}, 
+}
+
 function get_pedal_by_score.evaluate()
-  if current_score >=250 then
-    return "img/screen/gameover/pendal_platinum.png"
-  elseif current_score >=200 then
-    return "img/screen/gameover/pendal_gold.png"
-  elseif current_score >=150 then
-    return "img/screen/gameover/pendal_silver.png"
-  elseif current_score >=100 then
-    return "img/screen/gameover/pendal_bronze.png"
-  elseif current_score >= 50 then
-    return "img/screen/gameover/pendal_red.png"
+  
+  for index, value in pairs(_.reverse(pedal_config)) do
+
+    if current_score >= value[1]  then
+      return string.format("img/screen/gameover/pendal_%s.png", value[2])
+    end
   end
+
 end
 
 return get_pedal_by_score
