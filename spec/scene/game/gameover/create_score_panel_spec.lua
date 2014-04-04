@@ -16,7 +16,10 @@ describe("create_score_panel", function()
 
       create_ending_high_score_text = {}
       stub(create_ending_high_score_text, "evaluate")
-
+      
+      create_pedal_image = {}
+      stub(create_pedal_image, "evaluate")
+      
       create_score_panel = require("scene.game.gameover.create_score_panel")
   end)
   
@@ -48,6 +51,12 @@ describe("create_score_panel", function()
     create_score_panel.evaluate()
     
     assert.stub(create_ending_high_score_text.evaluate).was_called()
+  end)
+  
+  it("should create pedal image", function()
+    create_score_panel.evaluate()
+    
+    assert.stub(create_pedal_image.evaluate).was_called()
   end)
   
 end)

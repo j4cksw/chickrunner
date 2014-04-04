@@ -17,9 +17,10 @@ describe("check_high_score_spec", function()
   end)
 
   it("If current score greater then set current score to game_stat.high_score", function()
-    -- when
+    new_high_score_image = {}
+    
     check_high_score.evaluate()
-    -- then
+
     assert.are.equal(game_stat.high_score, current_score)
   end)
 
