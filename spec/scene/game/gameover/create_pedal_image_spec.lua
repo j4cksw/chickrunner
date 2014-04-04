@@ -55,4 +55,12 @@ describe("create_pedal_image_spec", function()
     assert.stub(gameover_ui_group.insert).was_called_with(gameover_ui_group, fake_image)
   end)
   
+  it("should set x position of pedal image to 550", function()
+    current_score = 50
+    
+    create_pedal_image_spec.evaluate()
+    
+    assert.are.equal(fake_image.x, 550)
+  end)
+  
 end)
