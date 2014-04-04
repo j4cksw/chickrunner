@@ -14,6 +14,7 @@ function restart_game.evaluate()
   storyboard.reloadScene()
   display.remove(gameover_ui_group)
   initialize_chick.evaluate()
+  pedal_image = nil
 end
 
 return restart_game
