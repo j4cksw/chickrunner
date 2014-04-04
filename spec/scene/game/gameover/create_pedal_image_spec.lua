@@ -16,6 +16,13 @@ describe("create_pedal_image_spec", function()
       pedal_image_y = 448
     }
     
+    get_pedal_by_score = {
+      evaluate = function()
+        return "fake_pedal"
+      end
+    }
+    spy.on(get_pedal_by_score, "evaluate")
+    
     create_pedal_image_spec = require("scene.game.gameover.create_pedal_image")
   end)
   
@@ -32,7 +39,15 @@ describe("create_pedal_image_spec", function()
     
     create_pedal_image_spec.evaluate()
     
-    assert.stub(display.newImage).was_called_with("img/screen/gameover/pendal_red.png")
+    assert.stub(get_pedal_by_score.evaluate).was_called()
+  end)
+  
+  it("should create red pedal image when score greater or equal to 50", function()
+    current_score = 50
+    
+    create_pedal_image_spec.evaluate()
+    
+    assert.stub(display.newImage).was_called_with("fake_pedal")
   end)
   
   it("should set global variable pedal_image", function()
