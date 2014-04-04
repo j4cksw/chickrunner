@@ -1,7 +1,9 @@
 get_pedal_by_score = {}
 
 function get_pedal_by_score.evaluate()
-  if current_score >=200 then
+  if current_score >=250 then
+    return "img/screen/gameover/pendal_platinum.png"
+  elseif current_score >=200 then
     return "img/screen/gameover/pendal_gold.png"
   elseif current_score >=150 then
     return "img/screen/gameover/pendal_silver.png"
