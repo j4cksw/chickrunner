@@ -50,4 +50,5 @@ describe("load_audio", function()
     -- then
     assert.stub(audio.loadSound).was_called_with("audio/ready_sound.mp3")
   end)
+ 
 end)
