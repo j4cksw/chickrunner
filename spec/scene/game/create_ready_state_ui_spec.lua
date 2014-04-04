@@ -2,7 +2,8 @@ describe("create_ready_state_ui", function()
   local create_ready_state_ui
   
   local tap_to_start_button = {
-    y = 500
+    y = 500,
+    x = 500
   }
   
   local fontname = "f"
@@ -17,6 +18,12 @@ describe("create_ready_state_ui", function()
   local fake_tutorial_image = {"fake_image"}
   
   setup(function()
+  
+    game_scene_config = {
+      ready_first_text_y_offset = 20,
+      ready_first_text_size = 32
+    }
+    
     create_tap_to_start_button = {
       evaluate = function()
         return tap_to_start_button 
@@ -55,6 +62,13 @@ describe("create_ready_state_ui", function()
     
     stub(fake_ui_group, "insert")
     
+    create_ready_first_text = {
+      evaluate = function()
+        return fake_first_text
+      end
+    }
+    spy.on(create_ready_first_text, "evaluate")
+    
     create_ready_state_ui = require("scene.game.create_ready_state_ui")
   end)
   
@@ -65,11 +79,11 @@ describe("create_ready_state_ui", function()
     assert.stub(create_tap_to_start_button.evaluate).was_called()
   end)
   
-  it("Create 'to' text under tap button", function()
+  it("Create first_text under tap button", function()
     -- when
     create_ready_state_ui.evaluate()
     -- then
-    assert.stub(display.newText).was_called_with("TO", display.contentCenterX, tap_to_start_button.y+120, fontname, 32)
+    assert.stub(create_ready_first_text.evaluate).was_called_with(tap_to_start_button)
   end)
   
   it("Create display group", function()
