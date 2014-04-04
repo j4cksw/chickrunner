@@ -1,7 +1,7 @@
 describe("create_pedal_image_spec", function()
   local create_pedal_image_spec
   
-  local fake_image = {}
+  local fake_image = {"fake image"}
   
   setup(function()
     display = {
@@ -10,6 +10,11 @@ describe("create_pedal_image_spec", function()
       end
     }
     spy.on(display, "newImage")
+    
+    gameover_ui_group = {
+      insert = function()end
+    }
+    stub(gameover_ui_group, "insert")
     
     create_pedal_image_spec = require("scene.game.gameover.create_pedal_image")
   end)
@@ -41,4 +46,13 @@ describe("create_pedal_image_spec", function()
     
     assert.are.equal(pedal_image, fake_image)
   end)
+  
+  it("should insert pedal image to gameover ui group", function()
+    current_score = 50
+    
+    create_pedal_image_spec.evaluate()
+    
+    assert.stub(gameover_ui_group.insert).was_called_with(gameover_ui_group, fake_image)
+  end)
+  
 end)
