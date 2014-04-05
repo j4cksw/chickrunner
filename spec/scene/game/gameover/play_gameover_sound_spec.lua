@@ -10,6 +10,6 @@ describe("play_gameover_sound", function()
     
     play_gameover_sound.evaluate()
     
-    assert.stub(audio.play).was_called_with(gameover_sound)
+    assert.stub(audio.play).was_called_with(gameover_sound, {channel=7})
   end)
 end)

@@ -9,10 +9,9 @@ game_scene_config = game_scene_config or require("config.game_scene_config")
 chick_bounce_collision_listener = chick_bounce_collision_listener or require("scene.game.chick_bounce_collision_listener")
 stop_bgm = stop_bgm or require("scene.game.audio.stop_bgm")
 play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_explosion_sound")
+play_gameover_sound = play_gameover_sound or require("scene.game.gameover.play_gameover_sound")
 
 function box_collision_listener.evaluate(event)
-  print("Box collision detected")
-  print("Element id#"..event.selfElement)
   if event.selfElement <= 1 then
     Runtime:removeEventListener("enterFrame", update_stage.evaluate)
     Runtime:removeEventListener("tap", chick_jump.evaluate)
@@ -27,13 +26,11 @@ function box_collision_listener.evaluate(event)
     chick_ignite.evaluate()
     
     stop_bgm.evaluate()
-  else
-    --print("Not explode")
   end
-  
 end
 
 function box_collision_listener.delayAddCollision()
+  play_gameover_sound.evaluate()
   chick:addEventListener("collision", chick_bounce_collision_listener.evaluate)
 end
 
