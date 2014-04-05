@@ -11,7 +11,7 @@ describe("play_ui_button_sound", function()
   it("Play ui button aound", function()
     play_ui_button_sound.evaluate()
     
-    assert.stub(audio.play).was_called_with(ui_menu_sound)
+    assert.stub(audio.play).was_called_with(ui_menu_sound, {channel=6})
   end)
   
 end)
