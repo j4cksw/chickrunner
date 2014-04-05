@@ -45,6 +45,12 @@ describe("scene.game_scene", function ( ... )
 		set_current_view_group = {}
 		stub(set_current_view_group, "evaluate")
     
+    initialize_ground = {}
+    stub(initialize_ground, "evaluate")
+    
+    initialize_chick = {}
+    stub(initialize_chick, "evaluate")
+    
     enter_ready_state = {}
     stub(enter_ready_state, "evaluate")
 
@@ -58,13 +64,6 @@ describe("scene.game_scene", function ( ... )
     assert.stub(initialize_game_stat.evaluate).was_called()
   end)
   
-	it("Evalaute create_ground_image_sheet in createScene", function ( ... )
-		-- when
-		game_scene:createScene(event)
-		-- then
-		assert.stub(create_ground_image_sheet.evaluate).was_called()
-	end)
-	
 	it("Evaluating create_explostion_image_sheet", function()
 	 -- when
 	 game_scene:createScene(event)
@@ -106,6 +105,20 @@ describe("scene.game_scene", function ( ... )
 	 -- then
 	 assert.stub(load_audio.evaluate).was_called()
 	end)
+	
+	it("Evaluate initialize_ground in create_scene", function ( ... )
+    -- when
+    game_scene:createScene(event)
+    -- then
+    assert.stub(initialize_ground.evaluate).was_called()
+  end)
+  
+  it("Evalaute initialize_chick in create_scene", function()
+   -- when
+   game_scene:createScene(event)
+   -- then
+   assert.stub(initialize_chick.evaluate).was_called()
+  end)
 
 	it("Evaluate enter_ready_state in enterScene", function ( ... )
 		-- when

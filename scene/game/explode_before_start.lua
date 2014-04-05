@@ -3,8 +3,10 @@ explode_before_start = {}
 start_game = start_game or require("scene.game.start_game")
 destroy_all_obstacles = destroy_all_obstacles or require("scene.game.obstacle.destroy_all_obstacles")
 remove_obstacles = remove_obstacles or require("scene.game.obstacle.remove_obstacles")
+hide_ads = hide_ads or require("common.ads.hide_ads")
 
 function explode_before_start.evaluate()
+  hide_ads.evaluate()
   Runtime:removeEventListener("tap", explode_before_start.evaluate)
   display.remove(ready_state_ui_group)
   audio.stop({channel=4})
