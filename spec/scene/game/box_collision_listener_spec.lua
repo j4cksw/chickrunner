@@ -64,6 +64,9 @@ describe("box_collision_listener", function()
     
     play_box_explosion_sound = {}
     stub(play_box_explosion_sound, "evaluate")
+        
+    play_gameover_sound = {}
+    stub(play_gameover_sound, "evaluate")
   
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
@@ -125,6 +128,13 @@ describe("box_collision_listener", function()
     box_collision_listener.delayAddCollision()
     -- then
     assert.stub(chick.addEventListener).was_called_with(chick, "collision", chick_bounce_collision_listener.evaluate)
+  end)
+  
+  it("play gameover sound", function()
+    -- when
+    box_collision_listener.delayAddCollision()
+    -- then
+    assert.stub(play_gameover_sound.evaluate).was_called()
   end)
   
   it("Evalaute stop_bgm", function()
