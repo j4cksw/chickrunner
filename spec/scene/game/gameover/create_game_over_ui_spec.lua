@@ -4,9 +4,6 @@ describe("create_game_over_ui", function()
   setup(function()
     score_text = {}
 
-    show_ads = {}
-    stub(show_ads, "evaluate")
-
     create_gameover_title_image = {}
     stub(create_gameover_title_image, "evaluate")
 
@@ -29,12 +26,6 @@ describe("create_game_over_ui", function()
     create_game_over_ui.evaluate()
 
     assert.stub(create_gameover_title_image.evaluate).was_called()
-  end)
-
-  it("should show ads", function()
-    create_game_over_ui.evaluate()
-
-    assert.stub(show_ads.evaluate).was_called()
   end)
 
   it("should hide score_text", function()
