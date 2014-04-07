@@ -67,7 +67,10 @@ describe("box_collision_listener", function()
         
     play_gameover_sound = {}
     stub(play_gameover_sound, "evaluate")
-  
+    
+    show_ads = {}
+    stub(show_ads, "evaluate")
+      
     box_collision_listener = require("scene.game.box_collision_listener")
   end)
   
@@ -151,4 +154,10 @@ describe("box_collision_listener", function()
     assert.stub(play_box_explosion_sound.evaluate).was_called()
   end)
   
+  it("should show ads", function()
+    -- when
+    box_collision_listener.evaluate(event)
+    -- then
+    assert.stub(show_ads.evaluate).was_called()
+  end)
 end)
