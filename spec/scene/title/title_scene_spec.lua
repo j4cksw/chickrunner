@@ -50,6 +50,9 @@ describe("title_scene", function()
     
     play_ui_button_sound = {}
     stub(play_ui_button_sound, "evaluate")
+    
+    load_title_audio = {}
+    stub(load_title_audio, "evaluate")
 
     title_scene = require("scene.title.title_scene")
   end)
@@ -131,5 +134,10 @@ describe("title_scene", function()
     -- then
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_logo)
   end)
-
+  
+  it("should load audio files that use in title", function()
+    title_scene:createScene(event)
+    
+    assert.stub(load_title_audio.evaluate).was_called()
+  end)
 end)

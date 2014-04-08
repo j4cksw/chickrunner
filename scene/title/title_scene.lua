@@ -9,10 +9,12 @@ initialize_ground = initialize_ground or require("ground.initialize_ground")
 show_ads = show_ads or require("common.ads.show_ads")
 hide_ads = hide_ads or require("common.ads.hide_ads")
 play_ui_button_sound  = play_ui_button_sound or require("scene.audio.play_ui_button_sound")
+load_title_audio = load_title_audio or require("scene.audio.load_title_audio")
 
 local title_scene = storyboard.newScene("title_scene")
 
 function title_scene:createScene(event)
+  load_title_audio.evaluate()
   set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
   local start_button = widget.newButton({
