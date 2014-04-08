@@ -22,13 +22,13 @@ function title_scene:createScene(event)
     onPress = play_ui_button_sound.evaluate
   })
   start_button.x = display.contentCenterX
-  start_button.y = display.contentCenterY
+  start_button.y = 740
   
   insert_to_current_view_group.evaluate(start_button)
   
   local logo_image = display.newImage("img/screen/title/logo.png")
   logo_image.x = display.contentCenterX
-  logo_image.y = 200
+  logo_image.y = 370
   insert_to_current_view_group.evaluate(logo_image)
   
   create_ground_image_sheet.evaluate()

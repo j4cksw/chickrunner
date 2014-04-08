@@ -86,7 +86,7 @@ describe("title_scene", function()
     title_scene:createScene(event)
     -- then
     assert.are.equal(fake_button.x, display.contentCenterX)
-    assert.are.equal(fake_button.y, display.contentCenterY)
+    assert.are.equal(fake_button.y, 740)
   end)
 
   it("should hide ads when push start button", function()
@@ -122,7 +122,7 @@ describe("title_scene", function()
     -- when
     title_scene:createScene(event)
     -- then
-    assert.are.equal(fake_logo.y, 200)
+    assert.are.equal(fake_logo.y, 370)
   end)
 
   it("Insert title image to current view group", function()
