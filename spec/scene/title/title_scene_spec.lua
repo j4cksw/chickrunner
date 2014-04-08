@@ -53,6 +53,9 @@ describe("title_scene", function()
     
     load_title_audio = {}
     stub(load_title_audio, "evaluate")
+    
+    play_title_bgm = {}
+    stub(play_title_bgm, "evaluate")
 
     title_scene = require("scene.title.title_scene")
   end)
@@ -139,5 +142,11 @@ describe("title_scene", function()
     title_scene:createScene(event)
     
     assert.stub(load_title_audio.evaluate).was_called()
+  end)
+  
+  it("should play title bgm", function()
+    title_scene:createScene(event)
+    
+    assert.stub(play_title_bgm.evaluate).was_called()
   end)
 end)
