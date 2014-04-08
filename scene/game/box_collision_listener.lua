@@ -10,6 +10,7 @@ chick_bounce_collision_listener = chick_bounce_collision_listener or require("sc
 stop_bgm = stop_bgm or require("scene.game.audio.stop_bgm")
 play_box_explosion_sound = play_box_explosion_sound or require("box.play_box_explosion_sound")
 play_gameover_sound = play_gameover_sound or require("scene.game.gameover.play_gameover_sound")
+show_ads = show_ads or require("common.ads.show_ads")
 
 function box_collision_listener.evaluate(event)
   if event.selfElement <= 1 then
@@ -17,6 +18,7 @@ function box_collision_listener.evaluate(event)
     Runtime:removeEventListener("tap", chick_jump.evaluate)
     timer.cancel(explosion_timer)
     
+    show_ads.evaluate()   
     play_box_explosion_sound.evaluate()
     destroy_all_obstacles.evaluate()
     
