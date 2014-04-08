@@ -9,7 +9,7 @@ describe("load_title_audio", function()
         return fake_stream      
       end
     }
-    stub(audio, "loadStream")
+    spy.on(audio, "loadStream")
     
     load_title_audio = require("scene.title.load_title_audio")
   end)
@@ -20,5 +20,9 @@ describe("load_title_audio", function()
     assert.stub(audio.loadStream).was_called_with("audio/menu_bg.mp3")
   end)
   
-  it("should set to global variable title_bgm")
+  it("should set to global variable title_bgm", function()
+    load_title_audio.evaluate()
+    
+    assert.are.equal(title_bgm, fake_stream)
+  end)
 end)
