@@ -5,7 +5,6 @@ settings =
 	   ["CoronaProvider.ads.admob"] =
 	   {
 	      publisherId = "com.coronalabs",
-	      supportedPlatforms = { android = true },
 	   },
 	},
 
@@ -25,4 +24,16 @@ settings =
          "android.permission.READ_PHONE_STATE",
       },
     },
+
+    iphone =
+    {
+        plist =
+        {
+            UIAppFonts =
+            {
+                "prstartk.ttf"
+            },
+            UIApplicationExitsOnSuspend = true
+        },
+    }
 }

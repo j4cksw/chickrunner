@@ -1,6 +1,7 @@
 fontNameTable = {
 	Win="Press Start K",
-	Android="prstartk"
+	Android="prstartk",
+	Others="PressStartK"
 }
 
 return fontNameTable
