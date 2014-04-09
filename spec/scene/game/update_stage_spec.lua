@@ -6,15 +6,18 @@ describe("update_stage", function()
     stub(move_ground, "evaluate")
     
     move_explosion = {}
-    stub(move_explosion, "evaluate") --(game_scene_config.game_speed)
+    stub(move_explosion, "evaluate")
     
     move_obstacles = {}
-    stub(move_obstacles, "evaluate") --(box_queue[1], -game_scene_config.game_speed)
+    stub(move_obstacles, "evaluate")
     
+    verify_chick_position = {}
+    stub(verify_chick_position, "evaluate")
+  
     game_scene_config = {
       game_speed = 9
     }
-  
+    
     update_stage = require("scene.game.update_stage")
   end)
   
@@ -37,5 +40,11 @@ describe("update_stage", function()
     update_stage.evaluate()
     -- then
     assert.stub(move_obstacles.evaluate).was_called()
+  end)
+  
+  it("Evaluate verify_chick_position", function()
+    update_stage.evaluate()
+    
+    assert.stub(verify_chick_position.evaluate).was_called()
   end)
 end)
