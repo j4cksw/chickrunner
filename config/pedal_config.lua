@@ -1,4 +1,5 @@
 pedal_config = {
+  {0, "empty"},
   {50, "red"},
   {100, "bronze"},
   {150, "silver"},
