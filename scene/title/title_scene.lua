@@ -9,10 +9,14 @@ initialize_ground = initialize_ground or require("ground.initialize_ground")
 show_ads = show_ads or require("common.ads.show_ads")
 hide_ads = hide_ads or require("common.ads.hide_ads")
 play_ui_button_sound  = play_ui_button_sound or require("scene.audio.play_ui_button_sound")
+load_title_audio = load_title_audio or require("scene.title.load_title_audio")
+play_title_bgm = play_title_bgm or require("scene.title.play_title_bgm")
 
 local title_scene = storyboard.newScene("title_scene")
 
 function title_scene:createScene(event)
+  load_title_audio.evaluate()
+  play_title_bgm.evaluate()
   set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
   local start_button = widget.newButton({
@@ -22,13 +26,13 @@ function title_scene:createScene(event)
     onPress = play_ui_button_sound.evaluate
   })
   start_button.x = display.contentCenterX
-  start_button.y = display.contentCenterY
+  start_button.y = 740
   
   insert_to_current_view_group.evaluate(start_button)
   
   local logo_image = display.newImage("img/screen/title/logo.png")
   logo_image.x = display.contentCenterX
-  logo_image.y = 200
+  logo_image.y = 370
   insert_to_current_view_group.evaluate(logo_image)
   
   create_ground_image_sheet.evaluate()
