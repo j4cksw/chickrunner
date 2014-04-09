@@ -7,7 +7,6 @@ ground_block_sprite_config = {
 	},
 	physics_options = {
 	 bounce = 0.0
-	 --shape = { -64, -64, 64, -64, 64, 64, -64, 64}
 	}
 }
 
