@@ -11,7 +11,7 @@ describe("initialize_ads", function()
   it("should initialize ads", function()
     initialize_ads.evaluate()
     
-    assert.stub(ads.init).was_called_with("admob", "a152fcd578c6fa7")
+    assert.stub(ads.init).was_called_with("admob", "a1534511cd248dc")
   end)
   
 end)

@@ -9,29 +9,18 @@ describe("verify_chick_position", function()
     game_scene_config = {
       chick_start=192
     }
+    
     chick = {
       x = 191,
       sequence="run"
     }
-    stub(chick, "setLinearVelocity")
+    
+    transition = {}
+    stub(transition, "to")
 
     verify_chick_position.evaluate()
 
-    assert.stub(chick.setLinearVelocity).was_called_with(chick, 100, 0.0)
+    assert.stub(transition.to).was_called_with(chick, {time=100, x=game_scene_config.chick_start, onComplete=removeTransition})
   end)
 
-  it("should stop moving when chick reached the start position", function()
-    game_scene_config = {
-      chick_start=192
-    }
-    chick = {
-      x = 192,
-      sequence="run"
-    }
-    stub(chick, "setLinearVelocity")
-
-    verify_chick_position.evaluate()
-
-    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0.0, 0.0)
-  end)
 end)

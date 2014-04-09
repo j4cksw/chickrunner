@@ -4,18 +4,11 @@ check_chick_landing_condition = check_chick_landing_condition or require("scene.
 
 function chick_collision_listener.evaluate(event)
   local landing_condition = check_chick_landing_condition.evaluate(event)
-  if landing_condition then 
-    print("began")
-      print("Landing")
-      chick.jumpCount = 1
-      chick:setSequence('run')
-      chick:play()
-      chick:removeEventListener("collision", chick_collision_listener.evaluate)
-  end
-  if event.phase == "ended" then
-    print("End")
-    print("other.type="..event.other.type)
-    print(chick.isSleepingAllowed)
+  if landing_condition then
+    chick.jumpCount = 1
+    chick:setSequence('run')
+    chick:play()
+    chick:removeEventListener("collision", chick_collision_listener.evaluate)
   end
 end
 
