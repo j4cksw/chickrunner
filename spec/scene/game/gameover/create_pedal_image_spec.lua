@@ -31,7 +31,7 @@ describe("create_pedal_image_spec", function()
     
     create_pedal_image_spec.evaluate()
     
-    assert.stub(display.newImage).was_not_called()
+    assert.stub(display.newImage).was_called()
   end)
   
   it("should create red pedal image when score greater or equal to 50", function()
