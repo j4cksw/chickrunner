@@ -20,5 +20,18 @@ describe("verify_chick_position", function()
     assert.stub(chick.setLinearVelocity).was_called_with(chick, 100, 0.0)
   end)
 
-  it("should stop moving when chick reached the start position")
+  it("should stop moving when chick reached the start position", function()
+    game_scene_config = {
+      chick_start=192
+    }
+    chick = {
+      x = 192,
+      sequence="run"
+    }
+    stub(chick, "setLinearVelocity")
+
+    verify_chick_position.evaluate()
+
+    assert.stub(chick.setLinearVelocity).was_called_with(chick, 0.0, 0.0)
+  end)
 end)
