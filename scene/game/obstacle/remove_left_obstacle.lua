@@ -5,9 +5,11 @@ obstacle_queue = obstacle_queue or require("scene.game.obstacle.obstacle_queue")
 
 function remove_left_obstacle.evaluate()
   _.each(obstacle_queue, function(obstacle_group)
-    for i=1, obstacle_group.numChildren do
-      if obstacle_group[i].x <= 56 then
-        display.remove(obstacle_group[i])
+    if obstacle_group.numChildren > 0 then
+      for i=1, obstacle_group.numChildren do
+        if obstacle_group[i] and obstacle_group[i].x <= 56 then
+          display.remove(obstacle_group[i])
+        end
       end
     end
   end)
