@@ -9,6 +9,7 @@ function create_play_again_button.evaluate()
   play_again_button = widget.newButton({
         id="play_again",
         defaultFile=gameover_ui_config.play_again_button_image_path,
+        overFile=gameover_ui_config.play_again_button_down_image_path,
         onRelease=restart_game.evaluate,
         onPress=play_ui_button_sound.evaluate
       })

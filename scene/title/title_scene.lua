@@ -22,6 +22,7 @@ function title_scene:createScene(event)
   local start_button = widget.newButton({
     id = "start",
     defaultFile = "img/ui/start.png",
+    overFile="img/ui/start_down.png",
     onRelease = self.go_to_game_scene,
     onPress = play_ui_button_sound.evaluate
   })

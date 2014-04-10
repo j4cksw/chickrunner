@@ -24,6 +24,7 @@ gameover_ui_config = {
   ending_high_score_text_y = 520,
 
   play_again_button_image_path="img/ui/play.png",
+  play_again_button_down_image_path="img/ui/play_down.png",
   play_again_button_x = display.contentCenterX,
   play_again_button_y = 745,
 
