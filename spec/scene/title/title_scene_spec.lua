@@ -82,6 +82,7 @@ describe("title_scene", function()
       was_called_with({
         id="start",
         defaultFile="img/ui/start.png",
+        overFile="img/ui/start_down.png",
         onPress=play_ui_button_sound.evaluate,
         onRelease=title_scene.go_to_game_scene
       })
