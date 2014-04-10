@@ -13,6 +13,9 @@ describe("update_stage", function()
     
     verify_chick_position = {}
     stub(verify_chick_position, "evaluate")
+    
+    remove_left_obstacle = {}
+    stub(remove_left_obstacle, "evaluate")
   
     game_scene_config = {
       game_speed = 9
@@ -46,5 +49,11 @@ describe("update_stage", function()
     update_stage.evaluate()
     
     assert.stub(verify_chick_position.evaluate).was_called()
+  end)
+  
+  it("should remove left obstacles", function()
+    update_stage.evaluate()
+    
+    assert.stub(remove_left_obstacle.evaluate).was_called()
   end)
 end)
