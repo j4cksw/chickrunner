@@ -7,7 +7,11 @@ describe("check_first_ground_block", function ( ... )
 	}
 
 	setup(function ( ... )
-
+    
+    ground_config = {
+      remove_ground_block_position = 0
+    }
+    
 		display = {}
 		stub(display, "remove")
 
