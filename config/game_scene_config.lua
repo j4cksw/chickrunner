@@ -19,6 +19,7 @@ game_scene_config = {
   score_text_size = 60,
   score_text_y = 100,
   ready_first_text_y_offset = 120,
-  ready_first_text_size = 32
+  ready_first_text_size = 32,
+  remove_obstacle_position = 56
 }
 return game_scene_config

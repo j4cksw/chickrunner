@@ -17,6 +17,10 @@ describe("remove_left_obstacles", function()
       obstacle_group_1
     }
     
+    game_scene_config = {
+      remove_obstacle_position = 56
+    }
+    
     remove_left_obstacle.evaluate()
     
     assert.stub(display.remove).was_called_with(obstacle_1)
