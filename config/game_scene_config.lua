@@ -16,6 +16,7 @@ game_scene_config = {
   obstacle_horizontal_start = 350,
   obstacle_horizontal_start_game = 700,
   obstacle_space_alpha = 0,
+  generate_obstacle_position = 1000,
   score_text_size = 60,
   score_text_y = 100,
   ready_first_text_y_offset = 120,

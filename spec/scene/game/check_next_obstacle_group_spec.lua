@@ -11,8 +11,8 @@ describe("check_next_obstacle_group", function()
     }
     spy.on(get_last_obstacle_horizontal_position, "evaluate")
     
-    display = {
-      viewableContentWidth = 1000
+    game_scene_config = {
+      generate_obstacle_position = 1000
     }
     
     generate_random_obstacle = {}
