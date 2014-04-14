@@ -4,6 +4,12 @@ describe("create_logo_image", function()
   local fake_logo = {}
   
   setup(function()
+    title_scene_config = {
+      logo_image_file="img/screen/title/logo.png",
+      logo_image_x=10,
+      logo_image_y=370
+    }
+    
     display = {
       contentCenterX=10,
       newImage = function()
