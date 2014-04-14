@@ -18,18 +18,8 @@ describe("title_scene", function()
         return scene
       end
     }
-    stub(storyboard, "gotoScene")
-
-    widget = {
-      newButton = function()
-        return fake_button
-      end
-    }
-    spy.on(widget, "newButton")
 
     display = {
-      contentCenterX = 10,
-      contentCenterY = 20,
       newImage = function()
         return fake_logo
       end
@@ -41,15 +31,12 @@ describe("title_scene", function()
 
     create_background_image = {}
     stub(create_background_image, "evaluate")
+    
+    create_start_button = {}
+    stub(create_start_button, "evaluate")
 
     insert_to_current_view_group = {}
     stub(insert_to_current_view_group, "evaluate")
-
-    hide_ads = {}
-    stub(hide_ads, "evaluate")
-    
-    play_ui_button_sound = {}
-    stub(play_ui_button_sound, "evaluate")
     
     load_title_audio = {}
     stub(load_title_audio, "evaluate")
@@ -74,41 +61,10 @@ describe("title_scene", function()
     assert.stub(create_background_image.evaluate).was_called()
   end)
 
-  it("Create start button", function()
-    -- when
+  it("should create start button", function()
     title_scene:createScene(event)
-    -- then
-    assert.stub(widget.newButton).
-      was_called_with({
-        id="start",
-        defaultFile="img/ui/start.png",
-        overFile="img/ui/start_down.png",
-        onPress=play_ui_button_sound.evaluate,
-        onRelease=title_scene.go_to_game_scene
-      })
-  end)
-
-  it("Set start button on centerr of screen", function()
-    -- when
-    title_scene:createScene(event)
-    -- then
-    assert.are.equal(fake_button.x, display.contentCenterX)
-    assert.are.equal(fake_button.y, 740)
-  end)
-
-  it("should hide ads when push start button", function()
-    title_scene.go_to_game_scene()
-
-    assert.stub(hide_ads.evaluate).was_called()
-  end)
-
-  it("Go to game scene when push start button", function()
-    -- when
-    title_scene.go_to_game_scene()
-    -- then
-    assert.stub(storyboard.gotoScene).was_called_with("scene.game.game_scene",{
-      effect = "fade",
-      time = 500})
+    
+    assert.stub(create_start_button.evaluate).was_called()
   end)
 
   it("Create game title image", function()

@@ -5,10 +5,9 @@ set_current_view_group = set_current_view_group or require("scene.set_current_vi
 create_background_image = create_background_image or require("scene.create_background_image")
 insert_to_current_view_group = insert_to_current_view_group or require("scene.insert_to_current_view_group")
 create_ground_image_sheet = create_ground_image_sheet or require("scene.create_ground_image_sheet")
+create_start_button = create_start_button or require("scene.title.create_start_button")
 initialize_ground = initialize_ground or require("ground.initialize_ground")
 show_ads = show_ads or require("common.ads.show_ads")
-hide_ads = hide_ads or require("common.ads.hide_ads")
-play_ui_button_sound  = play_ui_button_sound or require("scene.audio.play_ui_button_sound")
 load_title_audio = load_title_audio or require("scene.title.load_title_audio")
 play_title_bgm = play_title_bgm or require("scene.title.play_title_bgm")
 
@@ -19,17 +18,7 @@ function title_scene:createScene(event)
   play_title_bgm.evaluate()
   set_current_view_group.evaluate(self.view)
   create_background_image.evaluate()
-  local start_button = widget.newButton({
-    id = "start",
-    defaultFile = "img/ui/start.png",
-    overFile="img/ui/start_down.png",
-    onRelease = self.go_to_game_scene,
-    onPress = play_ui_button_sound.evaluate
-  })
-  start_button.x = display.contentCenterX
-  start_button.y = 740
-  
-  insert_to_current_view_group.evaluate(start_button)
+  create_start_button.evaluate()
   
   local logo_image = display.newImage("img/screen/title/logo.png")
   logo_image.x = display.contentCenterX
