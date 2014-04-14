@@ -4,7 +4,7 @@ title_scene_config = {
   start_button_x=display.contentCenterX,
   start_button_y=740,
   logo_image_file="img/screen/title/logo.png",
-  logo_image_x=10,
+  logo_image_x=display.contentCenterX,
   logo_image_y=370
 }
 return title_scene_config
