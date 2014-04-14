@@ -42,7 +42,7 @@ describe("create_start_button", function()
       })
   end)
 
-  it("Set start button on centerr of screen", function()
+  it("Set start button on center of screen", function()
     create_start_button.evaluate()
     
     assert.are.equal(fake_button.x, display.contentCenterX)
