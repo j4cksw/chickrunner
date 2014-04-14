@@ -29,13 +29,6 @@ function title_scene:createScene(event)
   initialize_ground.evaluate()
 end
 
-function title_scene.go_to_game_scene()
-  hide_ads.evaluate()
-  storyboard.gotoScene("scene.game.game_scene",{
-    effect = "fade",
-    time = 500})
-end
-
 title_scene:addEventListener( "createScene", title_scene )
 
 return title_scene
