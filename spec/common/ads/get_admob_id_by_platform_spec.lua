@@ -11,6 +11,11 @@ describe("get_admob_id_by_platform", function()
     }
     spy.on(system, "getInfo")
     
+    admob_id_table = {
+      ["Android"] = "a1534511cd248dc",
+      ["iPhone OS"] = "a15350a7a1d099c"
+    }
+    
     get_admob_id_by_platform = require("common.ads.get_admob_id_by_platform")
   end)
   
