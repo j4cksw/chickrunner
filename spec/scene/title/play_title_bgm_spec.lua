@@ -13,6 +13,6 @@ describe("play_title_bgm", function()
   it("should play title bgm", function()
     play_title_bgm.evaluate()
     
-    assert.stub(audio.play).was_called_with(title_bgm, {channel=7})
+    assert.stub(audio.play).was_called_with(title_bgm, {channel=7, loops=-1})
   end)
 end)
