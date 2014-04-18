@@ -14,6 +14,8 @@ play_title_bgm = play_title_bgm or require("scene.title.play_title_bgm")
 local title_scene = storyboard.newScene("title_scene")
 
 function title_scene:createScene(event)
+  create_ground_image_sheet.evaluate()
+  initialize_ground.evaluate()
   load_title_audio.evaluate()
   play_title_bgm.evaluate()
   set_current_view_group.evaluate(self.view)
@@ -21,8 +23,6 @@ function title_scene:createScene(event)
   create_start_button.evaluate()
   create_rate_it_button.evaluate()
   create_logo_image.evaluate()
-  create_ground_image_sheet.evaluate()
-  initialize_ground.evaluate()
 end
 
 title_scene:addEventListener( "createScene", title_scene )

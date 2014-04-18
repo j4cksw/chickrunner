@@ -13,8 +13,8 @@ function create_rate_it_button.evaluate()
     onPress=play_ui_button_sound.evaluate
   })
   
-  rate_it_button.x = 360
-  rate_it_button.y = 900
+  rate_it_button.x = title_scene_config.rate_it_button_x
+  rate_it_button.y = title_scene_config.rate_it_button_y
   
   insert_to_current_view_group.evaluate(rate_it_button)
 end

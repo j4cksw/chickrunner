@@ -14,7 +14,7 @@ describe("create_rate_it_button", function()
     title_scene_config = {
       rate_it_button_default_file="img/ui/rate.png",
       rate_it_button_over_file="img/ui/rate_down.png",
-      rate_it_button_x=10,
+      rate_it_button_x=360,
       rate_it_button_y=900
     }
     
