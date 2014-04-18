@@ -7,4 +7,4 @@ initialize_ads = initialize_ads or require("common.ads.initialize_ads")
 initialize_ads.evaluate()
 
 storyboard = storyboard or require("storyboard")
-storyboard.gotoScene("common.splash.splash_scene")
+storyboard.gotoScene("common.splash.splash_scene") 
