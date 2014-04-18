@@ -5,6 +5,13 @@ describe("initialize_ads", function()
     ads = {}
     stub(ads, "init")
     
+    get_admob_id_by_platform = {
+      evaluate = function()
+        return "a1534511cd248dc"
+      end
+    }
+    spy.on(get_admob_id_by_platform, "evaluate")
+    
     initialize_ads = require("common.ads.initialize_ads")
   end)
   
