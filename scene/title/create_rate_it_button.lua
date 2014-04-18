@@ -9,6 +9,7 @@ function create_rate_it_button.evaluate()
   })
   
   rate_it_button.x = 583
+  rate_it_button.y = 1161
 end
 
 return create_rate_it_button

@@ -28,5 +28,9 @@ describe("create_rate_it_button", function()
     assert.are.equal(fake_button.x, 583)
   end)
   
-  it("should set y to 1161")
+  it("should set y to 1161", function()
+    create_rate_it_button.evaluate()
+    
+    assert.are.equal(fake_button.y, 1161)
+  end)
 end)
