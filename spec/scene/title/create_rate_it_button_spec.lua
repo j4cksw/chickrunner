@@ -21,4 +21,12 @@ describe("create_rate_it_button", function()
       defaultFile = "img/ui/rate.png",
     })
   end)
+  
+  it("should set x to 583", function()
+    create_rate_it_button.evaluate()
+    
+    assert.are.equal(fake_button.x, 583)
+  end)
+  
+  it("should set y to 1161")
 end)
