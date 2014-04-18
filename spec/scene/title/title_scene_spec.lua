@@ -38,9 +38,9 @@ describe("title_scene", function()
     create_logo_image = {}
     stub(create_logo_image, "evaluate")
 
-    insert_to_current_view_group = {}
-    stub(insert_to_current_view_group, "evaluate")
-
+    create_rate_it_button = {}
+    stub(create_rate_it_button, "evaluate")
+    
     load_title_audio = {}
     stub(load_title_audio, "evaluate")
 
@@ -74,6 +74,12 @@ describe("title_scene", function()
     title_scene:createScene(event)
 
     assert.stub(create_logo_image.evaluate).was_called()
+  end)
+  
+  it("should create rate-it button", function()
+    title_scene:createScene(event)
+    
+    assert.stub(create_rate_it_button.evaluate).was_called()
   end)
 
   it("should load audio files that use in title", function()
