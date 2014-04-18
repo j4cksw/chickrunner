@@ -25,6 +25,10 @@ describe("create_rate_it_button", function()
       evaluate = function()end
     }
     
+    rate_link = {}
+    stub(rate_link, "open")
+    
+    
     create_rate_it_button = require("scene.title.create_rate_it_button")
   end)
 
@@ -35,7 +39,8 @@ describe("create_rate_it_button", function()
       id = "rate-it",
       defaultFile = "img/ui/rate.png",
       overFile= "img/ui/rate_down.png",
-      onPress = play_ui_button_sound.evaluate
+      onPress = play_ui_button_sound.evaluate,
+      onRelease = rate_link.open
     })
   end)
   
