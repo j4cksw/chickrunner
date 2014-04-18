@@ -10,6 +10,10 @@ describe("create_rate_it_button", function()
       end
     }
     spy.on(widget, "newButton")
+    
+    insert_to_current_view_group = {}
+    stub(insert_to_current_view_group, "evaluate")
+    
     create_rate_it_button = require("scene.title.create_rate_it_button")
   end)
 
@@ -32,5 +36,11 @@ describe("create_rate_it_button", function()
     create_rate_it_button.evaluate()
     
     assert.are.equal(fake_button.y, 1161)
+  end)
+  
+  it("should insert to current view group", function()
+    create_rate_it_button.evaluate()
+    
+    assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_button)
   end)
 end)
