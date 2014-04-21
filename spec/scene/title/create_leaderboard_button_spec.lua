@@ -4,6 +4,14 @@ describe("create_leaderboard_button_spec", function()
   local fake_button = {}
   
   setup(function()
+    title_scene_config = {
+      leaderboard_button_default_file = "img/ui/rank.png",
+      leaderbaord_button_over_file = "img/ui/rank_down.png",
+      leaderboard_button_x = 251,
+      leaderboard_button_y = 890
+    }
+    
+    
     widget = {
       newButton = function()
         return fake_button
