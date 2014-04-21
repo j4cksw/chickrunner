@@ -12,6 +12,7 @@ function create_leaderboard_button.evaluate()
   })
   insert_to_current_view_group.evaluate(leaderboard_button)
   leaderboard_button.y = 890
+  leaderboard_button.x = 251
 end
 
 return create_leaderboard_button

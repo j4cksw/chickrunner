@@ -41,4 +41,10 @@ describe("create_leaderboard_button_spec", function()
     
     assert.are.equal(fake_button.y, 890)
   end)
+  
+  it("should set x to 251", function()
+    create_leaderboard_button.evaluate()
+    
+    assert.are.equal(fake_button.x, 251)
+  end)
 end)
