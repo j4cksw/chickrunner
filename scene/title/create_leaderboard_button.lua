@@ -11,6 +11,7 @@ function create_leaderboard_button.evaluate()
     onPress=play_ui_button_sound.evaluate
   })
   insert_to_current_view_group.evaluate(leaderboard_button)
+  leaderboard_button.y = 890
 end
 
 return create_leaderboard_button

@@ -35,4 +35,10 @@ describe("create_leaderboard_button_spec", function()
     
     assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_button)
   end)
+  
+  it("should set y to 890", function()
+    create_leaderboard_button.evaluate()
+    
+    assert.are.equal(fake_button.y, 890)
+  end)
 end)
