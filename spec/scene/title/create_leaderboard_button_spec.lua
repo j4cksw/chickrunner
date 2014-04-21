@@ -1,14 +1,26 @@
 describe("create_leaderboard_button_spec", function()
   local create_leaderboard_button
   
+  local fake_button = {}
+  
   setup(function()
+    widget = {
+      newButton = function()
+        return fake_button
+      end
+    }
+    spy.on(widget, "newButton")
+    
     play_ui_button_sound = {}
     stub(play_ui_button_sound, "evaluate")
+    
+    insert_to_current_view_group = {}
+    stub(insert_to_current_view_group, "evaluate")
   
     create_leaderboard_button = require("scene.title.create_leaderboard_button")
   end)
   
-  it("create leaderboard button", function()
+  it("should create leaderboard button", function()
     create_leaderboard_button.evaluate()
     
     assert.stub(widget.newButton).was_called_with({
@@ -16,5 +28,11 @@ describe("create_leaderboard_button_spec", function()
       overFile="img/ui/rank_down.png",
       onPress=play_ui_button_sound.evaluate
     })
+  end)
+  
+  it("should insert to current view group", function()
+    create_leaderboard_button.evaluate()
+    
+    assert.stub(insert_to_current_view_group.evaluate).was_called_with(fake_button)
   end)
 end)
