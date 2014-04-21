@@ -9,7 +9,8 @@ describe("create_leaderboard_button_spec", function()
     create_leaderboard_button.evaluate()
     
     assert.stub(widget.newButton).was_called_with({
-      defaultFile="img/ui/rank.png"
+      defaultFile="img/ui/rank.png",
+      overFile="img/ui/rank_down.png"
     })
   end)
 end)

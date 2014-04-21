@@ -37,7 +37,10 @@ describe("title_scene", function()
 
     create_logo_image = {}
     stub(create_logo_image, "evaluate")
-
+    
+    create_leaderboard_button = {}
+    stub(create_leaderboard_button, "evaluate")
+    
     create_rate_it_button = {}
     stub(create_rate_it_button, "evaluate")
     
@@ -74,6 +77,12 @@ describe("title_scene", function()
     title_scene:createScene(event)
 
     assert.stub(create_logo_image.evaluate).was_called()
+  end)
+  
+  it("should create leaderboard button", function()
+    title_scene:createScene(event)
+    
+    assert.stub(create_leaderboard_button.evaluate).was_called()
   end)
   
   it("should create rate-it button", function()
