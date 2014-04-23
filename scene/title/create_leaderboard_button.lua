@@ -19,7 +19,9 @@ function create_leaderboard_button.evaluate()
 end
 
 function show_leaderboard()
-  gameNetwork.show("leaderboards")
+  gameNetwork.show("leaderboards", {
+    category="runchickenrun"
+  })
 end
 
 return create_leaderboard_button
