@@ -12,6 +12,9 @@ describe("check_high_score_spec", function()
 
     create_new_high_score_image = {}
     stub(create_new_high_score_image, "evaluate")
+    
+    gameNetwork = {}
+    stub(gameNetwork, "request")
 
     check_high_score = require("scene.game.check_high_score")
   end)

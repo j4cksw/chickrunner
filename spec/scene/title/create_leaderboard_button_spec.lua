@@ -34,7 +34,8 @@ describe("create_leaderboard_button_spec", function()
     assert.stub(widget.newButton).was_called_with({
       defaultFile="img/ui/rank.png",
       overFile="img/ui/rank_down.png",
-      onPress=play_ui_button_sound.evaluate
+      onPress=play_ui_button_sound.evaluate,
+      onRelease=show_leaderboard
     })
   end)
   
