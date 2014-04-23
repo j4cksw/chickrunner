@@ -69,6 +69,9 @@ describe("create_ready_state_ui", function()
     }
     spy.on(create_ready_first_text, "evaluate")
     
+    create_sound_toggle_switch = {}
+    stub(create_sound_toggle_switch, "evaluate")
+    
     create_ready_state_ui = require("scene.game.create_ready_state_ui")
   end)
   
@@ -133,5 +136,11 @@ describe("create_ready_state_ui", function()
     create_ready_state_ui.evaluate()
     -- then
     assert.stub(fake_ui_group.insert).was_called_with(fake_ui_group, fake_tutorial_image)
+  end)
+  
+  it("Create sound toggle switch", function()
+    create_ready_state_ui.evaluate()
+    
+    assert.stub(create_sound_toggle_switch.evaluate).was_called()
   end)
 end)

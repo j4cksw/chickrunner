@@ -4,8 +4,10 @@ create_tap_to_start_button = create_tap_to_start_button or require("scene.game.c
 get_fontname_by_platform = get_fontname_by_platform or require("utils.get_fontname_by_platform")
 game_scene_config = game_scene_config or require("config.game_scene_config")
 create_ready_first_text = create_ready_first_text or require("scene.game.create_ready_first_text")
+create_sound_toggle_switch = create_sound_toggle_switch or require("scene.game.create_sound_toggle_switch")
 
 function create_ready_state_ui.evaluate()
+  create_sound_toggle_switch.evaluate()
   local tap_to_start_button = create_tap_to_start_button.evaluate()
   local first_text = create_ready_first_text.evaluate(tap_to_start_button)
   local second_text = display.newText("START", display.contentCenterX, first_text.y+50, get_fontname_by_platform.evaluate(), 48)
