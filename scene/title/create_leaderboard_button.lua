@@ -19,7 +19,12 @@ function create_leaderboard_button.evaluate()
 end
 
 function show_leaderboard()
-  gameNetwork.show("leaderboards")
+  gameNetwork.show("leaderboards", {
+    leaderboard = {
+      timeScope="Week",
+      category="runchickenrun"
+    }
+  })
 end
 
 return create_leaderboard_button
