@@ -61,10 +61,4 @@ describe("enter_ready_state", function()
     assert.stub(create_ready_state_ui.evaluate).was_called()
   end)
   
-  it("Add tap event listener to Runtime in enterScene", function ( ... )
-    -- when
-    enter_ready_state.evaluate()
-    -- then
-    assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", ready_state_tap_listener.evaluate)
-  end)
 end)

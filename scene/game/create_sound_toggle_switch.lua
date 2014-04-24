@@ -18,7 +18,6 @@ function create_sound_toggle_switch.evaluate()
     height=63,
     frameOff=1,
     frameOn=3,
-    name="sound_switch"
   })
   switch:addEventListener("tap", function()
     return true

@@ -2,7 +2,9 @@ describe("create_sound_toggle_button", function()
   local create_sound_toggle_switch
 
   local fake_image_sheet = {}
-
+  
+  local fake_switch = {}
+  
   setup(function()
     graphics = {
       newImageSheet = function()
@@ -11,8 +13,13 @@ describe("create_sound_toggle_button", function()
     }
     spy.on(graphics, "newImageSheet")
 
-    widget = {}
-    stub(widget, "newSwitch")
+    widget = {
+      newSwitch = function()
+        return fake_switch
+      end
+    }
+    spy.on(widget, "newSwitch")
+    stub(fake_switch, "addEventListener")
 
     create_sound_toggle_switch = require("scene.game.create_sound_toggle_switch")
   end)
