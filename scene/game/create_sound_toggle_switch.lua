@@ -9,7 +9,7 @@ function create_sound_toggle_switch.evaluate()
     height=63,
     numFrames=4
   })
-  widget.newSwitch({
+  local switch = widget.newSwitch({
     x = 680,
     y = 77,
     style = "checkbox",
@@ -17,8 +17,13 @@ function create_sound_toggle_switch.evaluate()
     width=69,
     height=63,
     frameOff=1,
-    frameOn=3
+    frameOn=3,
+    name="sound_switch"
   })
+  switch:addEventListener("tap", function()
+    return true
+  end)
+  return switch
 end
 
 return create_sound_toggle_switch

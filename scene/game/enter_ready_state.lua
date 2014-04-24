@@ -12,7 +12,6 @@ function enter_ready_state.evaluate()
   generate_obstacles_from_config.evaluate()
   hide_all_obstacles.evaluate()
   create_ready_state_ui.evaluate()
-  Runtime:addEventListener( "tap", ready_state_tap_listener.evaluate)
 end
 
 return enter_ready_state
