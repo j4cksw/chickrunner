@@ -2,6 +2,7 @@ create_sound_toggle_switch = {}
 
 widget = widget or require("widget")
 graphics = graphics or require("graphics")
+mute_all_channel = mute_all_channel or require("scene.audio.mute_all_channel")
 
 function create_sound_toggle_switch.evaluate()
   local sheet = graphics.newImageSheet("img/ui/sound_button.png", {
@@ -28,7 +29,9 @@ end
 
 function onSoundSwitchReleased(event)
   is_sound_enabled = event.target.isOn
-  audio.stop()
+  if is_sound_enabled then
+    mute_all_channel.evaluate()
+  end
 end
 
 return create_sound_toggle_switch

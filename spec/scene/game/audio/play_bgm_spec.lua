@@ -28,10 +28,4 @@ describe("play_bgm", function()
     assert.stub(audio.play).was_called_with(bgm_stream, {channel=1, loops=-1})
   end)
   
-  it("Reset volume", function()
-    -- when
-    play_bgm.evaluate()
-    -- then
-    assert.stub(audio.setVolume).was_called_with(1, {channel=1})
-  end)
 end)
