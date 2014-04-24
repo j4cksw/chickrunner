@@ -2,8 +2,6 @@ describe("explode_before_start", function()
   local explode_before_start
   
   setup(function()
-    Runtime = {}
-    stub(Runtime, "removeEventListener")
     
     start_game = {}
     stub(start_game, "evaluate")
@@ -36,13 +34,6 @@ describe("explode_before_start", function()
     explode_before_start.evaluate()
     
     assert.stub(hide_ads.evaluate).was_called()
-  end)
-  
-  it("Remove tap event listener", function()
-    -- when
-   explode_before_start.evaluate()
-   -- then
-   assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
   end)
   
   it("Remove reay_state_ui_group", function()

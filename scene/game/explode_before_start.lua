@@ -7,7 +7,6 @@ hide_ads = hide_ads or require("common.ads.hide_ads")
 
 function explode_before_start.evaluate()
   hide_ads.evaluate()
-  Runtime:removeEventListener("tap", explode_before_start.evaluate)
   display.remove(ready_state_ui_group)
   audio.stop({channel=4})
   audio.stop({channel=7})

@@ -4,6 +4,9 @@ describe("ready_state_tap_listener", function()
   local event = {}
   
   setup(function()
+    Runtime = {}
+    stub(Runtime, "removeEventListener")
+    
     explode_before_start = {}
     stub(explode_before_start, "evaluate")
     
