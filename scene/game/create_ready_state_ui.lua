@@ -16,16 +16,16 @@ function create_ready_state_ui.evaluate()
   tutorial_image.x = tap_to_start_button.x+200
   tutorial_image.y = 1000
   local controller_rectangle = create_controller_rect.evaluate()
+  local sound_switch = create_sound_toggle_switch.evaluate()
   
   ready_state_ui_group = display.newGroup()
   ready_state_ui_group:insert(tap_to_start_button)
   ready_state_ui_group:insert(first_text)
   ready_state_ui_group:insert(second_text)
   ready_state_ui_group:insert(tutorial_image)
-  ready_state_ui_group:insert(controller_rectangle)
   ready_state_ui_group.y = ready_state_ui_group.y-180
-  
-  create_sound_toggle_switch.evaluate()
+  ready_state_ui_group:insert(controller_rectangle)
+  ready_state_ui_group:insert(sound_switch)
 end
 
 return create_ready_state_ui

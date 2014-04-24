@@ -40,13 +40,14 @@ describe("create_sound_toggle_button", function()
 
     assert.stub(widget.newSwitch).was_called_with({
       x = 680,
-      y = 77,
+      y = 220,
       style = "checkbox",
       sheet = fake_image_sheet,
       width=69,
       height=63,
       frameOff=1,
-      frameOn=3
+      frameOn=3,
+      onRelease=onSoundSwitchReleased
     })
   end)
 end)
