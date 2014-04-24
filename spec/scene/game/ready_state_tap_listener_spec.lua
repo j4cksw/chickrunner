@@ -16,5 +16,9 @@ describe("ready_state_tap_listener", function()
     assert.stub(explode_before_start.evaluate).was_called()
   end)
   
-  it("should remove itself from tap event listener")
+  it("should remove itself from tap event listener", function()
+    ready_state_tap_listener.evaluate(event)
+    
+    assert.stub(Runtime.removeEventListener).was_called_with(Runtime, ready_state_tap_listener.evaluate)
+  end)
 end)
