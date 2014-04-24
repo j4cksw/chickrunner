@@ -1,8 +1,7 @@
 describe("enter_ready_state", function()
   local enter_ready_state
   
-  setup(function()
-    
+  setup(function()    
     generate_obstacles_from_config = {}
     stub(generate_obstacles_from_config, "evaluate")
     
@@ -15,6 +14,9 @@ describe("enter_ready_state", function()
     
     create_ready_state_ui = {}
     stub(create_ready_state_ui, "evaluate")
+    
+    ready_state_tap_listener = {}
+    stub(ready_state_tap_listener, "evaluate")
     
     Runtime = {}
     stub(Runtime, "addEventListener")
@@ -63,6 +65,6 @@ describe("enter_ready_state", function()
     -- when
     enter_ready_state.evaluate()
     -- then
-    assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", explode_before_start.evaluate)
+    assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", ready_state_tap_listener.evaluate)
   end)
 end)
