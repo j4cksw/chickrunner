@@ -72,6 +72,9 @@ describe("create_ready_state_ui", function()
     create_sound_toggle_switch = {}
     stub(create_sound_toggle_switch, "evaluate")
     
+    create_controller_rect = {}
+    stub(create_controller_rect, "evaluate")
+    
     create_ready_state_ui = require("scene.game.create_ready_state_ui")
   end)
   
