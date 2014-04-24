@@ -20,7 +20,10 @@ end
 
 function show_leaderboard()
   gameNetwork.show("leaderboards", {
-    category="runchickenrun"
+    leaderboard = {
+      timeScope="Week",
+      category="runchickenrun"
+    }
   })
 end
 

@@ -12,7 +12,10 @@ function check_high_score.evaluate()
     new_high_score_image.isVisible = true
     gameNetwork.request("setHighScore",
       {
-        localPlayerScore = { category="runchickenrun", value=game_stat.high_score },
+        localPlayerScore = { 
+          category="runchickenrun", 
+          value=game_stat.high_score 
+        },
         listener=requestCallback
       })
   end
