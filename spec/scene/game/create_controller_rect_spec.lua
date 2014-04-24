@@ -30,7 +30,7 @@ describe("create_controller_rect", function()
     assert.stub(display.newRect).was_called_with(100,
       100,
       700,
-      1000)
+      1180)
   end)
 
   it("should set fill color", function()
@@ -42,6 +42,6 @@ describe("create_controller_rect", function()
   it("should set ready state tap listener to rect", function()
     create_controller_rect.evaluate()
     
-    assert.stub(fake_rect.addEventListener).was_called_with(fake_rect, ready_state_tap_listener.evaluate)
+    assert.stub(fake_rect.addEventListener).was_called_with(fake_rect, "tap", ready_state_tap_listener.evaluate)
   end)
 end)
