@@ -47,7 +47,8 @@ describe("create_sound_toggle_button", function()
       height=63,
       frameOff=1,
       frameOn=3,
-      onRelease=onSoundSwitchReleased
+      onRelease=onSoundSwitchReleased,
+      initialSwitchState=false
     })
   end)
 end)
