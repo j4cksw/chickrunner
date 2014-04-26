@@ -2,8 +2,7 @@ create_sound_toggle_switch = {}
 
 widget = widget or require("widget")
 graphics = graphics or require("graphics")
-mute_all_channel = mute_all_channel or require("scene.audio.mute_all_channel")
-unmute_all_channel = unmute_all_channel or require("scene.audio.unmute_all_channel")
+toggle_sound = toggle_sound or require("scene.game.audio.toggle_sound")
 
 function create_sound_toggle_switch.evaluate()
   local sheet = graphics.newImageSheet("img/ui/sound_button.png", {
@@ -31,12 +30,7 @@ function create_sound_toggle_switch.evaluate()
 end
 
 function onSoundSwitchReleased(event)
-  if event.target.isOn then
-    unmute_all_channel.evaluate()
-  else
-    mute_all_channel.evaluate()
-  end
-  options.sound_initial_state = event.target.isOn
+  toggle_sound.evaluate(event.target.isOn)
 end
 
 return create_sound_toggle_switch
