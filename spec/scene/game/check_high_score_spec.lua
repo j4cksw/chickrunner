@@ -7,8 +7,8 @@ describe("check_high_score_spec", function()
     }
     current_score = 1000
 
-    save_game_stat_file = {}
-    stub(save_game_stat_file, "evaluate")
+    save_game_stat = {}
+    stub(save_game_stat, "evaluate")
 
     create_new_high_score_image = {}
     stub(create_new_high_score_image, "evaluate")
@@ -27,11 +27,11 @@ describe("check_high_score_spec", function()
     assert.are.equal(game_stat.high_score, current_score)
   end)
 
-  it("Evaluate save_game_stat_file", function()
+  it("Evaluate save_game_stat", function()
     -- when
     check_high_score.evaluate()
     -- then
-    assert.stub(save_game_stat_file.evaluate).was_called()
+    assert.stub(save_game_stat.evaluate).was_called()
   end)
   
   it("should create new_high_score_image", function()
