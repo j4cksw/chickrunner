@@ -1,6 +1,7 @@
 display.setStatusBar( display.HiddenStatusBar )
 
 require("common.options_initializer").initialize()
+require("scene.game.audio.toggle_sound").evaluate(options.sound_initial_state)
 
 load_global_audio = require("scene.load_global_audio")
 load_global_audio.evaluate()
