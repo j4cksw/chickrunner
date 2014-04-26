@@ -6,29 +6,39 @@ describe("initialize_game_stat", function ( ... )
   }
 
   setup(function ( ... )
-
-    load_game_stat_file = {
-      evaluate = function ( ... )
+    file_loader = {
+      load = function ( ... )
         return stored_game_stat
       end
     }
-    spy.on(load_game_stat_file, "evaluate")
+    spy.on(file_loader, "load")
 
     initialize_game_stat = require("scene.game.initialize_game_stat")
   end)
 
-  it("Evaluate initialize_game_statFile", function ( ... )
-    -- when
+  it("should load game stat from file", function ( ... )
     initialize_game_stat.evaluate()
-    -- then
-    assert.stub(load_game_stat_file.evaluate).was_called()
+    
+    assert.stub(file_loader.load).was_called_with("game_stat")
   end)
 
-  it("If file available replace highScore table with data in the file", function ( ... )
-    -- when
+  it("should replace highScore table with data in the file if file available", function ( ... )
     initialize_game_stat.evaluate()
-    -- then
-    assert.are.same(game_stat, stored_game_stat)
+    
+    assert.are.same(stored_game_stat, game_stat)
+  end)
+  
+  it("should return a default game_stat table when file loading error", function()
+    file_loader = {
+      load = function ( ... )
+        error("File not found")
+      end
+    }
+    spy.on(file_loader, "load")
+    
+    initialize_game_stat.evaluate()
+    
+    assert.are.same({high_score=0}, game_stat)
   end)
 
 end)
