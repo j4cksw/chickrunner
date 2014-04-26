@@ -5,6 +5,9 @@ describe("toggle_sound", function()
     unmute_all_channel = {}
     stub(unmute_all_channel, "evaluate")
     
+    save_options = {}
+    stub(save_options, "evaluate")
+    
     toggle_sound = require("scene.game.toggle_sound")
   end) 
   
@@ -14,7 +17,11 @@ describe("toggle_sound", function()
     assert.stub(unmute_all_channel.evaluate).was_called()
   end)
   
-  it("should save options when switch state is true")
+  it("should save options when switch state is true", function()
+    toggle_sound.evaluate(true)
+    
+    assert.stub(save_options.evaluate).was_called()
+  end)
   
   it("should unmute audio when switch state is false")
   
