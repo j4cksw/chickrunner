@@ -1,5 +1,7 @@
 file_saver = {}
 
+json = json or require("json")
+
 function file_saver.save(filename, data)
   local pathToFile = system.pathForFile( filename , system.DocumentsDirectory )
 
