@@ -2,7 +2,7 @@ describe("toggle_sound", function()
   local toggle_sound
 
   setup(function()
-    toggle_sound = require("scene.game.toggle_sound")
+    toggle_sound = require("scene.game.audio.toggle_sound")
   end)
 
   before_each(function()
