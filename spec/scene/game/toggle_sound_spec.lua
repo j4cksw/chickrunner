@@ -5,7 +5,9 @@ describe("toggle_sound", function()
     toggle_sound = require("scene.game.toggle_sound")
   end) 
   
-  it("should mute audio when swith state is true")
+  it("should mute audio when swith state is true", function()
+  
+  end)
   
   it("should unmute audio when switch state is false")
   

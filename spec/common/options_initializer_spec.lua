@@ -32,7 +32,7 @@ describe("options_initializer", function()
 
     options_initializer.initialize()
     
-    assert.are.same({sound_initial_state=false}, options)
+    assert.are.same({sound_initial_state=true}, options)
   end)
   
   function mock_file_loading_error()

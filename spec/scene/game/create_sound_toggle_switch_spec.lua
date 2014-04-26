@@ -49,8 +49,8 @@ describe("create_sound_toggle_button", function()
       sheet = fake_image_sheet,
       width=69,
       height=63,
-      frameOff=1,
-      frameOn=3,
+      frameOff=3,
+      frameOn=1,
       onRelease=onSoundSwitchReleased,
       initialSwitchState=false
     })

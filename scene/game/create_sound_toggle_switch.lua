@@ -18,8 +18,8 @@ function create_sound_toggle_switch.evaluate()
     sheet = sheet,
     width=69,
     height=63,
-    frameOff=1,
-    frameOn=3,
+    frameOn=1,
+    frameOff=3,
     onRelease=onSoundSwitchReleased,
     initialSwitchState=options.sound_initial_state
   })
@@ -32,9 +32,9 @@ end
 
 function onSoundSwitchReleased(event)
   if event.target.isOn then
-    mute_all_channel.evaluate()
-  else
     unmute_all_channel.evaluate()
+  else
+    mute_all_channel.evaluate()
   end
   options.sound_initial_state = event.target.isOn
 end
