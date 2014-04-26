@@ -8,13 +8,15 @@ describe("file_saver", function()
   }
 
   local expectedResult = "..."
+  
+  local fakePath = "path/to/game_stat"
 
   setup(function()
     game_stat = {}
   
     system = {
       pathForFile = function ( ... )
-        return fakeHighscorePath
+        return fakePath
       end,
       DocumentsDirectory = "fakeDocumentDir"
     }
@@ -72,6 +74,6 @@ describe("file_saver", function()
   it("should throw error if no highscore file available", function ( ... )
     fakeFile = nil
     
-    assert.has_error(file_saver.evaluate, "Cannot save to file")
+    assert.has_error(file_saver.save, "Cannot save to file")
   end)
 end)
