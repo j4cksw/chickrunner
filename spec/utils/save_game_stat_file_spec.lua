@@ -6,9 +6,7 @@ describe("save_game_stat_file", function()
   local fakeHighscorePath = "path/to/game_stat"
 
   local fakeFile = {
-    write = function ( ... )
-    -- body
-    end
+    write = function ( ... )end
   }
 
   local expectedResult = "..."
