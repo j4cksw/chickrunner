@@ -10,8 +10,8 @@ function file_loader.load(filename)
     io.close(file)
     return result
   else
-    print("Game stat file not found")
-    error("Game stat file not found")  
+    print("File not found")
+    error("File not found")  
   end
 end
 

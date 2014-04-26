@@ -77,6 +77,6 @@ describe("load_file", function()
   it("Error if no highscore file available", function ( ... )
     fake_game_stat_file = nil
     
-    assert.has_error(file_loader.load, "Game stat file not found")
+    assert.has_error(file_loader.load, "File not found")
   end)
 end)
