@@ -35,7 +35,7 @@ describe("file_saver", function()
 
     stub(fakeFile, "write")
 
-    file_saver = require("utils.file_saver")
+    file_saver = require("common.file_saver")
   end)
 
   it("should acquire path of highscore file", function ( ... )
