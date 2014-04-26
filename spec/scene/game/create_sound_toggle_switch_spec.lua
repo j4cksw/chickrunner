@@ -6,6 +6,10 @@ describe("create_sound_toggle_button", function()
   local fake_switch = {}
   
   setup(function()
+    options = {
+      is_sound_enabled = false
+    }
+    
     graphics = {
       newImageSheet = function()
         return fake_image_sheet

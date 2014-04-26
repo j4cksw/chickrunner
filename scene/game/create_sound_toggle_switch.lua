@@ -5,8 +5,6 @@ graphics = graphics or require("graphics")
 mute_all_channel = mute_all_channel or require("scene.audio.mute_all_channel")
 unmute_all_channel = unmute_all_channel or require("scene.audio.unmute_all_channel")
 
-local is_sound_enabled = false
-
 function create_sound_toggle_switch.evaluate()
   local sheet = graphics.newImageSheet("img/ui/sound_button.png", {
     width=69,
@@ -23,7 +21,7 @@ function create_sound_toggle_switch.evaluate()
     frameOff=1,
     frameOn=3,
     onRelease=onSoundSwitchReleased,
-    initialSwitchState=is_sound_enabled
+    initialSwitchState=options.is_sound_enabled
   })
   
   switch:addEventListener("tap", function(event)
@@ -38,7 +36,7 @@ function onSoundSwitchReleased(event)
   else
     unmute_all_channel.evaluate()
   end
-  is_sound_enabled = event.target.isOn
+  options.is_sound_enabled = event.target.isOn
 end
 
 return create_sound_toggle_switch
