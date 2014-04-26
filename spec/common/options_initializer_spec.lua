@@ -15,7 +15,7 @@ describe("options_initializer", function()
   it("should load game stat from file", function ( ... )
     options_initializer.initialize()
     
-    assert.stub(file_loader.load).was_called_with("game_stat")
+    assert.stub(file_loader.load).was_called_with("options")
   end)
 
   --[[it("should replace highScore table with data in the file if file available", function ( ... )
