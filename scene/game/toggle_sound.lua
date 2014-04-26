@@ -5,6 +5,7 @@ save_options = save_options or require("common.save_options")
 
 function toggle_sound.evaluate(sound_state)
   unmute_all_channel.evaluate()
+  options.sound_initial_state = sound_state
   save_options.evaluate()
 end
 

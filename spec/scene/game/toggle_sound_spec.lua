@@ -17,6 +17,16 @@ describe("toggle_sound", function()
     assert.stub(unmute_all_channel.evaluate).was_called()
   end)
   
+  it("should set current state to options table", function()
+    options = {
+      sound_initial_state=false
+    }
+    
+    toggle_sound.evaluate(true)
+    
+    assert.are.equal(options.sound_initial_state, true)
+  end)
+  
   it("should save options when switch state is true", function()
     toggle_sound.evaluate(true)
     
