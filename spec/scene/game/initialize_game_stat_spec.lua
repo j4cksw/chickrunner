@@ -29,16 +29,20 @@ describe("initialize_game_stat", function ( ... )
   end)
   
   it("should return a default game_stat table when file loading error", function()
+    mock_file_loading_error()
+
+    initialize_game_stat.evaluate()
+    
+    assert.are.same({high_score=0}, game_stat)
+  end)
+  
+  function mock_file_loading_error()
     file_loader = {
       load = function ( ... )
         error("File not found")
       end
     }
     spy.on(file_loader, "load")
-    
-    initialize_game_stat.evaluate()
-    
-    assert.are.same({high_score=0}, game_stat)
-  end)
+  end
 
 end)
