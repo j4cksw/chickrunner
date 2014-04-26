@@ -1,5 +1,7 @@
 display.setStatusBar( display.HiddenStatusBar )
 
+require("common.options_initializer").initialize()
+
 load_global_audio = require("scene.load_global_audio")
 load_global_audio.evaluate()
 
