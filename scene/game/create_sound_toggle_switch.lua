@@ -21,7 +21,7 @@ function create_sound_toggle_switch.evaluate()
     frameOff=1,
     frameOn=3,
     onRelease=onSoundSwitchReleased,
-    initialSwitchState=options.is_sound_enabled
+    initialSwitchState=options.sound_initial_state
   })
   
   switch:addEventListener("tap", function(event)
@@ -36,7 +36,7 @@ function onSoundSwitchReleased(event)
   else
     unmute_all_channel.evaluate()
   end
-  options.is_sound_enabled = event.target.isOn
+  options.sound_initial_state = event.target.isOn
 end
 
 return create_sound_toggle_switch

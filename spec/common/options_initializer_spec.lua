@@ -2,7 +2,7 @@ describe("options_initializer", function()
   local options_initializer 
   
   local stored_options = {
-    is_sound_enabled = false
+    sound_initial_state = true
   }
   setup(function()
     file_loader = {
@@ -32,7 +32,7 @@ describe("options_initializer", function()
 
     options_initializer.initialize()
     
-    assert.are.same({is_sound_enabled=true}, options)
+    assert.are.same({sound_initial_state=true}, options)
   end)
   
   function mock_file_loading_error()

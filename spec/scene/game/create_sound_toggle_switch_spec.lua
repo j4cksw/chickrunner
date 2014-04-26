@@ -7,7 +7,7 @@ describe("create_sound_toggle_button", function()
   
   setup(function()
     options = {
-      is_sound_enabled = false
+      sound_initial_state = false
     }
     
     graphics = {

@@ -8,7 +8,7 @@ function options_initializer.initialize()
     options = value
   else
     options = {
-      is_sound_enabled=true
+      sound_initial_state=true
     }
   end
 end
