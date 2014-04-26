@@ -1,19 +1,9 @@
 save_game_stat_file = {}
 
-json = json or require("json")
+file_saver = file_saver or require("common.file_saver")
 
 function save_game_stat_file.evaluate()
-  local pathToFile = system.pathForFile( "game_stat" , system.DocumentsDirectory )
-
-  local file = io.open( pathToFile, "w" )
-
-  if file then
-    local contents = json.encode( game_stat )
-    file:write( contents )
-    io.close( file )
-  else
-    error("Cannot save to file")
-  end
+  file_saver.save("game_stat", game_stat)
 end
 
 return save_game_stat_file
