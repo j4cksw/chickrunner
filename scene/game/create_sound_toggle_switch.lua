@@ -12,7 +12,7 @@ function create_sound_toggle_switch.evaluate()
   })
   local switch = widget.newSwitch({
     x = 680,
-    y = 220,
+    y = 350,
     style = "checkbox",
     sheet = sheet,
     width=69,
