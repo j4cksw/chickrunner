@@ -1,10 +1,9 @@
 initialize_game_stat = {}
 
-load_game_stat_file = load_game_stat_file or require("scene.game.load_game_stat_file")
+file_loader = file_loader or require("common.file_loader")
 
 function initialize_game_stat.evaluate()
-  local isOk, value = pcall(load_game_stat_file.evaluate)
-
+  local isOk, value = pcall(file_loader.load, "game_stat")
   if isOk then
     game_stat = value
   else

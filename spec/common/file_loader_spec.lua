@@ -1,8 +1,9 @@
-describe("load_game_stat_file", function()
-  local load_game_stat_file
+describe("load_file", function()
+  local file_loader
   
   local fake_content = "..."
   local fake_game_stat_path = "path/to/game_stat"
+  
   local fake_game_stat_file = {
     read = function ( ... )
       return fake_content
@@ -34,55 +35,48 @@ describe("load_game_stat_file", function()
     
     spy.on(json, "decode")
     
-    load_game_stat_file = require("scene.game.load_game_stat_file")
+    file_loader = require("common.file_loader")
   end)
   
   it("Acquire path of highscore file", function ( ... )
-    -- when
-    load_game_stat_file.evaluate()
-    -- then
+    file_loader.load("game_stat")
+    
     assert.stub(system.pathForFile).was_called_with("game_stat", system.DocumentsDirectory)
   end)
   
   it("Open file", function ( ... )
-    -- when
-    load_game_stat_file.evaluate()
-    -- then
+    file_loader.load("game_stat")
+    
     assert.stub(io.open).was_called_with(fake_game_stat_path, "r")
   end)
   
   it("If file availables then read", function ( ... )
-    -- when
-    load_game_stat_file.evaluate()
-    -- then
+    file_loader.load("game_stat")
+    
     assert.stub(fake_game_stat_file.read).was_called_with(fake_game_stat_file, "*a")
   end)
   
   it("If file available decode after read", function ( ... )
-    -- when
-    load_game_stat_file.evaluate()
-    -- then
+    file_loader.load("game_stat")
+    
     assert.stub(json.decode).was_called_with(fake_content)
   end)
   
   it("If file available close file after decoded", function ( ... )
-    -- when
-    load_game_stat_file.evaluate()
-    -- then
+    file_loader.load("game_stat")
+    
     assert.stub(io.close).was_called_with(fake_game_stat_file)
   end)
   
   it("If file available return game_stat table", function ( ... )
-    -- when
-    local result = load_game_stat_file.evaluate()
-    -- then
-    assert.are.equal(expectedResult, result)
+    local result = file_loader.load("game_stat")
+    
+    assert.are.same(expectedResult, result)
   end)
   
   it("Error if no highscore file available", function ( ... )
-    -- given
     fake_game_stat_file = nil
-    -- when then
-    assert.has_error(load_game_stat_file.evaluate, "Game stat file not found")
+    
+    assert.has_error(file_loader.load, "File not found")
   end)
 end)

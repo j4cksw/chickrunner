@@ -6,6 +6,10 @@ describe("create_sound_toggle_button", function()
   local fake_switch = {}
   
   setup(function()
+    options = {
+      sound_initial_state = false
+    }
+    
     graphics = {
       newImageSheet = function()
         return fake_image_sheet
@@ -45,9 +49,10 @@ describe("create_sound_toggle_button", function()
       sheet = fake_image_sheet,
       width=69,
       height=63,
-      frameOff=1,
-      frameOn=3,
-      onRelease=onSoundSwitchReleased
+      frameOff=3,
+      frameOn=1,
+      onRelease=onSoundSwitchReleased,
+      initialSwitchState=false
     })
   end)
 end)
